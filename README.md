@@ -2,7 +2,7 @@ This is my refactored personal portfolio! For old code, refer to https://github.
 
 ##TODO:
 
-- [] refactor UI for portfolio items
-- [] add Website themes using Redux (?)
-- [] add more cool animations
-- [] reimplement breakpoints
+- [ ] refactor UI for portfolio items
+- [ ] add Website themes using Redux (?)
+- [ ] add more cool animations
+- [ ] reimplement breakpoints
