@@ -72,6 +72,7 @@ const About = () => {
                 <p>Thanks for visiting my website! My name is Frank Wei and I currently live in New York City. I love coding, designing, and combining the two to make awesome creations.</p>
                 <br/><p>I built this site from scratch, taking design inspiration other cool sites as well as learning React along the way (Take a look at the code <a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/thefrankwei.github.io">here</a>). When I'm not coding you can find me out taking photos, at a concert, or exploring the city.</p>
                 <br/><p>In this site, you can browse through my portfolio of design, projects and photography. Hope you enjoy!</p>
+                <br/><p>(PS: please excuse the current non-responsive design -- I am currently in the process of rebuilding this site, check back for updates!)</p>
               </div>
 
 
