@@ -94,9 +94,7 @@ const Nav = () => {
         onClick={scrollToTop}
         src={UpIcon}
         alt='scroll up!' /> */}
-      <a  onClick ={scrollToTop}>
-        <img  src = {UpIcon} className={classes.icon} alt = 'scroll up!'/>
-      </a>
+        <img  onClick ={scrollToTop} src = {UpIcon} className={classes.icon} alt = 'scroll up!'/>
     </div>
     }
 
