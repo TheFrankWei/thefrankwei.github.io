@@ -35,8 +35,15 @@ const LETTER_COLORS = ['#112F41','#068587','#4FB99F','#F2B134','#ED553B']
 const Letter = (props) => {
     const classes = useStyles();
     const refContainer = useRef() 
+
+    const randomColor = () => {
+        return LETTER_COLORS[Math.floor(Math.random() * 5)]
+    }
+
     const [hover, setHover] =useState(false);
+    const [color, setColor] = useState(randomColor)
     
+
     const animDone = () => {
         setHover(false);
       }
@@ -51,9 +58,12 @@ const Letter = (props) => {
             ref= {refContainer}
             id="Letter" 
             style = {{...props.style,
-                color: LETTER_COLORS[Math.floor(Math.random() * 5)]
+                color: color
             }}
-            onMouseEnter={()=> setHover(true)}
+            onMouseEnter={()=> {
+            setHover(true);
+            setColor(randomColor);
+            }}
             className={hover? classNames(classes.letter ,classes.hovered) : classNames(classes.letter)}
         >
             {props.value}

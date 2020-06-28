@@ -17,14 +17,6 @@ export const useStyles = makeStyles(theme => ({
       transform: 'translateY(0px)',
     }
  },
-//  icon:{
-//    '&:hover':{
-//     animationName: '$bounce',
-//     animationDuration: '0.75s',
-//     animationTimingFunction: 'ease-in-out',
-//     animationIterationCount: 1,
-//    }
-//  }
   iconWrapper:{
     display: 'inline-block',
     margin: '5px',
