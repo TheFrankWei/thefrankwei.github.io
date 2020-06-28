@@ -90,10 +90,13 @@ const Nav = () => {
 
     { showScroll && 
       <div className={classes.toTop}>
-      <IconButton
+      {/* <IconButton
         onClick={scrollToTop}
         src={UpIcon}
-        alt='scroll up!' />
+        alt='scroll up!' /> */}
+      <a  onClick ={scrollToTop}>
+        <img  src = {UpIcon} className={classes.icon} alt = 'scroll up!'/>
+      </a>
     </div>
     }
 
