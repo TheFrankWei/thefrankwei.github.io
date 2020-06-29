@@ -11,11 +11,11 @@ export const useStyles = makeStyles(theme => ({
     boxShadow: '0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -2px rgba(0, 0, 0, 0.2)',
     width: '12rem',
     margin: '1rem 1rem',
-    height:200,
+    height: 200,
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    // font-family: 'Fira Sans', sans-serif;
+    fontFamily: `'Fira Sans', sans-serif`,
     textAlign: 'center',
     '&:hover ':{
        backgroundColor: '#5B7B8C',

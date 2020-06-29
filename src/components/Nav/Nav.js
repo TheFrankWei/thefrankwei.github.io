@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
-import IconButton from './../IconButton/IconButton.js';
 import { makeStyles } from '@material-ui/core';
 import UpIcon from './../../images/scroll_up_icon.svg';
 
@@ -56,7 +55,6 @@ const Nav = () => {
   const classes = useStyles();
 
   const [showScroll, setScrollState] = useState(false);
-  const [showText, setShowText] = useState(false);
 
   const handleScroll = () => {
     const boundingRect = ((document || {}).documentElement || {}).getBoundingClientRect;
@@ -91,7 +89,7 @@ const Nav = () => {
 
     {showScroll && 
       <div className={classes.toTop}>
-        <img  onClick ={scrollToTop} src = {UpIcon} className={classes.icon} alt = 'scroll up!'/>
+        <img onClick ={scrollToTop} src = {UpIcon} className={classes.icon} alt = 'scroll up!'/>
     </div>
     }
 
