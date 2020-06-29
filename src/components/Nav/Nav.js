@@ -55,7 +55,8 @@ export const useStyles = makeStyles(theme => ({
 const Nav = () => {
   const classes = useStyles();
 
-  const [showScroll, setScrollState] = useState(false)
+  const [showScroll, setScrollState] = useState(false);
+  const [showText, setShowText] = useState(false);
 
   const handleScroll = () => {
     const boundingRect = ((document || {}).documentElement || {}).getBoundingClientRect;
@@ -88,7 +89,7 @@ const Nav = () => {
         </ul>
       </div>
 
-    { showScroll && 
+    {showScroll && 
       <div className={classes.toTop}>
         <img  onClick ={scrollToTop} src = {UpIcon} className={classes.icon} alt = 'scroll up!'/>
     </div>

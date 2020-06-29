@@ -1,9 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
-import './PortfolioItem.scss';
 
 export const useStyles = makeStyles(theme => ({
   portfolioItem:{
+    backgroundColor: '#557282',
     display: 'flex',
     flexDirection: 'column',
     margin: '0.5rem 0',
@@ -18,6 +18,7 @@ export const useStyles = makeStyles(theme => ({
     // font-family: 'Fira Sans', sans-serif;
     textAlign: 'center',
     '&:hover ':{
+       backgroundColor: '#5B7B8C',
       boxShadow: '0 6px 12px 0 rgba(0,0,0,0.2)',
     },
   },
@@ -34,34 +35,41 @@ export const useStyles = makeStyles(theme => ({
   },
 
   portfolioItem__links : {
-    marginTop: '10%',
-    display: 'flex',
+    display: 'inline',
+    justifyContent: 'space-around',
+    width: '100%',
+    '& span':{
+      display: 'inline-block',
+    },
+    '& img': {
+      marginTop: '10%',
+      width: '30px',
+    },
   },
 }));
 
 const PortfolioItem = (props) => {
   const classes = useStyles();
 
-  if (props.render) return props.render;
-  else
     return (
-      <div
-        className={classes.portfolioItem}
-      >
-        <div className={classes.portfolioItem__title}>Badass</div>
+      <div className={classes.portfolioItem}>
+
+        <div className={classes.portfolioItem__title}>
+          {props.title}
+        </div>
 
         <div className={classes.portfolioItem__desc}>
-          My description blah blah blah
+          {props.description}
         </div>
-        <div className={classes.portfolioItem__icon}>
-          <i className="fab fa-js" />
-          <i className="fab fa-react" />
 
+        <div className={classes.portfolioItem__icon}>
+          {props.icons}
         </div>
+
         <div className={classes.portfolioItem__links}>
-          <div><a src="#">More</a></div>
-          <div><a src="#">Github</a></div>
+          {props.links}
         </div>
+
       </div>
     );
 };

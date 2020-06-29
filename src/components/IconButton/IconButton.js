@@ -30,7 +30,7 @@ export const useStyles = makeStyles(theme => ({
 const IconButton = (props) => {
   const classes = useStyles();
   const refContainer = useRef() 
-  const [hover, setHover] =useState(false);
+  const [hover, setHover] = useState(false);
     
   const animDone = () => {
       setHover(false);

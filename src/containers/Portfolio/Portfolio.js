@@ -21,13 +21,13 @@ export const useStyles = makeStyles(theme => ({
     color: 'white',
     flexWrap:'wrap',
   },
-  portfolioItem: {
-    backgroundColor: '#557282',
+  // portfolioItem: {
+  //   backgroundColor: '#557282',
 
-   '&:hover':{
-      backgroundColor: '5B7B8C',
-    },
-  }
+  //  '&:hover':{
+  //     backgroundColor: '5B7B8C',
+  //   },
+  // }
 }));
 
 
@@ -48,7 +48,7 @@ const Portfolio = () => {
       </h1>
      <div className={classes.contentGrid}>
      {PortfolioItems.map((item, i) => (
-           <PortfolioItem className={classes.portfolioItem} render={item.render} key={i} />
+           <PortfolioItem className={classes.portfolioItem} title={item.title} description={item.description} icons={item.icon} links={item.links}key={i} />
          ))}
      </div>
 
