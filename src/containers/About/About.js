@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef }  from 'react';
 import Letter from './../../components/Letter/Letter.js';
 import Portrait from './../../images/portrait.jpg';
+import { useSpring, useChain, animated } from 'react-spring';
 import { makeStyles } from '@material-ui/core';
 
 export const useStyles = makeStyles(theme => ({
@@ -52,28 +53,45 @@ export const useStyles = makeStyles(theme => ({
 const About = () => {
   const classes = useStyles();
 
+  const aboutTitleRef = useRef();
+  const aboutTitleAnimation = useSpring({opacity: 1, marginLeft: 60,
+                            ref: aboutTitleRef,
+                            from: {opacity: 0, marginLeft: -5000,}})
+  
+  const aboutPicRef = useRef();
+  const aboutPicAnimation = useSpring({ opacity: 1,
+                          ref: aboutPicRef,
+                          from:{ opacity: 0 }})                          
+   
+  const aboutBioRef = useRef();
+  const aboutBioAnimation = useSpring({ opacity: 1, marginLeft: 0,
+                          ref: aboutBioRef,
+                          from:{ opacity: 0, marginLeft: 200 }})                          
+                        
+                          
+  useChain([aboutTitleRef, aboutPicRef, aboutBioRef], [0,1,1.5])
     return (
       <div className = {classes.about} id='About'>
-        <h1 className= {classes.about_title}>
+        <animated.h1 style={aboutTitleAnimation} className= {classes.about_title}>
             <Letter style={{fontSize: 100,}} value="A"/>
             <Letter style={{fontSize: 100,}} value="B"/>
             <Letter style={{fontSize: 100,}} value="O"/>
             <Letter style={{fontSize: 100,}} value="U"/>
             <Letter style={{fontSize: 100,}} value="T"/>
-            </h1>
+        </animated.h1>
 
             <div className = {classes.bioWrapper}>
 
-              <div className ={classes.portrait}>
+              <animated.div style={aboutPicAnimation} className ={classes.portrait}>
                 <img  src={Portrait} alt="this is me"/>
-              </div>
+              </animated.div>
 
-              <div className = {classes.bio}>
+              <animated.div style={aboutBioAnimation} className = {classes.bio}>
                 <p>Thanks for visiting my website! My name is Frank Wei and I currently live in New York City. I love coding, designing, and combining the two to make awesome creations.</p>
                 <br/><p>I built this site from scratch, taking design inspiration other cool sites as well as learning React along the way (Take a look at the code <a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/thefrankwei.github.io">here</a>). When I'm not coding you can find me out taking photos, at a concert, or exploring the city.</p>
                 <br/><p>In this site, you can browse through my portfolio of design, projects and photography. Hope you enjoy!</p>
                 <br/><p>(PS: please excuse the current non-responsive design -- I am currently in the process of rebuilding this site, check back for updates!)</p>
-              </div>
+              </animated.div>
 
 
             </div>

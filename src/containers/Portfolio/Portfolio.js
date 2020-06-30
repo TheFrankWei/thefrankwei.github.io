@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useRef }  from 'react';
 import PortfolioItem from './../../components/PortfolioItem/PortfolioItem.js';
 import PortfolioItems from './PortfolioItems.js';
 import Letter from './../../components/Letter/Letter.js';
+import { useSpring, useTrail, useChain, animated } from 'react-spring';
 import { makeStyles } from '@material-ui/core';
 
 export const useStyles = makeStyles(theme => ({
@@ -33,9 +34,27 @@ export const useStyles = makeStyles(theme => ({
 
 const Portfolio = () => {
   const classes = useStyles();
+  const portfolioTitleRef = useRef();
+  const portfolioTitleAnimation = useSpring({opacity: 1, marginLeft: 40,
+                            ref: portfolioTitleRef,
+                            from: {opacity: 0, marginLeft: 1500,}})
+  
+  const portfolioItemRef = useRef();
+  const portfolioItemAnimation = useTrail(PortfolioItems.length, {
+                                  ref: portfolioItemRef,
+                                  opacity: 1,
+                                  from: { opacity: 0 },
+                                })
+
+
+  useChain([portfolioTitleRef, portfolioItemRef], [0, 0.5])
+  
+  
+
   return (
    <div className={classes.portfolio} id = "Portfolio">
-      <h1 className = {classes.portfolio_title}>
+
+      <animated.h1 style={portfolioTitleAnimation} className = {classes.portfolio_title}>
         <Letter style={{fontSize: 100,}} value="P"/>
         <Letter style={{fontSize: 100,}} value="O"/>
         <Letter style={{fontSize: 100,}} value="R"/>
@@ -45,11 +64,16 @@ const Portfolio = () => {
         <Letter style={{fontSize: 100,}} value="L"/>
         <Letter style={{fontSize: 100,}} value="I"/>
         <Letter style={{fontSize: 100,}} value="O"/>
-      </h1>
+      </animated.h1>
      <div className={classes.contentGrid}>
-     {PortfolioItems.map((item, i) => (
-           <PortfolioItem className={classes.portfolioItem} title={item.title} description={item.description} icons={item.icon} links={item.links}key={i} />
-         ))}
+     {/* {PortfolioItems.map((item, i) => (
+           <AnimatedPortfolioItem style={portfolioItemAnimation} className={classes.portfolioItem} title={item.title} description={item.description} icons={item.icon} links={item.links} key={i} />
+         ))} */}
+      {portfolioItemAnimation.map(({...rest}, index) => (
+        <animated.div style={{...rest}}>
+          <PortfolioItem className={classes.portfolioItem} title={PortfolioItems[index].title} description={PortfolioItems[index].description} icons={PortfolioItems[index].icon} links={PortfolioItems[index].links} key={index} />
+        </animated.div>  
+        ))}
      </div>
 
 

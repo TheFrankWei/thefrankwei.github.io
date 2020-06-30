@@ -1,5 +1,5 @@
 import React , {useState, useEffect, useRef}  from 'react';
-import { makeStyles, Icon } from '@material-ui/core';
+import { makeStyles, } from '@material-ui/core';
 import classNames from 'classnames';
 
 export const useStyles = makeStyles(theme => ({
@@ -37,8 +37,9 @@ const IconButton = (props) => {
     }
 
   useEffect(()=> { 
-      refContainer.current.addEventListener('animationend', animDone);
-      return () => refContainer.current.removeEventListener('animationend', animDone)
+      let currentRef = refContainer.current;
+      currentRef.addEventListener('animationend', animDone);
+      return () => currentRef.removeEventListener('animationend', animDone);
   }, [])
 
 return(

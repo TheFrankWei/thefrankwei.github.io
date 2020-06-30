@@ -49,8 +49,9 @@ const Letter = (props) => {
       }
 
     useEffect(()=> { 
-        refContainer.current.addEventListener('animationend', animDone);
-        return () => refContainer.current.removeEventListener('animationend', animDone)
+        let currentRef = refContainer.current;
+        currentRef.addEventListener('animationend', animDone);
+        return () => currentRef.removeEventListener('animationend', animDone);
     }, [])
 
     return(

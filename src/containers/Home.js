@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import Welcome from './Welcome/Welcome.js';
 import About from './About/About.js';
