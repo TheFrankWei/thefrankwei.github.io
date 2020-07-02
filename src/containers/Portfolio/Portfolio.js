@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core';
 
 export const useStyles = makeStyles(theme => ({
   portfolio: {
-    height: '100vh',
+    height: '70vh',
   },
   portfolio_title:{
     marginLeft: 40,
@@ -32,18 +32,20 @@ export const useStyles = makeStyles(theme => ({
 }));
 
 
-const Portfolio = () => {
+const Portfolio = ({isVisible}) => {
   const classes = useStyles();
   const portfolioTitleRef = useRef();
-  const portfolioTitleAnimation = useSpring({opacity: 1, marginLeft: 40,
+  const portfolioTitleAnimation = useSpring({opacity: isVisible? 1 : 0, marginLeft: isVisible? 40 : 1500,
                             ref: portfolioTitleRef,
+                            delay: 300,
                             from: {opacity: 0, marginLeft: 1500,}})
   
   const portfolioItemRef = useRef();
   const portfolioItemAnimation = useTrail(PortfolioItems.length, {
                                   ref: portfolioItemRef,
-                                  opacity: 1,
-                                  from: { opacity: 0 },
+                                  delay: 500,
+                                  opacity: isVisible? 1 : 0 ,
+                                  from: { opacity: 0 }, //might have to remove this, check when scrolling works 
                                 })
 
 
@@ -69,7 +71,7 @@ const Portfolio = () => {
      {/* {PortfolioItems.map((item, i) => (
            <AnimatedPortfolioItem style={portfolioItemAnimation} className={classes.portfolioItem} title={item.title} description={item.description} icons={item.icon} links={item.links} key={i} />
          ))} */}
-      {portfolioItemAnimation.map(({...rest}, index) => (
+      {isVisible && portfolioItemAnimation.map(({...rest}, index) => (
         <animated.div style={{...rest}}>
           <PortfolioItem className={classes.portfolioItem} title={PortfolioItems[index].title} description={PortfolioItems[index].description} icons={PortfolioItems[index].icon} links={PortfolioItems[index].links} key={index} />
         </animated.div>  

@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core';
 
 export const useStyles = makeStyles(theme => ({
   about:{
-    height: '100vh',
+    height: '70vh',
   },
   about_title:{
     textAlign: 'left',
@@ -50,23 +50,30 @@ export const useStyles = makeStyles(theme => ({
 }));
 
 
-const About = () => {
+const About = ({isVisible}) => {
   const classes = useStyles();
 
   const aboutTitleRef = useRef();
-  const aboutTitleAnimation = useSpring({opacity: 1, marginLeft: 60,
+  // const aboutTitleAnimation = useSpring({opacity: 1, marginLeft: 60,
+  //                           ref: aboutTitleRef,
+  //                           from: {opacity: 0, marginLeft: -5000,}})
+  const aboutTitleAnimation = useSpring({opacity: isVisible? 1 : 0, marginLeft: isVisible? 60 : -5000,
                             ref: aboutTitleRef,
-                            from: {opacity: 0, marginLeft: -5000,}})
+                            delay: 300 ,
+                            from:{ opacity: 0 }})    
   
   const aboutPicRef = useRef();
-  const aboutPicAnimation = useSpring({ opacity: 1,
+  const aboutPicAnimation = useSpring({ opacity: isVisible? 1 : 0, 
                           ref: aboutPicRef,
-                          from:{ opacity: 0 }})                          
+                          delay: 500,
+                          config: {duration: 600},
+                          from:{ opacity: 0,  }})                          
    
   const aboutBioRef = useRef();
-  const aboutBioAnimation = useSpring({ opacity: 1, marginLeft: 0,
+  const aboutBioAnimation = useSpring({ opacity: isVisible? 1 : 0, marginLeft: isVisible? 0 : 200,
                           ref: aboutBioRef,
-                          from:{ opacity: 0, marginLeft: 200 }})                          
+                          delay: 300,
+                          from:{ opacity: 0, marginLeft: 200 }})                             
                         
                           
   useChain([aboutTitleRef, aboutPicRef, aboutBioRef], [0,1,1.5])
