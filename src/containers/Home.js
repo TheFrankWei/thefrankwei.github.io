@@ -46,17 +46,17 @@ const Home = () => {
             <Welcome/>
           </Grid>
           <Grid item>
-            <VisibilitySensor  partialVisibility minTopValue={window.innerHeight/2} delayedCall onChange={aboutChange}>
+            <VisibilitySensor  partialVisibility minTopValue={450} delayedCall onChange={aboutChange}>
               <About isVisible={isAboutVisible}/>
             </VisibilitySensor> 
           </Grid>
           <Grid item>
-            <VisibilitySensor  partialVisibility minTopValue={window.innerHeight/2} delayedCall onChange={portfolioChange}>
+            <VisibilitySensor  partialVisibility minTopValue={450} delayedCall onChange={portfolioChange}>
               <Portfolio isVisible={isPortfolioVisible}/>
             </VisibilitySensor>
           </Grid>
           <Grid item>
-            <VisibilitySensor partialVisibility minTopValue={window.innerHeight/2} delayedCall onChange={contactChange}>
+            <VisibilitySensor partialVisibility minTopValue={450} delayedCall onChange={contactChange}>
               <Contact isVisible={isContactVisible}/>
             </VisibilitySensor>
           </Grid>
