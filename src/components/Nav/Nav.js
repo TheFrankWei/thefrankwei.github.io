@@ -72,6 +72,16 @@ const Nav = () => {
   };
 
   useEffect(()=> { 
+    if (window.location.hash) {
+      setTimeout(function() {
+        //on refresh, change route back to 'home'
+        window.location.href="/"
+      }, 1);
+    }
+    window.onbeforeunload = function () {
+      //on refresh, scroll to top
+      window.scrollTo(0, 0);
+    }
     window.addEventListener('scroll', handleScroll);
     return () =>  window.removeEventListener('scroll', handleScroll);
   }, [])

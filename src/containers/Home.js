@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core';
 import Welcome from './Welcome/Welcome.js';
@@ -16,6 +16,7 @@ export const useStyles = makeStyles(theme => ({
 
 const Home = () => {
     const classes = useStyles();
+
     // const [isVisible, setVisibility] = useState(false);
     const [isAboutVisible, setAboutVisibility] = useState(false);
     const [isPortfolioVisible, setPortfolioVisibility] = useState(false);
