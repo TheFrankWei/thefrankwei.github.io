@@ -8,7 +8,7 @@ import LittleEinstein from './containers/Portfolio/LittleEinstein/LittleEinstein
 import OnePlaylist from './containers/Portfolio/OnePlaylist/OnePlaylist.js';
 
 const Router = () => (
-    <Switch>
+    <Switch basename={process.env.PUBLIC_URL}>
         <Route path='/' exact component = {Home} />
         <Route path='/Portfolio/QRFound' exact component={QRFound}/>
         <Route path='/Portfolio/LiftSpotter' exact component={LiftSpotter}/>
