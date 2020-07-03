@@ -1,7 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import Letter from './../../components/Letter/Letter.js';
 import { makeStyles } from '@material-ui/core';
 import { useSpring, useTrail, useChain, animated } from 'react-spring';
+import VisibilitySensor from "react-visibility-sensor";
+
 export const useStyles = makeStyles(theme => ({
     welcome:{
         height: '100vh',
@@ -30,6 +32,11 @@ const labels = ['Developer', ' | ', 'Designer', ' | ', 'Photographer'];
 
 const Welcome = () => {
     const classes = useStyles();
+    const [isVisible, setVisibility] = useState(false);
+
+    // const onChange = visiblity => {
+    //   visiblity && setVisibility(visiblity);
+    // };
 
     const welcomeTitleLeftRef = useRef();
     const welcomeTitleLeftAnimation = useSpring({opacity: 1, marginLeft: 40,
@@ -39,7 +46,7 @@ const Welcome = () => {
     const welcomeTitleRightRef = useRef();
     const welcomeTitleRightAnimation = useSpring({opacity: 1, marginLeft: 40,
                             ref: welcomeTitleRightRef,
-                            from: {opacity: 0, marginLeft: 1500,}})
+                            from: {opacity: 0, marginLeft: 150,}})
     
     const labelRef = useRef();
     const labelAnimation = useTrail(labels.length, {
@@ -48,31 +55,39 @@ const Welcome = () => {
       from: { opacity: 0 },
     })
 
-    useChain([welcomeTitleLeftRef, welcomeTitleRightRef, labelRef], [0,0.5,1.5])
+    useChain([welcomeTitleLeftRef, welcomeTitleRightRef, labelRef], [0,0.8,1.5])
     return (
-        <div className = {classes.welcome} id='Welcome'>
-          <div className={classes.welcomeTitleWrapper}>
-            <animated.h1 style={welcomeTitleLeftAnimation} className={classes.welcome_title}>
-              <Letter style={{fontSize: 200,}} value="F"/>
-              <Letter style={{fontSize: 200,}}value="R"/>
-              <Letter style={{fontSize: 200,}} value="A"/>
-              <Letter style={{fontSize: 200,}}value="N"/>
-              <Letter style={{fontSize: 200,}} value="K"/>
-            </animated.h1>
+      // <VisibilitySensor
+      // // onChange={onChange}
+      //   delayedCall
+      //   partialVisibility
+      //   once>
+      //   {({ isVisible }) => (
+          <div className = {classes.welcome} id='Welcome'>
+            <div className={classes.welcomeTitleWrapper}>
+              <animated.h1 style={welcomeTitleLeftAnimation} className={classes.welcome_title}>
+                <Letter style={{fontSize: 200,}} value="F"/>
+                <Letter style={{fontSize: 200,}}value="R"/>
+                <Letter style={{fontSize: 200,}} value="A"/>
+                <Letter style={{fontSize: 200,}}value="N"/>
+                <Letter style={{fontSize: 200,}} value="K"/>
+              </animated.h1>
       
-            <animated.h1 style={welcomeTitleRightAnimation} className={classes.welcome_title}>
-              <Letter style={{fontSize: 200,}} value="W"/>
-              <Letter style={{fontSize: 200,}} value="E"/>
-              <Letter style={{fontSize: 200,}} value="I"/>
-            </animated.h1>
+              <animated.h1 style={welcomeTitleRightAnimation} className={classes.welcome_title}>
+                <Letter style={{fontSize: 200,}} value="W"/>
+                <Letter style={{fontSize: 200,}} value="E"/>
+                <Letter style={{fontSize: 200,}} value="I"/>
+              </animated.h1>
+              </div>
+            <div className={classes.labels}>
+              {labelAnimation.map(({...rest}, index) =>(
+                <animated.span style={{...rest}}>{labels[index]}</animated.span>
+              ))
+              }
             </div>
-        <div className={classes.labels}>
-          {labelAnimation.map(({...rest}, index) =>(
-            <animated.span style={{...rest}}>{labels[index]}</animated.span>
-          ))
-          }
-         </div>
-        </div>
+          </div>
+      //   )}
+      // </VisibilitySensor>
     );
 
 }

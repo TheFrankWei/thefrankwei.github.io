@@ -9,7 +9,7 @@ import Flickr from './../../images/flickr.svg'
 
 export const useStyles = makeStyles(theme => ({
   contact:{
-    height: '100vh',
+    "min-height": '100vh',
   },
   contact_title:{
     display: 'block',
@@ -22,17 +22,19 @@ export const useStyles = makeStyles(theme => ({
 }));
 
 
-const Contact = () =>{
+const Contact = ({isVisible}) =>{
   const classes = useStyles();
 
   const contactTitleRef = useRef();
-  const contactTitleAnimation = useSpring({opacity: 1,
+  const contactTitleAnimation = useSpring({opacity: isVisible? 1 : 0,
                           ref: contactTitleRef,
+                          delay: 300,
                           from: {opacity: 0,}})
   
   const contactLinkRef = useRef();
-  const contactLinkAnimation = useSpring({opacity: 1, marginTop: 10,
+  const contactLinkAnimation = useSpring({opacity: isVisible? 1:0, marginTop: isVisible? 10: 100,
                           ref: contactLinkRef,
+                          delay: 300,
                           from: {opacity: 0, marginTop: 100,}})
 
     useChain([contactTitleRef, contactLinkRef], [0,0.6])
