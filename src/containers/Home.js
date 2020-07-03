@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core';
 import Welcome from './Welcome/Welcome.js';
 import About from './About/About.js';
@@ -38,17 +39,28 @@ const Home = () => {
 
     return (
       <div className={classes.container}>
-      
-        <Welcome/>
-        <VisibilitySensor delayedCall onChange={aboutChange}>
-          <About isVisible={isAboutVisible}/>
-        </VisibilitySensor> 
-        <VisibilitySensor delayedCall onChange={portfolioChange}>
-          <Portfolio isVisible={isPortfolioVisible}/>
-        </VisibilitySensor>
-        <VisibilitySensor delayedCall onChange={contactChange}>
-          <Contact isVisible={isContactVisible}/>
-        </VisibilitySensor>
+        <Grid container
+              direction = "column"
+        >
+          <Grid item>
+            <Welcome/>
+          </Grid>
+          <Grid item>
+            <VisibilitySensor  partialVisibility minTopValue={window.innerHeight/2} delayedCall onChange={aboutChange}>
+              <About isVisible={isAboutVisible}/>
+            </VisibilitySensor> 
+          </Grid>
+          <Grid item>
+            <VisibilitySensor  partialVisibility minTopValue={window.innerHeight/2} delayedCall onChange={portfolioChange}>
+              <Portfolio isVisible={isPortfolioVisible}/>
+            </VisibilitySensor>
+          </Grid>
+          <Grid item>
+            <VisibilitySensor partialVisibility minTopValue={window.innerHeight/2} delayedCall onChange={contactChange}>
+              <Contact isVisible={isContactVisible}/>
+            </VisibilitySensor>
+          </Grid>
+        </Grid>
       </div>
     );
 };

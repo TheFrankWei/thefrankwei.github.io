@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core';
 
 export const useStyles = makeStyles(theme => ({
   portfolio: {
-    height: '70vh',
+    "min-height": '100vh',
   },
   portfolio_title:{
     marginLeft: 40,

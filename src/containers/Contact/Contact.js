@@ -9,7 +9,7 @@ import Flickr from './../../images/flickr.svg'
 
 export const useStyles = makeStyles(theme => ({
   contact:{
-    height: '70vh',
+    "min-height": '100vh',
   },
   contact_title:{
     display: 'block',

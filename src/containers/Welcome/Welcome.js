@@ -79,12 +79,12 @@ const Welcome = () => {
                 <Letter style={{fontSize: 200,}} value="I"/>
               </animated.h1>
               </div>
-          <div className={classes.labels}>
-            {labelAnimation.map(({...rest}, index) =>(
-              <animated.span style={{...rest}}>{labels[index]}</animated.span>
-            ))
-            }
-          </div>
+            <div className={classes.labels}>
+              {labelAnimation.map(({...rest}, index) =>(
+                <animated.span style={{...rest}}>{labels[index]}</animated.span>
+              ))
+              }
+            </div>
           </div>
       //   )}
       // </VisibilitySensor>
