@@ -32,7 +32,7 @@ export const useStyles = makeStyles(theme => ({
 }));
 
 
-const Portfolio = ({isVisible}) => {
+const Portfolio = ({refProp, isVisible, id}) => {
   const classes = useStyles();
   const portfolioTitleRef = useRef();
   const portfolioTitleAnimation = useSpring({opacity: isVisible? 1 : 0, marginLeft: isVisible? 40 : 1500,
@@ -54,7 +54,7 @@ const Portfolio = ({isVisible}) => {
   
 
   return (
-   <div className={classes.portfolio} id = "Portfolio">
+   <div ref={refProp} className={classes.portfolio} id={id}>
 
       <animated.h1 style={portfolioTitleAnimation} className = {classes.portfolio_title}>
         <Letter style={{fontSize: 100,}} value="P"/>

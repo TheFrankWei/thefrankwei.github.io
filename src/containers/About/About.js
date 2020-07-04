@@ -50,7 +50,7 @@ export const useStyles = makeStyles(theme => ({
 }));
 
 
-const About = ({isVisible}) => {
+const About = ({isVisible, refProp, id}) => {
   const classes = useStyles();
 
   const aboutTitleRef = useRef();
@@ -78,7 +78,7 @@ const About = ({isVisible}) => {
                           
   useChain([aboutTitleRef, aboutPicRef, aboutBioRef], [0,1,1.5])
     return (
-      <div className = {classes.about} id='About'>
+      <div ref={refProp} className = {classes.about} id={id}>
         <animated.h1 style={aboutTitleAnimation} className= {classes.about_title}>
             <Letter style={{fontSize: 100,}} value="A"/>
             <Letter style={{fontSize: 100,}} value="B"/>

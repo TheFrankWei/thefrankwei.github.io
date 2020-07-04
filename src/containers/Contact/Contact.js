@@ -22,7 +22,7 @@ export const useStyles = makeStyles(theme => ({
 }));
 
 
-const Contact = ({isVisible}) =>{
+const Contact = ({refProp, isVisible, id}) =>{
   const classes = useStyles();
 
   const contactTitleRef = useRef();
@@ -39,7 +39,7 @@ const Contact = ({isVisible}) =>{
 
     useChain([contactTitleRef, contactLinkRef], [0,0.6])
     return (
-      <div className = {classes.contact} id = 'Contact'>
+      <div ref={refProp} className = {classes.contact} id={id}>
       <animated.h1 style={contactTitleAnimation} className={classes.contact_title}>
         <Letter style={{fontSize: 100,}} value="C"/>
         <Letter style={{fontSize: 100,}} value="O"/>

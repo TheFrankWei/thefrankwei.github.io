@@ -6,7 +6,7 @@ import VisibilitySensor from "react-visibility-sensor";
 
 export const useStyles = makeStyles(theme => ({
     welcome:{
-        height: '100vh',
+      'min-height': '100vh',
     },
     welcomeTitleWrapper:{
       paddingTop: '10%',
@@ -30,7 +30,7 @@ export const useStyles = makeStyles(theme => ({
 
 const labels = ['Developer', ' | ', 'Designer', ' | ', 'Photographer'];
 
-const Welcome = () => {
+const Welcome = ({id, refProp}) => {
     const classes = useStyles();
     const [isVisible, setVisibility] = useState(false);
 
@@ -63,7 +63,7 @@ const Welcome = () => {
       //   partialVisibility
       //   once>
       //   {({ isVisible }) => (
-          <div className = {classes.welcome} id='Welcome'>
+          <div ref={refProp} className = {classes.welcome} id={id}>
             <div className={classes.welcomeTitleWrapper}>
               <animated.h1 style={welcomeTitleLeftAnimation} className={classes.welcome_title}>
                 <Letter style={{fontSize: 200,}} value="F"/>
