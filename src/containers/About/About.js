@@ -15,14 +15,10 @@ export const useStyles = makeStyles(theme => ({
     fontSize:'100',
   },
   portrait: {
-    // float:'left',
     marginLeft: 'auto',
     marginRight: 'auto',
     display: 'flex',
-    [theme.breakpoints.up('lg')]: {
-      float:'left',
-    },
-    [theme.breakpoints.between('md','lg')]: {
+    [theme.breakpoints.up('md')]: {
       float:'left',
     },
     [theme.breakpoints.down('md')]: {
@@ -59,15 +55,18 @@ export const useStyles = makeStyles(theme => ({
   bio: {
     float: 'left',
     fontFamily: `'Nunito', sans-serif`,
-    fontSize: 20,
+    
     [theme.breakpoints.down('md')]: {
-     width: '100%',
+      fontSize: 15,
+      width: '100%',
     },
     [theme.breakpoints.between('md','lg')]: {
+      fontSize: 15,
       width: '55%',
       paddingLeft: '5%',
     },
     [theme.breakpoints.up('lg')]: {
+      fontSize: 20,
       width: '60%',
       paddingLeft: '5%',
     },
