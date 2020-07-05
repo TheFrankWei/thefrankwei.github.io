@@ -33,10 +33,11 @@ export const useStyles = makeStyles(theme => ({
       
     },
     labels: {
-      position: 'absolute',
+      position: 'relative',
       fontFamily: `'Fira Sans', sans-serif`,
       fontColor: '#557282',
       [theme.breakpoints.up('md')]: {
+        position: 'absolute',
         fontSize: '40px',
         bottom: '20%',
         right: '10%',
