@@ -41,13 +41,13 @@ const Contact = ({refProp, isVisible, id}) =>{
     return (
       <div ref={refProp} className = {classes.contact} id={id}>
       <animated.h1 style={contactTitleAnimation} className={classes.contact_title}>
-        <Letter style={{fontSize: 100,}} value="C"/>
-        <Letter style={{fontSize: 100,}} value="O"/>
-        <Letter style={{fontSize: 100,}} value="N"/>
-        <Letter style={{fontSize: 100,}} value="T"/>
-        <Letter style={{fontSize: 100,}} value="A"/>
-        <Letter style={{fontSize: 100,}} value="C"/>
-        <Letter style={{fontSize: 100,}} value="T"/>
+        <Letter value="C"/>
+        <Letter value="O"/>
+        <Letter value="N"/>
+        <Letter value="T"/>
+        <Letter value="A"/>
+        <Letter value="C"/>
+        <Letter value="T"/>
       </animated.h1>
 
       <animated.div style={contactLinkAnimation} className = {classes.contact_icons}>

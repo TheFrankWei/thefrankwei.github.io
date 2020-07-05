@@ -24,10 +24,20 @@ export const useStyles = makeStyles(theme => ({
         fontFamily: `'Nunito', sans-serif`,
         display: 'block',
         color: '#3A3A32',
-        padding: '0px 15px',
-        paddingRight: '25px',
+        // padding: '0px 15px',
+        // paddingRight: '25px',
         textDecoration: 'none',
-        fontSize: '30px',
+        // fontSize: '30px',
+        [theme.breakpoints.up('md')]: {
+          fontSize: '30px',
+          padding: '0px 15px',
+          paddingRight: '25px',
+        },
+        [theme.breakpoints.down('md')]: {
+          fontSize: '20px',
+          padding: '0px 10px',
+          paddingRight: '15px',
+        },
 
         '&:hover':{
           color: '#FF8F00',

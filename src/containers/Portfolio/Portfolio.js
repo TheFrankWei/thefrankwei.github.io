@@ -57,15 +57,15 @@ const Portfolio = ({refProp, isVisible, id}) => {
    <div ref={refProp} className={classes.portfolio} id={id}>
 
       <animated.h1 style={portfolioTitleAnimation} className = {classes.portfolio_title}>
-        <Letter style={{fontSize: 100,}} value="P"/>
-        <Letter style={{fontSize: 100,}} value="O"/>
-        <Letter style={{fontSize: 100,}} value="R"/>
-        <Letter style={{fontSize: 100,}} value="T"/>
-        <Letter style={{fontSize: 100,}} value="F"/>
-        <Letter style={{fontSize: 100,}} value="O"/>
-        <Letter style={{fontSize: 100,}} value="L"/>
-        <Letter style={{fontSize: 100,}} value="I"/>
-        <Letter style={{fontSize: 100,}} value="O"/>
+        <Letter value="P"/>
+        <Letter value="O"/>
+        <Letter value="R"/>
+        <Letter value="T"/>
+        <Letter value="F"/>
+        <Letter value="O"/>
+        <Letter value="L"/>
+        <Letter value="I"/>
+        <Letter value="O"/>
       </animated.h1>
      <div className={classes.contentGrid}>
      {/* {PortfolioItems.map((item, i) => (

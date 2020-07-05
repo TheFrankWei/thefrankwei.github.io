@@ -16,7 +16,13 @@ export const useStyles = makeStyles(theme => ({
         },
         letter: {
             lineHeight: '110px',
-            fontSize: '100px',
+            // fontSize: '100px',
+            [theme.breakpoints.up('md')]: {
+                fontSize: '100px',
+            },
+            [theme.breakpoints.down('md')]: {
+                fontSize: '80px',
+            },
             fontWeight: 800,
             fontFamily: `'Noto Sans', sans-serif`,
             letterSpacing: '-20px',

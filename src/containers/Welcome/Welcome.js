@@ -10,12 +10,26 @@ export const useStyles = makeStyles(theme => ({
     },
     welcomeTitleWrapper:{
       paddingTop: '10%',
+      [theme.breakpoints.up('md')]: {
+        paddingTop: '10%',
+      },
+      [theme.breakpoints.down('md')]: {
+        paddingTop: '0%',
+      },
     },
-    welcome_title: {
+    welcomeTitle: {
       // marginLeft: 40,
       display: 'block',
       textAlign: 'left',
       lineHeight: '70%',
+      '& div': {
+        [theme.breakpoints.up('md')]: {
+          fontSize: '200px !important',
+        },
+        [theme.breakpoints.down('md')]: {
+          fontSize: '120px !important',
+        },
+      }
       
     },
     labels: {
@@ -57,26 +71,20 @@ const Welcome = ({id, refProp}) => {
 
     useChain([welcomeTitleLeftRef, welcomeTitleRightRef, labelRef], [0,0.8,1.5])
     return (
-      // <VisibilitySensor
-      // // onChange={onChange}
-      //   delayedCall
-      //   partialVisibility
-      //   once>
-      //   {({ isVisible }) => (
           <div ref={refProp} className = {classes.welcome} id={id}>
             <div className={classes.welcomeTitleWrapper}>
-              <animated.h1 style={welcomeTitleLeftAnimation} className={classes.welcome_title}>
-                <Letter style={{fontSize: 200,}} value="F"/>
-                <Letter style={{fontSize: 200,}}value="R"/>
-                <Letter style={{fontSize: 200,}} value="A"/>
-                <Letter style={{fontSize: 200,}}value="N"/>
-                <Letter style={{fontSize: 200,}} value="K"/>
+              <animated.h1 style={welcomeTitleLeftAnimation} className={classes.welcomeTitle}>
+                <Letter value="F"/>
+                <Letter value="R"/>
+                <Letter value="A"/>
+                <Letter value="N"/>
+                <Letter value="K"/>
               </animated.h1>
       
-              <animated.h1 style={welcomeTitleRightAnimation} className={classes.welcome_title}>
-                <Letter style={{fontSize: 200,}} value="W"/>
-                <Letter style={{fontSize: 200,}} value="E"/>
-                <Letter style={{fontSize: 200,}} value="I"/>
+              <animated.h1 style={welcomeTitleRightAnimation} className={classes.welcomeTitle}>
+                <Letter value="W"/>
+                <Letter value="E"/>
+                <Letter value="I"/>
               </animated.h1>
               </div>
             <div className={classes.labels}>
@@ -86,8 +94,6 @@ const Welcome = ({id, refProp}) => {
               }
             </div>
           </div>
-      //   )}
-      // </VisibilitySensor>
     );
 
 }

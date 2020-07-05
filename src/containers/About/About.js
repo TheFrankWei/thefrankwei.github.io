@@ -80,11 +80,11 @@ const About = ({isVisible, refProp, id}) => {
     return (
       <div ref={refProp} className = {classes.about} id={id}>
         <animated.h1 style={aboutTitleAnimation} className= {classes.about_title}>
-            <Letter style={{fontSize: 100,}} value="A"/>
-            <Letter style={{fontSize: 100,}} value="B"/>
-            <Letter style={{fontSize: 100,}} value="O"/>
-            <Letter style={{fontSize: 100,}} value="U"/>
-            <Letter style={{fontSize: 100,}} value="T"/>
+            <Letter value="A"/>
+            <Letter value="B"/>
+            <Letter value="O"/>
+            <Letter value="U"/>
+            <Letter value="T"/>
         </animated.h1>
 
             <div className = {classes.bioWrapper}>
