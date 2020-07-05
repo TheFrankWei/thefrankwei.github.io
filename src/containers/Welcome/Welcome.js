@@ -27,17 +27,26 @@ export const useStyles = makeStyles(theme => ({
         },
         [theme.breakpoints.down('md')]: {
           fontSize: '120px !important',
+          marginLeft: '0px !important',
         },
       }
       
     },
     labels: {
       position: 'absolute',
-      bottom: '20%',
-      right: '10%',
-      fontSize: '40px',
       fontFamily: `'Fira Sans', sans-serif`,
       fontColor: '#557282',
+      [theme.breakpoints.up('md')]: {
+        fontSize: '40px',
+        bottom: '20%',
+        right: '10%',
+      },
+      [theme.breakpoints.down('md')]: {
+        fontSize: '15px',
+        paddingTop:'10%',
+        minWidth: '100vw',
+        textAlign: 'center',
+      },
     },
 }));
 

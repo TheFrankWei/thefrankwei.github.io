@@ -15,18 +15,33 @@ export const useStyles = makeStyles(theme => ({
     fontSize:'100',
   },
   portrait: {
-    float:'left',
+    // float:'left',
     marginLeft: 'auto',
     marginRight: 'auto',
+    display: 'flex',
+    [theme.breakpoints.up('md')]: {
+      float:'left',
+    },
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'center',
+    },
 
     '& img' : {
-      border: '30px solid #4FB99F',
+     
       overflow: 'hidden',
       borderRadius: '50%',
       transition: '0.70s',
       verticalAlign: 'top',
       height: 'auto',
-  
+      [theme.breakpoints.up('md')]: {
+        border: '20px solid #4FB99F',
+      },
+      [theme.breakpoints.down('md')]: {
+        border: '15px solid #4FB99F',
+        height: 200,
+        width: 200,
+      },
+
       '&:hover': {
         transition: '0.70s',
         transform: 'rotate(360deg)',
@@ -42,8 +57,12 @@ export const useStyles = makeStyles(theme => ({
     float: 'left',
     fontFamily: `'Nunito', sans-serif`,
     fontSize: 20,
-    width: '60%',
-    paddingLeft: '5%',
+   
+    [theme.breakpoints.up('md')]: {
+      width: '60%',
+      paddingLeft: '5%',
+    },
+    
   }
  
   
