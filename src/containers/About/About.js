@@ -19,7 +19,10 @@ export const useStyles = makeStyles(theme => ({
     marginLeft: 'auto',
     marginRight: 'auto',
     display: 'flex',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('lg')]: {
+      float:'left',
+    },
+    [theme.breakpoints.between('md','lg')]: {
       float:'left',
     },
     [theme.breakpoints.down('md')]: {
@@ -27,7 +30,6 @@ export const useStyles = makeStyles(theme => ({
     },
 
     '& img' : {
-     
       overflow: 'hidden',
       borderRadius: '50%',
       transition: '0.70s',
@@ -38,6 +40,7 @@ export const useStyles = makeStyles(theme => ({
       },
       [theme.breakpoints.down('md')]: {
         border: '15px solid #4FB99F',
+        verticalAlign: 'middle',
         height: 200,
         width: 200,
       },
@@ -57,8 +60,14 @@ export const useStyles = makeStyles(theme => ({
     float: 'left',
     fontFamily: `'Nunito', sans-serif`,
     fontSize: 20,
-   
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.down('md')]: {
+     width: '100%',
+    },
+    [theme.breakpoints.between('md','lg')]: {
+      width: '55%',
+      paddingLeft: '5%',
+    },
+    [theme.breakpoints.up('lg')]: {
       width: '60%',
       paddingLeft: '5%',
     },

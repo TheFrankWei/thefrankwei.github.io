@@ -41,7 +41,12 @@ export const useStyles = makeStyles(theme => ({
         bottom: '20%',
         right: '10%',
       },
-      [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.between('sm','md')]: {
+        fontSize: '20px',
+        bottom: '20%',
+        right: '10%',
+      },
+      [theme.breakpoints.down('sm')]: {
         fontSize: '15px',
         paddingTop:'10%',
         minWidth: '100vw',
