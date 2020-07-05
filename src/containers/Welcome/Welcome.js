@@ -9,12 +9,11 @@ export const useStyles = makeStyles(theme => ({
       'min-height': '100vh',
     },
     welcomeTitleWrapper:{
-      paddingTop: '10%',
       [theme.breakpoints.up('md')]: {
         paddingTop: '10%',
       },
       [theme.breakpoints.down('md')]: {
-        paddingTop: '0%',
+        paddingTop: '20%',
       },
     },
     welcomeTitle: {

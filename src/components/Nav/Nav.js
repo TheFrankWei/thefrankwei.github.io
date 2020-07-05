@@ -7,11 +7,14 @@ export const useStyles = makeStyles(theme => ({
   Nav: {
     overflow: 'hidden',
     top:0,
-    right: 0,
+    [theme.breakpoints.up('md')]: {
+      right: 0,
+    },
+  
     position: 'fixed',
     backgroundColor: 'white',
     opacity: .8,
-    width: '100vw',
+    minWidth: '100vw',
     zIndex: 1,
 
     '& li':{
@@ -24,17 +27,14 @@ export const useStyles = makeStyles(theme => ({
         fontFamily: `'Nunito', sans-serif`,
         display: 'block',
         color: '#3A3A32',
-        // padding: '0px 15px',
-        // paddingRight: '25px',
         textDecoration: 'none',
-        // fontSize: '30px',
         [theme.breakpoints.up('md')]: {
           fontSize: '30px',
           padding: '0px 15px',
           paddingRight: '25px',
         },
         [theme.breakpoints.down('md')]: {
-          fontSize: '20px',
+          fontSize: '18px',
           padding: '0px 10px',
           paddingRight: '15px',
         },
