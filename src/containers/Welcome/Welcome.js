@@ -6,11 +6,22 @@ import VisibilitySensor from "react-visibility-sensor";
 
 export const useStyles = makeStyles(theme => ({
     welcome:{
-      'min-height': '100vh',
+      [theme.breakpoints.up('lg')]: {
+        'min-height': '80vh',
+      },
+      [theme.breakpoints.between('md', 'lg')]: {
+        'min-height': '60vh',
+      },
+      [theme.breakpoints.down('md')]: {
+        'min-height': '40vh',
+      },
     },
     welcomeTitleWrapper:{
-      [theme.breakpoints.up('md')]: {
+      [theme.breakpoints.up('lg')]: {
         paddingTop: '10%',
+      },
+      [theme.breakpoints.between('md', 'lg')]: {
+        paddingTop: '5%',
       },
       [theme.breakpoints.down('md')]: {
         paddingTop: '20%',

@@ -6,12 +6,20 @@ import { makeStyles } from '@material-ui/core';
 
 export const useStyles = makeStyles(theme => ({
   about:{
-    'min-height': '100vh',
+    [theme.breakpoints.up('lg')]: {
+      'min-height': '80vh',
+    },
+    [theme.breakpoints.between('md', 'lg')]: {
+      'min-height': '60vh',
+    },
+    [theme.breakpoints.down('md')]: {
+      'min-height': '40vh',
+    },
   },
   about_title:{
     textAlign: 'left',
     paddingLeft: '20%',
-    paddingTop:'3%',
+    paddingTop:'10%',
     fontSize:'100',
   },
   portrait: {
