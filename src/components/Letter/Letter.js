@@ -16,7 +16,6 @@ export const useStyles = makeStyles(theme => ({
         },
         letter: {
             lineHeight: '110px',
-            // fontSize: '100px',
             [theme.breakpoints.up('md')]: {
                 fontSize: '100px',
             },

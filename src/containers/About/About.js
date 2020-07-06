@@ -3,18 +3,12 @@ import Letter from './../../components/Letter/Letter.js';
 import Portrait from './../../images/portrait.jpg';
 import { useSpring, useChain, animated } from 'react-spring';
 import { makeStyles } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 
 export const useStyles = makeStyles(theme => ({
   about:{
-    [theme.breakpoints.up('lg')]: {
-      'min-height': '80vh',
-    },
-    [theme.breakpoints.between('md', 'lg')]: {
-      'min-height': '60vh',
-    },
-    [theme.breakpoints.down('md')]: {
-      'min-height': '40vh',
-    },
+    'min-height': '80vh',
+    
   },
   about_title:{
     textAlign: 'left',
@@ -23,13 +17,12 @@ export const useStyles = makeStyles(theme => ({
     fontSize:'100',
   },
   portrait: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
     display: 'flex',
-    [theme.breakpoints.up('md')]: {
+
+    [theme.breakpoints.up('sm')]: {
       float:'left',
     },
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       justifyContent: 'center',
     },
 
@@ -37,14 +30,13 @@ export const useStyles = makeStyles(theme => ({
       overflow: 'hidden',
       borderRadius: '50%',
       transition: '0.70s',
-      verticalAlign: 'top',
+      verticalAlign: 'middle',
       height: 'auto',
       [theme.breakpoints.up('md')]: {
         border: '20px solid #4FB99F',
       },
       [theme.breakpoints.down('md')]: {
         border: '15px solid #4FB99F',
-        verticalAlign: 'middle',
         height: 200,
         width: 200,
       },
@@ -61,24 +53,19 @@ export const useStyles = makeStyles(theme => ({
     paddingRight: '10%',
   },
   bio: {
-    float: 'left',
+    float: 'right',
     fontFamily: `'Nunito', sans-serif`,
-    
+    fontColor: '#557282',
+
     [theme.breakpoints.down('md')]: {
       fontSize: 15,
-      width: '100%',
     },
     [theme.breakpoints.between('md','lg')]: {
       fontSize: 15,
-      width: '55%',
-      paddingLeft: '5%',
     },
     [theme.breakpoints.up('lg')]: {
       fontSize: 20,
-      width: '60%',
-      paddingLeft: '5%',
     },
-    
   }
  
   
@@ -89,13 +76,10 @@ const About = ({isVisible, refProp, id}) => {
   const classes = useStyles();
 
   const aboutTitleRef = useRef();
-  // const aboutTitleAnimation = useSpring({opacity: 1, marginLeft: 60,
-  //                           ref: aboutTitleRef,
-  //                           from: {opacity: 0, marginLeft: -5000,}})
   const aboutTitleAnimation = useSpring({opacity: isVisible? 1 : 0, marginLeft: isVisible? 60 : -5000,
                             ref: aboutTitleRef,
                             delay: 300 ,
-                            from:{ opacity: 0 }})    
+                            from:{ opacity: 0, }})    
   
   const aboutPicRef = useRef();
   const aboutPicAnimation = useSpring({ opacity: isVisible? 1 : 0, 
@@ -109,7 +93,8 @@ const About = ({isVisible, refProp, id}) => {
                           ref: aboutBioRef,
                           delay: 300,
                           from:{ opacity: 0, marginLeft: 200 }})                             
-                        
+  
+  const AnimatedGrid = animated(Grid);
                           
   useChain([aboutTitleRef, aboutPicRef, aboutBioRef], [0,1,1.5])
     return (
@@ -122,20 +107,20 @@ const About = ({isVisible, refProp, id}) => {
             <Letter value="T"/>
         </animated.h1>
 
-            <div className = {classes.bioWrapper}>
+            <Grid container direction = 'row' className = {classes.bioWrapper}>
 
-              <animated.div style={aboutPicAnimation} className ={classes.portrait}>
+              <AnimatedGrid item xs={12} sm={5} md={4}style={aboutPicAnimation} className ={classes.portrait}>
                 <img  src={Portrait} alt="this is me"/>
-              </animated.div>
+              </AnimatedGrid>
 
-              <animated.div style={aboutBioAnimation} className = {classes.bio}>
+              <AnimatedGrid item xs={12} sm ={6} md={8} xln={9} style={aboutBioAnimation} className = {classes.bio}>
                 <p>Thanks for visiting my website! My name is Frank Wei and I currently live in New York City. I love coding, designing, and combining the two to make awesome creations.</p>
                 <br/><p>I built this site from scratch, taking design inspiration other cool sites as well as learning React along the way (Take a look at the code <a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/thefrankwei.github.io">here</a>). When I'm not coding you can find me out taking photos, at a concert, or exploring the city.</p>
                 <br/><p>In this site, you can browse through my portfolio of design, projects and photography. Hope you enjoy!</p>
-              </animated.div>
+              </AnimatedGrid>
 
 
-            </div>
+            </Grid>
       </div>
     );
 

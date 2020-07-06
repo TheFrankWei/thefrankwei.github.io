@@ -7,14 +7,11 @@ import { makeStyles } from '@material-ui/core';
 
 export const useStyles = makeStyles(theme => ({
   portfolio: {
-    [theme.breakpoints.up('lg')]: {
+    [theme.breakpoints.up('md')]: {
       'min-height': '80vh',
     },
-    [theme.breakpoints.between('md', 'lg')]: {
-      'min-height': '60vh',
-    },
     [theme.breakpoints.down('md')]: {
-      'min-height': '40vh',
+      'min-height': '160vh',
     },
   },
   portfolio_title:{
@@ -30,13 +27,6 @@ export const useStyles = makeStyles(theme => ({
     color: 'white',
     flexWrap:'wrap',
   },
-  // portfolioItem: {
-  //   backgroundColor: '#557282',
-
-  //  '&:hover':{
-  //     backgroundColor: '5B7B8C',
-  //   },
-  // }
 }));
 
 
@@ -53,7 +43,7 @@ const Portfolio = ({refProp, isVisible, id}) => {
                                   ref: portfolioItemRef,
                                   delay: 500,
                                   opacity: isVisible? 1 : 0 ,
-                                  from: { opacity: 0 }, //might have to remove this, check when scrolling works 
+                                  from: { opacity: 0 }, 
                                 })
 
 
@@ -76,9 +66,6 @@ const Portfolio = ({refProp, isVisible, id}) => {
         <Letter value="O"/>
       </animated.h1>
      <div className={classes.contentGrid}>
-     {/* {PortfolioItems.map((item, i) => (
-           <AnimatedPortfolioItem style={portfolioItemAnimation} className={classes.portfolioItem} title={item.title} description={item.description} icons={item.icon} links={item.links} key={i} />
-         ))} */}
       {isVisible && portfolioItemAnimation.map(({...rest}, index) => (
         <animated.div style={{...rest}}>
           <PortfolioItem className={classes.portfolioItem} title={PortfolioItems[index].title} description={PortfolioItems[index].description} icons={PortfolioItems[index].icon} links={PortfolioItems[index].links} key={index} />

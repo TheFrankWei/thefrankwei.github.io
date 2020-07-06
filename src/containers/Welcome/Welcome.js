@@ -9,26 +9,15 @@ export const useStyles = makeStyles(theme => ({
       [theme.breakpoints.up('lg')]: {
         'min-height': '80vh',
       },
-      [theme.breakpoints.between('md', 'lg')]: {
+      [theme.breakpoints.down('lg')]: {
         'min-height': '60vh',
       },
-      [theme.breakpoints.down('md')]: {
-        'min-height': '40vh',
-      },
+      marginBottom: '5%',
     },
     welcomeTitleWrapper:{
-      [theme.breakpoints.up('lg')]: {
-        paddingTop: '10%',
-      },
-      [theme.breakpoints.between('md', 'lg')]: {
-        paddingTop: '5%',
-      },
-      [theme.breakpoints.down('md')]: {
-        paddingTop: '20%',
-      },
+      paddingTop: '10%',
     },
     welcomeTitle: {
-      // marginLeft: 40,
       display: 'block',
       textAlign: 'left',
       lineHeight: '70%',
@@ -71,11 +60,6 @@ const labels = ['Developer', ' | ', 'Designer', ' | ', 'Photographer'];
 
 const Welcome = ({id, refProp}) => {
     const classes = useStyles();
-    const [isVisible, setVisibility] = useState(false);
-
-    // const onChange = visiblity => {
-    //   visiblity && setVisibility(visiblity);
-    // };
 
     const welcomeTitleLeftRef = useRef();
     const welcomeTitleLeftAnimation = useSpring({opacity: 1, marginLeft: 40,

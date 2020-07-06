@@ -27,6 +27,7 @@ export const useStyles = makeStyles(theme => ({
         fontFamily: `'Nunito', sans-serif`,
         display: 'block',
         color: '#3A3A32',
+
         textDecoration: 'none',
         [theme.breakpoints.up('md')]: {
           fontSize: '30px',
@@ -34,8 +35,8 @@ export const useStyles = makeStyles(theme => ({
           paddingRight: '25px',
         },
         [theme.breakpoints.down('md')]: {
-          fontSize: '18px',
-          padding: '0px 10px',
+          fontSize: '15px',
+          padding: '0px 5px',
           paddingRight: '15px',
         },
 

@@ -8,9 +8,6 @@ import Contact from './Contact/Contact.js';
 import VisibilitySensor from "react-visibility-sensor";
 
 export const useStyles = makeStyles(theme => ({
-    // container:{
-    //   scrollSnapType: 'y mandatory',
-    // },
     child:{
       scrollSnapAlign: 'start',
       scrollSnapStop: 'always',
@@ -103,28 +100,6 @@ const Home = () => {
             </VisibilitySensor>
           </Grid>
         </Grid>
-        // <div
-        //       className={classes.container}
-        // >
-        //   <div className={classes.child}>
-        //     <Welcome refProp={welcomeRef} id='Welcome'/>
-        //   </div>
-        //   <div className={classes.child}>
-        //     <VisibilitySensor  partialVisibility minTopValue={450} delayedCall onChange={aboutChange}>
-        //       <About refProp={aboutRef} isVisible={isAboutVisible} id='About'/>
-        //     </VisibilitySensor> 
-        //   </div>
-        //   <div className={classes.child}>
-        //     <VisibilitySensor  partialVisibility minTopValue={450} delayedCall onChange={portfolioChange}>
-        //       <Portfolio refProp={portfolioRef} isVisible={isPortfolioVisible} id='Portfolio'/>
-        //     </VisibilitySensor>
-        //   </div>
-        //   <div className={classes.child}>
-        //     <VisibilitySensor partialVisibility minTopValue={450} delayedCall onChange={contactChange}>
-        //       <Contact refProp={contactRef} isVisible={isContactVisible} id='Contact'/>
-        //     </VisibilitySensor>
-        //   </div>
-        // </div>
     );
 };
 
