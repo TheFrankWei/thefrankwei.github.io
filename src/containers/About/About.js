@@ -7,7 +7,7 @@ import Grid from '@material-ui/core/Grid';
 
 export const useStyles = makeStyles(theme => ({
   about:{
-    'min-height': '80vh',
+    minHeight: '80vh',
     
   },
   about_title:{
@@ -89,10 +89,10 @@ const About = ({isVisible, refProp, id}) => {
                           from:{ opacity: 0,  }})                          
    
   const aboutBioRef = useRef();
-  const aboutBioAnimation = useSpring({ opacity: isVisible? 1 : 0, marginLeft: isVisible? 0 : 200,
+  const aboutBioAnimation = useSpring({ opacity: isVisible? 1 : 0, marginLeft: isVisible? 0 : 50,
                           ref: aboutBioRef,
                           delay: 300,
-                          from:{ opacity: 0, marginLeft: 200 }})                             
+                          from:{ opacity: 0, marginLeft: 50 }})                             
   
   const AnimatedGrid = animated(Grid);
                           
@@ -113,7 +113,7 @@ const About = ({isVisible, refProp, id}) => {
                 <img  src={Portrait} alt="this is me"/>
               </AnimatedGrid>
 
-              <AnimatedGrid item xs={12} sm ={6} md={8} xln={9} style={aboutBioAnimation} className = {classes.bio}>
+              <AnimatedGrid item xs={12} sm ={6} md={8} xl={9} style={aboutBioAnimation} className = {classes.bio}>
                 <p>Thanks for visiting my website! My name is Frank Wei and I currently live in New York City. I love coding, designing, and combining the two to make awesome creations.</p>
                 <br/><p>I built this site from scratch, taking design inspiration other cool sites as well as learning React along the way (Take a look at the code <a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/thefrankwei.github.io">here</a>). When I'm not coding you can find me out taking photos, at a concert, or exploring the city.</p>
                 <br/><p>In this site, you can browse through my portfolio of design, projects and photography. Hope you enjoy!</p>

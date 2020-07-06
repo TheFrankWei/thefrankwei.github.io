@@ -33,10 +33,10 @@ export const useStyles = makeStyles(theme => ({
 const Portfolio = ({refProp, isVisible, id}) => {
   const classes = useStyles();
   const portfolioTitleRef = useRef();
-  const portfolioTitleAnimation = useSpring({opacity: isVisible? 1 : 0, marginLeft: isVisible? 40 : 1500,
+  const portfolioTitleAnimation = useSpring({opacity: isVisible? 1 : 0, marginLeft: isVisible? 40 : 300,
                             ref: portfolioTitleRef,
                             delay: 300,
-                            from: {opacity: 0, marginLeft: 1500,}})
+                            from: {opacity: 0, marginLeft: 300,}})
   
   const portfolioItemRef = useRef();
   const portfolioItemAnimation = useTrail(PortfolioItems.length, {
