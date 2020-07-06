@@ -33,17 +33,14 @@ export const useStyles = makeStyles(theme => ({
       
     },
     labels: {
+      display: 'inline-block',
       position: 'relative',
       fontFamily: `'Fira Sans', sans-serif`,
       fontColor: '#557282',
       [theme.breakpoints.up('md')]: {
+        textAlign: 'right',
         position: 'absolute',
         fontSize: '40px',
-        bottom: '20%',
-        right: '10%',
-      },
-      [theme.breakpoints.between('sm','md')]: {
-        fontSize: '20px',
         bottom: '20%',
         right: '10%',
       },
@@ -52,6 +49,12 @@ export const useStyles = makeStyles(theme => ({
         paddingTop:'10%',
         minWidth: '100vw',
         textAlign: 'center',
+      },
+      [theme.breakpoints.between('sm','md')]: {
+        textAlign: 'right',
+        fontSize: '15px',
+        bottom: '20%',
+        right: '10%',
       },
     },
 }));

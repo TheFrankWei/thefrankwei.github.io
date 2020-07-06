@@ -41,7 +41,7 @@ export const useStyles = makeStyles(theme => ({
         },
 
         '&:hover':{
-          color: '#FF8F00',
+          color: '#C9870D',
           textDecoration: 'underline',
         }
       }

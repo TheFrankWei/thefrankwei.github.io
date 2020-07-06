@@ -22,18 +22,24 @@ export const useStyles = makeStyles(theme => ({
     },
   },
 
-  portfolioItem__title:{
+  portfolioItemTitle:{
     fontWeight: 'bold',
     fontSize: 20,
     marginBottom: '10%',
   },
 
-  portfolioItem__desc : {
+  portfolioItemDesc : {
     fontSize: 12,
     padding: 5,
   },
 
-  portfolioItem__links : {
+  portfolioItemDivider:{
+    width: '90%',
+    borderTop: '1px solid #bbb',
+    borderRadius: '1px',
+  },
+
+  portfolioItemLinks : {
     display: 'inline',
     justifyContent: 'space-around',
     width: '100%',
@@ -53,19 +59,19 @@ const PortfolioItem = (props) => {
     return (
       <div className={classes.portfolioItem}>
 
-        <div className={classes.portfolioItem__title}>
+        <div className={classes.portfolioItemTitle}>
           {props.title}
         </div>
 
-        <div className={classes.portfolioItem__desc}>
+        <div className={classes.portfolioItemDesc}>
           {props.description}
         </div>
 
-        <div className={classes.portfolioItem__icon}>
+        <div className={classes.portfolioItemIcon}>
           {props.icons}
         </div>
-
-        <div className={classes.portfolioItem__links}>
+        <hr className={classes.portfolioItemDivider}/>
+        <div className={classes.portfolioItemLinks}>
           {props.links}
         </div>
 
