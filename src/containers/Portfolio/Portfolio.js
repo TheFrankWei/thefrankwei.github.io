@@ -14,13 +14,30 @@ export const useStyles = makeStyles(theme => ({
       'min-height': '160vh',
     },
   },
+
+  portfolioTitleWrapper:{
+    display: 'flex',
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'center',
+    },
+  },
+
+  portfolioAnimationSpace: {
+    //empty div so that animations will work on smaller breakpoints
+    display: 'inline-block',
+    [theme.breakpoints.up('md')]: {
+      minHeight: '20px',
+      minWidth: '40px',
+      paddingLeft: '5%',
+    },
+  },
+
   portfolio_title:{
-    marginLeft: 40,
     display:'block',
     textAlign: 'left',
     paddingTop: '10%',
-    paddingLeft: '5%',
   },
+  
   contentGrid: {
     display: 'flex',
     justifyContent: 'space-around',
@@ -33,7 +50,7 @@ export const useStyles = makeStyles(theme => ({
 const Portfolio = ({refProp, isVisible, id}) => {
   const classes = useStyles();
   const portfolioTitleRef = useRef();
-  const portfolioTitleAnimation = useSpring({opacity: isVisible? 1 : 0, marginLeft: isVisible? 40 : 300,
+  const portfolioTitleAnimation = useSpring({opacity: isVisible? 1 : 0, marginLeft: isVisible? 0 : 300,
                             ref: portfolioTitleRef,
                             delay: 300,
                             from: {opacity: 0, marginLeft: 300,}})
@@ -53,7 +70,8 @@ const Portfolio = ({refProp, isVisible, id}) => {
 
   return (
    <div ref={refProp} className={classes.portfolio} id={id}>
-
+     <div className={classes.portfolioTitleWrapper}>
+      <div className={classes.portfolioAnimationSpace}/>
       <animated.h1 style={portfolioTitleAnimation} className = {classes.portfolio_title}>
         <Letter value="P"/>
         <Letter value="O"/>
@@ -65,6 +83,7 @@ const Portfolio = ({refProp, isVisible, id}) => {
         <Letter value="I"/>
         <Letter value="O"/>
       </animated.h1>
+      </div>
      <div className={classes.contentGrid}>
       {isVisible && portfolioItemAnimation.map(({...rest}, index) => (
         <animated.div style={{...rest}}>

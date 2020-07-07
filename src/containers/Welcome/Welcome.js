@@ -15,8 +15,24 @@ export const useStyles = makeStyles(theme => ({
       marginBottom: '5%',
     },
     welcomeTitleWrapper:{
-      paddingTop: '10%',
+      marginTop: '10%',
+      display: 'flex',
     },
+
+    welcomeAnimationSpace: {
+      //empty div so that animations will work on smaller breakpoints
+      display: 'inline-block',
+      [theme.breakpoints.up('md')]: {
+        minHeight: '20px',
+        minWidth: '40px',
+      },
+    },
+
+    animationTitleWrapper: {
+      display: 'flex',
+      flexDirection: 'column',
+    },
+
     welcomeTitle: {
       display: 'block',
       textAlign: 'left',
@@ -26,7 +42,7 @@ export const useStyles = makeStyles(theme => ({
           fontSize: '200px !important',
         },
         [theme.breakpoints.down('md')]: {
-          fontSize: '120px !important',
+          fontSize: '110px !important',
           marginLeft: '0px !important',
         },
       }
@@ -65,12 +81,12 @@ const Welcome = ({id, refProp}) => {
     const classes = useStyles();
 
     const welcomeTitleLeftRef = useRef();
-    const welcomeTitleLeftAnimation = useSpring({opacity: 1, marginLeft: 40,
+    const welcomeTitleLeftAnimation = useSpring({opacity: 1, marginLeft: 0,
                             ref: welcomeTitleLeftRef,
                             from: {opacity: 0, marginLeft: -5000,}})
     
     const welcomeTitleRightRef = useRef();
-    const welcomeTitleRightAnimation = useSpring({opacity: 1, marginLeft: 40,
+    const welcomeTitleRightAnimation = useSpring({opacity: 1, marginLeft: 0,
                             ref: welcomeTitleRightRef,
                             from: {opacity: 0, marginLeft: 150,}})
     
@@ -84,21 +100,25 @@ const Welcome = ({id, refProp}) => {
     useChain([welcomeTitleLeftRef, welcomeTitleRightRef, labelRef], [0,0.8,1.5])
     return (
           <div ref={refProp} className = {classes.welcome} id={id}>
+           
             <div className={classes.welcomeTitleWrapper}>
-              <animated.h1 style={welcomeTitleLeftAnimation} className={classes.welcomeTitle}>
-                <Letter value="F"/>
-                <Letter value="R"/>
-                <Letter value="A"/>
-                <Letter value="N"/>
-                <Letter value="K"/>
-              </animated.h1>
-      
-              <animated.h1 style={welcomeTitleRightAnimation} className={classes.welcomeTitle}>
-                <Letter value="W"/>
-                <Letter value="E"/>
-                <Letter value="I"/>
-              </animated.h1>
-              </div>
+              <div className={classes.welcomeAnimationSpace}/>
+                <div className={classes.animationTitleWrapper}>
+                  <animated.h1 style={welcomeTitleLeftAnimation} className={classes.welcomeTitle}>
+                   <Letter value="F"/>
+                   <Letter value="R"/>
+                    <Letter value="A"/>
+                    <Letter value="N"/>
+                    <Letter value="K"/>
+                  </animated.h1>
+
+                  <animated.h1 style={welcomeTitleRightAnimation} className={classes.welcomeTitle}>
+                    <Letter value="W"/>
+                    <Letter value="E"/>
+                    <Letter value="I"/>
+                  </animated.h1>
+                </div>
+               </div> 
             <div className={classes.labels}>
               {labelAnimation.map(({...rest}, index) =>(
                 <animated.span style={{...rest}}>{labels[index]}</animated.span>

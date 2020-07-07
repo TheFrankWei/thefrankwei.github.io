@@ -21,7 +21,7 @@ export const useStyles = makeStyles(theme => ({
                 letterSpacing: '-20px',
             },
             [theme.breakpoints.down('md')]: {
-                fontSize: '80px',
+                fontSize: '70px',
                 letterSpacing: '-15px',
             },
             fontWeight: 800,

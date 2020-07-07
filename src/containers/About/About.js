@@ -10,9 +10,26 @@ export const useStyles = makeStyles(theme => ({
     minHeight: '80vh',
     
   },
-  about_title:{
+
+  aboutTitleWrapper:{
+    display: 'flex',
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'center',
+    },
+  },
+
+  aboutAnimationSpace: {
+    //empty div so that animations will work on smaller breakpoints
+    display: 'inline-block',
+    [theme.breakpoints.up('md')]: {
+      minHeight: '20px',
+      minWidth: '60px',
+      paddingLeft: '20%',
+    },
+  },
+
+  aboutTitle:{
     textAlign: 'left',
-    paddingLeft: '20%',
     paddingTop:'10%',
     fontSize:'100',
   },
@@ -76,7 +93,7 @@ const About = ({isVisible, refProp, id}) => {
   const classes = useStyles();
 
   const aboutTitleRef = useRef();
-  const aboutTitleAnimation = useSpring({opacity: isVisible? 1 : 0, marginLeft: isVisible? 60 : -5000,
+  const aboutTitleAnimation = useSpring({opacity: isVisible? 1 : 0, marginLeft: isVisible? 0 : -5000,
                             ref: aboutTitleRef,
                             delay: 300 ,
                             from:{ opacity: 0, }})    
@@ -99,13 +116,16 @@ const About = ({isVisible, refProp, id}) => {
   useChain([aboutTitleRef, aboutPicRef, aboutBioRef], [0,1,1.5])
     return (
       <div ref={refProp} className = {classes.about} id={id}>
-        <animated.h1 style={aboutTitleAnimation} className= {classes.about_title}>
-            <Letter value="A"/>
-            <Letter value="B"/>
-            <Letter value="O"/>
-            <Letter value="U"/>
-            <Letter value="T"/>
-        </animated.h1>
+         <div className={classes.aboutTitleWrapper}>
+            <div className={classes.aboutAnimationSpace}/>
+            <animated.h1 style={aboutTitleAnimation} className= {classes.aboutTitle}>
+              <Letter value="A"/>
+              <Letter value="B"/>
+              <Letter value="O"/>
+              <Letter value="U"/>
+              <Letter value="T"/>
+              </animated.h1>
+          </div>
 
             <Grid container direction = 'row' className = {classes.bioWrapper}>
 
