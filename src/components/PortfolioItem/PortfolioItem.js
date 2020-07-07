@@ -43,6 +43,7 @@ export const useStyles = makeStyles(theme => ({
     display: 'inline',
     justifyContent: 'space-around',
     width: '100%',
+    fontSize:'12px',
     '& span':{
       display: 'inline-block',
     },

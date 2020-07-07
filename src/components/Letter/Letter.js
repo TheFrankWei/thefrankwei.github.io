@@ -18,13 +18,14 @@ export const useStyles = makeStyles(theme => ({
             lineHeight: '110px',
             [theme.breakpoints.up('md')]: {
                 fontSize: '100px',
+                letterSpacing: '-20px',
             },
             [theme.breakpoints.down('md')]: {
                 fontSize: '80px',
+                letterSpacing: '-15px',
             },
             fontWeight: 800,
             fontFamily: `'Noto Sans', sans-serif`,
-            letterSpacing: '-10px',
             position: 'relative',
             display: 'inline-block',
             opacity: 0.9,

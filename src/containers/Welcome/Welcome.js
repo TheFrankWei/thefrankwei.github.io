@@ -45,14 +45,14 @@ export const useStyles = makeStyles(theme => ({
         right: '10%',
       },
       [theme.breakpoints.down('sm')]: {
-        fontSize: '15px',
+        fontSize: '12px',
         paddingTop:'10%',
         minWidth: '100vw',
         textAlign: 'center',
       },
       [theme.breakpoints.between('sm','md')]: {
         textAlign: 'right',
-        fontSize: '15px',
+        fontSize: '12px',
         bottom: '20%',
         right: '10%',
       },
