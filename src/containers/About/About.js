@@ -65,7 +65,14 @@ export const useStyles = makeStyles(theme => ({
     },
   },
   bioWrapper: {
-    display: 'block',
+    [theme.breakpoints.up('lg')]: {
+      display: 'block',
+    },
+    [theme.breakpoints.down('lg')]: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
     paddingLeft: '10%',
     paddingRight: '10%',
   },
