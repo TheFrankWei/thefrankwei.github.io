@@ -3,6 +3,7 @@ For old code, refer to https://github.com/TheFrankWei/TheFrankWei.github.io---OL
 
 ###TODO:
 - [ ] add Website themes using Redux (?)
+- [ ] refactor UI for "Info:" section of portfolio to be more visually appealing
 
 Random QA:
 
