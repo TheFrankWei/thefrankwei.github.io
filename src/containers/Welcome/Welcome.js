@@ -54,6 +54,7 @@ export const useStyles = makeStyles(theme => ({
     labels: {
       display: 'inline-block',
       // position: 'relative',
+      marginBottom: '10vh',
       fontFamily: `'Fira Sans', sans-serif`,
       fontColor: '#557282',
       [theme.breakpoints.up('md')]: {
