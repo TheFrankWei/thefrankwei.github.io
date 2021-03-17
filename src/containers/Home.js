@@ -11,7 +11,8 @@ export const useStyles = makeStyles(theme => ({
     child:{
       scrollSnapAlign: 'start',
       scrollSnapStop: 'always',
-    }
+      minHeight:'100vh',
+    },
 }));
 
 const Home = () => {
@@ -79,22 +80,24 @@ const Home = () => {
       // <div className={classes.container} onScroll={executeScroll}>
         <Grid container
               direction = "column"
+              justify="space-around"
+         
               className={classes.container}
         >
-          <Grid item className={classes.child}>
+          <Grid item xs={12} className={classes.child}>
             <Welcome refProp={welcomeRef} id='Welcome'/>
           </Grid>
-          <Grid item className={classes.child}>
+          <Grid item xs={12} className={classes.child}>
             <VisibilitySensor  partialVisibility minTopValue={450} delayedCall onChange={aboutChange}>
               <About refProp={aboutRef} isVisible={isAboutVisible} id='About'/>
             </VisibilitySensor> 
           </Grid>
-          <Grid item className={classes.child}>
+          <Grid item xs={12} className={classes.child}>
             <VisibilitySensor  partialVisibility minTopValue={450} delayedCall onChange={portfolioChange}>
               <Portfolio refProp={portfolioRef} isVisible={isPortfolioVisible} id='Portfolio'/>
             </VisibilitySensor>
           </Grid>
-          <Grid item className={classes.child}>
+          <Grid item xs={12} className={classes.child}>
             <VisibilitySensor partialVisibility minTopValue={450} delayedCall onChange={contactChange}>
               <Contact refProp={contactRef} isVisible={isContactVisible} id='Contact'/>
             </VisibilitySensor>

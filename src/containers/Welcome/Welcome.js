@@ -1,21 +1,21 @@
 import React, { useState, useRef } from 'react';
 import Letter from './../../components/Letter/Letter.js';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Grid } from '@material-ui/core';
 import { useSpring, useTrail, useChain, animated } from 'react-spring';
 import VisibilitySensor from "react-visibility-sensor";
 
 export const useStyles = makeStyles(theme => ({
     welcome:{
       [theme.breakpoints.up('lg')]: {
-        minHeight: '80vh',
+        // minHeight: '80vh',
       },
       [theme.breakpoints.down('lg')]: {
-        minHeight: '60vh',
+        // minHeight: '60vh',
       },
-      marginBottom: '5%',
+      // marginBottom: '5%',
     },
     welcomeTitleWrapper:{
-      marginTop: '10%',
+      // marginTop: '10%',
       display: 'flex',
     },
 
@@ -48,29 +48,34 @@ export const useStyles = makeStyles(theme => ({
       }
       
     },
+    gridBreak:{
+      minHeight:'20vh',
+    },
     labels: {
       display: 'inline-block',
-      position: 'relative',
+      // position: 'relative',
       fontFamily: `'Fira Sans', sans-serif`,
       fontColor: '#557282',
       [theme.breakpoints.up('md')]: {
         textAlign: 'right',
-        position: 'absolute',
+        // position: 'absolute',
         fontSize: '40px',
-        bottom: '20%',
-        right: '10%',
+        // marginTop: '20%',
+        // marginRight:'10%',
+        // bottom: '20%',
+        // right: '10%',
       },
       [theme.breakpoints.down('sm')]: {
         fontSize: '12px',
-        paddingTop:'10%',
-        minWidth: '100vw',
+        // paddingTop:'10%',
+        // minWidth: '100vw',
         textAlign: 'center',
       },
       [theme.breakpoints.between('sm','md')]: {
         textAlign: 'right',
         fontSize: '12px',
-        bottom: '20%',
-        right: '10%',
+        // bottom: '20%',
+        // right: '10%',
       },
     },
 }));
@@ -99,11 +104,15 @@ const Welcome = ({id, refProp}) => {
 
     useChain([welcomeTitleLeftRef, welcomeTitleRightRef, labelRef], [0,0.8,1.5])
     return (
-          <div ref={refProp} className = {classes.welcome} id={id}>
+          <Grid container ref={refProp} className = {classes.welcome} id={id}>
            
-            <div className={classes.welcomeTitleWrapper}>
-              <div className={classes.welcomeAnimationSpace}/>
-                <div className={classes.animationTitleWrapper}>
+           <Grid item xs={12}>
+             <Grid container direction="column">
+
+             <Grid item xs={12} className={classes.gridBreak}></Grid>
+            <Grid item className={classes.welcomeTitleWrapper}>
+              <Grid  item className={classes.welcomeAnimationSpace}/>
+                <Grid  item className={classes.animationTitleWrapper}>
                   <animated.h1 style={welcomeTitleLeftAnimation} className={classes.welcomeTitle}>
                    <Letter value="F"/>
                    <Letter value="R"/>
@@ -117,15 +126,19 @@ const Welcome = ({id, refProp}) => {
                     <Letter value="E"/>
                     <Letter value="I"/>
                   </animated.h1>
-                </div>
-               </div> 
-            <div className={classes.labels}>
+                </Grid>
+               </Grid> 
+
+            <Grid item xs={12} className={classes.gridBreak}></Grid>
+            <Grid item xs = {11} className={classes.labels}>
               {labelAnimation.map(({...rest}, index) =>(
                 <animated.span style={{...rest}}>{labels[index]}</animated.span>
               ))
               }
-            </div>
-          </div>
+            </Grid>
+            </Grid>
+            </Grid>
+          </Grid>
     );
 
 }

@@ -1,20 +1,22 @@
 import React, { useRef } from 'react';
-import { useSpring, useTrail, useChain, animated } from 'react-spring';
+import { useSpring, useChain, animated } from 'react-spring';
 import Letter from './../../components/Letter/Letter.js';
 import IconButton from './../../components/IconButton/IconButton.js';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Grid } from '@material-ui/core';
 import GitHub from './../../images/github.svg'
 import Linkedin from './../../images/linkedin.svg'
 import Flickr from './../../images/flickr.svg'
 
 export const useStyles = makeStyles(theme => ({
   contact:{
-      minHeight: '80vh',
-     marginTop: '5%',
-     marginBottom: '10%',
+    // minHeight: '80vh',
+    //  marginTop: '5%',
+    //  marginBottom: '10%',
+  },
+  gridBreak:{
+    minHeight:'20vh',
   },
   contact_title:{
-    paddingTop: '10%',
     display: 'block',
     textAlign: 'center',
   },
@@ -41,23 +43,27 @@ const Contact = ({refProp, isVisible, id}) =>{
 
     useChain([contactTitleRef, contactLinkRef], [0,0.6])
     return (
-      <div ref={refProp} className = {classes.contact} id={id}>
-      <animated.h1 style={contactTitleAnimation} className={classes.contact_title}>
-        <Letter value="C"/>
-        <Letter value="O"/>
-        <Letter value="N"/>
-        <Letter value="T"/>
-        <Letter value="A"/>
-        <Letter value="C"/>
-        <Letter value="T"/>
-      </animated.h1>
-
-      <animated.div style={contactLinkAnimation} className = {classes.contact_icons}>
-        <IconButton style={{height:80, width:80, marginLeft: '5%', marginRight: '5%',}} href='https://github.com/TheFrankWei' src={GitHub} target="_blank" rel="noopener"  alt="Github"/>
-        <IconButton style={{height:80, width:80,  marginLeft: '5%', marginRight: '5%',}} href='https://www.linkedin.com/in/TheFrankWei/' src={Linkedin} iconName='linkedIn' target="_blank" rel="noopener"  alt="Linkedin"/>
-        <IconButton style={{height:80, width:80, marginLeft: '5%', marginRight: '5%',}} href='https://www.flickr.com/photos/144760780@N08/?' src={Flickr} iconName='flickr' target="_blank" rel="noopener"  alt="Flickr"/>
-      </animated.div>
-      </div>
+      <Grid container direction="column" ref={refProp} className = {classes.contact} id={id}>
+        <Grid item xs={12} className={classes.gridBreak}></Grid>
+        <Grid item xs={12}>
+        <animated.h1 style={contactTitleAnimation} className={classes.contact_title}>
+          <Letter value="C"/>
+          <Letter value="O"/>
+          <Letter value="N"/>
+          <Letter value="T"/>
+          <Letter value="A"/>
+          <Letter value="C"/>
+          <Letter value="T"/>
+        </animated.h1>
+        </Grid>
+      <Grid item className = {classes.contact_icons}>
+        <animated.div style={contactLinkAnimation} >
+          <IconButton style={{height:80, width:80, marginLeft: '5%', marginRight: '5%',}} href='https://github.com/TheFrankWei' src={GitHub} target="_blank" rel="noopener"  alt="Github"/>
+          <IconButton style={{height:80, width:80,  marginLeft: '5%', marginRight: '5%',}} href='https://www.linkedin.com/in/TheFrankWei/' src={Linkedin} iconName='linkedIn' target="_blank" rel="noopener"  alt="Linkedin"/>
+          <IconButton style={{height:80, width:80, marginLeft: '5%', marginRight: '5%',}} href='https://www.flickr.com/photos/144760780@N08/?' src={Flickr} iconName='flickr' target="_blank" rel="noopener"  alt="Flickr"/>
+        </animated.div>
+      </Grid>
+    </Grid>
     );
   }
 

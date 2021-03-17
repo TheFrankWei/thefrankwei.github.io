@@ -2,15 +2,16 @@ import React, { useRef }  from 'react';
 import Letter from './../../components/Letter/Letter.js';
 import Portrait from './../../images/portrait.jpg';
 import { useSpring, useChain, animated } from 'react-spring';
-import { makeStyles } from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
+import { makeStyles, Grid, Paper, } from '@material-ui/core';
 
 export const useStyles = makeStyles(theme => ({
   about:{
-    minHeight: '80vh',
+    // minHeight: '80vh',
     
   },
-
+  gridBreak:{
+    minHeight:'20vh',
+  },
   aboutTitleWrapper:{
     display: 'flex',
     [theme.breakpoints.down('md')]: {
@@ -30,7 +31,7 @@ export const useStyles = makeStyles(theme => ({
 
   aboutTitle:{
     textAlign: 'left',
-    paddingTop:'10%',
+    // paddingTop:'10%',
     fontSize:'100',
   },
   portrait: {
@@ -73,6 +74,7 @@ export const useStyles = makeStyles(theme => ({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    // marginTop:'10%',
     paddingLeft: '10%',
     paddingRight: '10%',
   },
@@ -90,6 +92,9 @@ export const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('lg')]: {
       fontSize: 20,
     },
+    paper:{
+      marginTop: '30%',
+    }
   }
  
   
@@ -122,33 +127,38 @@ const About = ({isVisible, refProp, id}) => {
                           
   useChain([aboutTitleRef, aboutPicRef, aboutBioRef], [0,1,1.5])
     return (
-      <div ref={refProp} className = {classes.about} id={id}>
-         <div className={classes.aboutTitleWrapper}>
-            <div className={classes.aboutAnimationSpace}/>
-            <animated.h1 style={aboutTitleAnimation} className= {classes.aboutTitle}>
-              <Letter value="A"/>
-              <Letter value="B"/>
-              <Letter value="O"/>
-              <Letter value="U"/>
-              <Letter value="T"/>
+      <Grid container direction="column" ref={refProp} className = {classes.about} id={id}>
+        <Grid item xs={12} className={classes.gridBreak}></Grid>
+         <Grid item xs={12} className={classes.aboutTitleWrapper}>
+            <Grid item className={classes.aboutAnimationSpace}/>
+              <animated.h1 style={aboutTitleAnimation} className= {classes.aboutTitle}>
+                <Letter value="A"/>
+                <Letter value="B"/>
+                <Letter value="O"/>
+                <Letter value="U"/>
+                <Letter value="T"/>
               </animated.h1>
-          </div>
+          </Grid>
 
-            <Grid container direction = 'row' className = {classes.bioWrapper}>
+            <Grid item container direction = 'row' className = {classes.bioWrapper}>
 
               <AnimatedGrid item xs={12} sm={5} md={4}style={aboutPicAnimation} className ={classes.portrait}>
                 <img  src={Portrait} alt="this is me"/>
               </AnimatedGrid>
 
               <AnimatedGrid item xs={12} sm ={6} md={8} xl={9} style={aboutBioAnimation} className = {classes.bio}>
+                {/* <Paper > */}
+                  {/* <div className={classes.paper}> */}
                 <p>Thanks for visiting my website! My name is Frank Wei and I currently live in New York City. I love coding, designing, and combining the two to make awesome creations.</p>
                 <br/><p>I built this site from scratch, taking design inspiration other cool sites as well as learning React along the way (Take a look at the code <a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/thefrankwei.github.io">here</a>). When I'm not coding you can find me out taking photos, at a concert, or exploring the city.</p>
                 <br/><p>In this site, you can browse through my portfolio of design, projects and photography. Hope you enjoy!</p>
+                {/* </div> */}
+                {/* </Paper> */}
               </AnimatedGrid>
 
 
             </Grid>
-      </div>
+      </Grid>
     );
 
 }

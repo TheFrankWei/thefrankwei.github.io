@@ -3,18 +3,20 @@ import PortfolioItem from './../../components/PortfolioItem/PortfolioItem.js';
 import PortfolioItems from './PortfolioItems.js';
 import Letter from './../../components/Letter/Letter.js';
 import { useSpring, useTrail, useChain, animated } from 'react-spring';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Grid } from '@material-ui/core';
 
 export const useStyles = makeStyles(theme => ({
   portfolio: {
     [theme.breakpoints.up('md')]: {
-      'min-height': '80vh',
+      // 'min-height': '80vh',
     },
     [theme.breakpoints.down('md')]: {
-      'min-height': '160vh',
+      // 'min-height': '160vh',
     },
   },
-
+  gridBreak:{
+    minHeight:'20vh',
+  },
   portfolioTitleWrapper:{
     display: 'flex',
     [theme.breakpoints.down('md')]: {
@@ -35,7 +37,6 @@ export const useStyles = makeStyles(theme => ({
   portfolio_title:{
     display:'block',
     textAlign: 'left',
-    paddingTop: '10%',
   },
   
   contentGrid: {
@@ -69,9 +70,10 @@ const Portfolio = ({refProp, isVisible, id}) => {
   
 
   return (
-   <div ref={refProp} className={classes.portfolio} id={id}>
-     <div className={classes.portfolioTitleWrapper}>
-      <div className={classes.portfolioAnimationSpace}/>
+   <Grid container direction="column" ref={refProp} className={classes.portfolio} id={id}>
+     <Grid item xs={12} className={classes.gridBreak}></Grid>
+     <Grid item xs={12} className={classes.portfolioTitleWrapper}>
+      <Grid item className={classes.portfolioAnimationSpace}/>
       <animated.h1 style={portfolioTitleAnimation} className = {classes.portfolio_title}>
         <Letter value="P"/>
         <Letter value="O"/>
@@ -83,17 +85,17 @@ const Portfolio = ({refProp, isVisible, id}) => {
         <Letter value="I"/>
         <Letter value="O"/>
       </animated.h1>
-      </div>
-     <div className={classes.contentGrid}>
+      </Grid>
+     <Grid item className={classes.contentGrid}>
       {isVisible && portfolioItemAnimation.map(({...rest}, index) => (
         <animated.div style={{...rest}}>
           <PortfolioItem className={classes.portfolioItem} title={PortfolioItems[index].title} description={PortfolioItems[index].description} icons={PortfolioItems[index].icon} links={PortfolioItems[index].links} key={index} />
         </animated.div>  
         ))}
-     </div>
+     </Grid>
 
 
-   </div>
+   </Grid>
  );
 
 }
