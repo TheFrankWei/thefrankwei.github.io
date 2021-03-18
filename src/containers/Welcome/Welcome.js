@@ -135,7 +135,7 @@ const Welcome = ({id, refProp}) => {
                </Grid> 
 
             <Grid item xs={12} className={classes.gridBreak}></Grid>
-            <Grid item xs = {11} className={classes.labels}>
+            <Grid item xs = {12} sm={11} className={classes.labels}>
               {labelAnimation.map(({...rest}, index) =>(
                 <animated.span style={{...rest}}>{labels[index]}</animated.span>
               ))
