@@ -14,7 +14,12 @@ export const useStyles = makeStyles(theme => ({
     //  marginBottom: '10%',
   },
   gridBreak:{
-    minHeight:'20vh',
+    [theme.breakpoints.up('md')]: {
+      minHeight:'20vh',
+    },
+    [theme.breakpoints.down('md')]: {
+      minHeight:'10vh',
+    },
   },
   contact_title:{
     display: 'block',

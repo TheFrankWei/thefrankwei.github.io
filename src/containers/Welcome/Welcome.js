@@ -49,9 +49,6 @@ export const useStyles = makeStyles(theme => ({
       
     },
     gridBreak:{
-      minHeight:'20vh',
-    },
-    gridBreak_labels:{
       [theme.breakpoints.up('md')]: {
         minHeight:'20vh',
       },
@@ -137,7 +134,7 @@ const Welcome = ({id, refProp}) => {
                 </Grid>
                </Grid> 
 
-            <Grid item xs={12} className={classes.gridBreak_labels}></Grid>
+            <Grid item xs={12} className={classes.gridBreak}></Grid>
             <Grid item xs = {11} className={classes.labels}>
               {labelAnimation.map(({...rest}, index) =>(
                 <animated.span style={{...rest}}>{labels[index]}</animated.span>

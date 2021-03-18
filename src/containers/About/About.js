@@ -10,7 +10,12 @@ export const useStyles = makeStyles(theme => ({
     
   },
   gridBreak:{
-    minHeight:'20vh',
+    [theme.breakpoints.up('md')]: {
+      minHeight:'20vh',
+    },
+    [theme.breakpoints.down('md')]: {
+      minHeight:'10vh',
+    },
   },
   aboutTitleWrapper:{
     display: 'flex',
