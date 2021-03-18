@@ -51,10 +51,17 @@ export const useStyles = makeStyles(theme => ({
     gridBreak:{
       minHeight:'20vh',
     },
+    gridBreak_labels:{
+      [theme.breakpoints.up('md')]: {
+        minHeight:'20vh',
+      },
+      [theme.breakpoints.down('md')]: {
+        minHeight:'10vh',
+      },
+    },
     labels: {
       display: 'inline-block',
       // position: 'relative',
-      marginBottom: '10vh',
       fontFamily: `'Fira Sans', sans-serif`,
       fontColor: '#557282',
       [theme.breakpoints.up('md')]: {
@@ -130,7 +137,7 @@ const Welcome = ({id, refProp}) => {
                 </Grid>
                </Grid> 
 
-            <Grid item xs={12} className={classes.gridBreak}></Grid>
+            <Grid item xs={12} className={classes.gridBreak_labels}></Grid>
             <Grid item xs = {11} className={classes.labels}>
               {labelAnimation.map(({...rest}, index) =>(
                 <animated.span style={{...rest}}>{labels[index]}</animated.span>
