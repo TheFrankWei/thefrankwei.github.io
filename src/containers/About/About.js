@@ -98,7 +98,7 @@ export const useStyles = makeStyles(theme => ({
       fontSize: 20,
     },
     paper:{
-      marginTop: '30%',
+      opacity: '0.5',
     }
   }
  
@@ -152,13 +152,13 @@ const About = ({isVisible, refProp, id}) => {
               </AnimatedGrid>
 
               <AnimatedGrid item xs={12} sm ={6} md={8} xl={9} style={aboutBioAnimation} className = {classes.bio}>
-                {/* <Paper > */}
+                <Paper className={classes.paper}>
                   {/* <div className={classes.paper}> */}
                 <p>Thanks for visiting my website! My name is Frank Wei and I currently live in New York City. I love coding, designing, and combining the two to make awesome creations.</p>
                 <br/><p>I built this site from scratch, taking design inspiration other cool sites as well as learning React along the way (Take a look at the code <a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/thefrankwei.github.io">here</a>). When I'm not coding you can find me out taking photos, at a concert, or exploring the city.</p>
                 <br/><p>In this site, you can browse through my portfolio of design, projects and photography. Hope you enjoy!</p>
                 {/* </div> */}
-                {/* </Paper> */}
+                </Paper>
               </AnimatedGrid>
 
 

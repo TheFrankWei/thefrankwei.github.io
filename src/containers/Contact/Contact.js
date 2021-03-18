@@ -18,7 +18,7 @@ export const useStyles = makeStyles(theme => ({
       minHeight:'20vh',
     },
     [theme.breakpoints.down('md')]: {
-      minHeight:'15vh',
+      minHeight:'20vh',
     },
   },
   contact_title:{

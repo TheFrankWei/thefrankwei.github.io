@@ -7,7 +7,7 @@ import VisibilitySensor from "react-visibility-sensor";
 export const useStyles = makeStyles(theme => ({
     welcome:{
       [theme.breakpoints.up('lg')]: {
-        // minHeight: '80vh',
+        minHeight: '20vh',
       },
       [theme.breakpoints.down('lg')]: {
         // minHeight: '60vh',

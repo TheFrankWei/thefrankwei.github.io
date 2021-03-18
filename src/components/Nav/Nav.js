@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import { HashLink as Link } from 'react-router-hash-link';
+// import { HashLink as Link } from 'react-router-hash-link';
+import { NavHashLink } from 'react-router-hash-link';
 import { makeStyles } from '@material-ui/core';
 import UpIcon from './../../images/scroll_up_icon.svg';
 
@@ -12,7 +13,7 @@ export const useStyles = makeStyles(theme => ({
     },
   
     position: 'fixed',
-    backgroundColor: 'white',
+    backgroundColor: 'Transparent',
     opacity: .8,
     minWidth: '100vw',
     zIndex: 1,
@@ -101,10 +102,10 @@ const Nav = () => {
     <div>
       <div className={classes.Nav}>
         <ul>
-          <li><Link smooth to='/#Contact'>Contact</Link></li>
-          <li><Link smooth to='/#Portfolio'>Portfolio</Link></li>
-          <li><Link smooth to='/#About'>About</Link></li>
-          <li><Link smooth to='/#Welcome'>Home</Link></li>
+          <li><NavHashLink smooth to='/#Contact'>Contact</NavHashLink></li>
+          <li><NavHashLink smooth to='/#Portfolio'>Portfolio</NavHashLink></li>
+          <li><NavHashLink smooth to='/#About'>About</NavHashLink></li>
+          <li><NavHashLink smooth to='/#top'>Home</NavHashLink></li>
         </ul>
       </div>
 
