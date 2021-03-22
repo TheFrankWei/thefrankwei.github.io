@@ -83,7 +83,7 @@ const Home = ({width}) => {
     return (
       // <div className={classes.container} onScroll={executeScroll}>
       <React.Fragment >
-      <Parallax pages={isMediumScreen? 4.8 : 2.6} ref={ref => (parallax = ref)}>
+      <Parallax pages={isMediumScreen? 5 : 2.6} ref={ref => (parallax = ref)}>
         <Grid container
               direction = "column"
               justify="space-around"
@@ -111,7 +111,7 @@ const Home = ({width}) => {
           
           
           <Grid item xs={12} className={classes.child}>
-          <ParallaxLayer offset={isMediumScreen? 1.8 : 1.2} speed={0.5}>
+          <ParallaxLayer offset={isMediumScreen? 2.2 : 1.2} speed={0.5}>
             <VisibilitySensor  partialVisibility minTopValue={225} delayedCall onChange={portfolioChange}>
               <Portfolio refProp={portfolioRef} isVisible={isPortfolioVisible} id='Portfolio'/>
             </VisibilitySensor>
@@ -121,7 +121,7 @@ const Home = ({width}) => {
 
           
           <Grid item xs={12} className={classes.child}>
-          <ParallaxLayer offset={isMediumScreen? 2.1 : 1.9} speed={0.5}>
+          <ParallaxLayer offset={isMediumScreen? 3 : 1.9} speed={0.5}>
             <VisibilitySensor partialVisibility minTopValue={250} delayedCall onChange={contactChange}>
               <Contact refProp={contactRef} isVisible={isContactVisible} id='Contact'/>
             </VisibilitySensor>
