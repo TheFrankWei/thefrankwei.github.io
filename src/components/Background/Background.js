@@ -37,11 +37,15 @@ function random(min, max) {
   
     setColors() {
       // pick a random hue somewhere between 220 and 360
-      this.hue = ~~random(220, 360);
-      this.complimentaryHue1 = this.hue + 30;
-      this.complimentaryHue2 = this.hue + 60;
+      // this.hue = ~~random(220, 360);
+      this.hue = Math.random()*11 < 5 ? ~~random(9, 39) : ~~random(165, 203);
+      // this.complimentaryHue1 = this.hue + 30;
+      // this.complimentaryHue2 = this.hue + 60;
+      this.complimentaryHue1 = this.hue - 35;
+      this.complimentaryHue2 = this.hue + 35;
       // define a fixed saturation and lightness
-      this.saturation = 95;
+      // this.saturation = 95;
+      this.saturation = 75;
       this.lightness = 50;
   
       // define a base color

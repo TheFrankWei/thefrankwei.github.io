@@ -83,7 +83,7 @@ const Home = ({width}) => {
     return (
       // <div className={classes.container} onScroll={executeScroll}>
       <React.Fragment >
-      <Parallax pages={isMediumScreen? 5 : 2.6} ref={ref => (parallax = ref)}>
+      <Parallax pages={isMediumScreen? 5.6: 2.6} ref={ref => (parallax = ref)}>
         <Grid container
               direction = "column"
               justify="space-around"

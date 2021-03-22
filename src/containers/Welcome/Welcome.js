@@ -3,6 +3,7 @@ import Letter from './../../components/Letter/Letter.js';
 import { makeStyles, Grid } from '@material-ui/core';
 import { useSpring, useTrail, useChain, animated } from 'react-spring';
 import IntervalLabel from '../../components/IntervalLabel/IntervalLabel.js';
+import Glitch from '../../components/Glitch/Glitch.js';
 
 export const useStyles = makeStyles(theme => ({
     welcome:{
@@ -56,17 +57,23 @@ export const useStyles = makeStyles(theme => ({
         minHeight:'5vh',
       },
     },
-    labels: {
+    labelWrapper: {
       display: 'inline-block',
+      width: '100%',
       // position: 'relative',
       fontFamily: `'Fira Sans', sans-serif`,
+      backgroundColor: '#112F41',
+      padding: '0.05em 0em 0.05em 0.7em',
       // color: '#557282',
-      color: 'rgba(255, 255, 255, 0.375)',
+      color: 'rgba(255, 255, 255, 0.75)',
+
+      textAlign: 'left',
+      position: 'relative',
       [theme.breakpoints.up('md')]: {
         // textAlign: 'right', //for animated labels
-        textAlign: 'left',
-        right:'-65%',
-        position: 'relative',
+        // textAlign: 'left',
+        right:'-60%',
+        // position: 'relative',
         // position: 'absolute',
         fontSize: '40px',
         // marginTop: '20%',
@@ -76,13 +83,15 @@ export const useStyles = makeStyles(theme => ({
       },
       [theme.breakpoints.down('sm')]: {
         fontSize: '12px',
+        right:'-40%',
         // paddingTop:'10%',
         // minWidth: '100vw',
-        textAlign: 'center',
+        // textAlign: 'center',
       },
       [theme.breakpoints.between('sm','md')]: {
-        textAlign: 'right',
+        // textAlign: 'right',
         fontSize: '12px',
+        right:'-50%',
         // bottom: '20%',
         // right: '10%',
       },
@@ -124,15 +133,20 @@ const Welcome = ({id, refProp}) => {
     //   from: { opacity: 0 },
     // })
     
+    const labelWrapperRef = useRef();
+    const labelWrapperAnimation = useSpring({opacity: 1, marginLeft:0,
+      ref: labelWrapperRef,
+      from: {opacity: 1, marginLeft: 1000}
+    });
+
     const labelAnimation = useTrail(labels.length+1, {
       ref: labelRef,
-      opacity: 0.9,
+      opacity: 1,
       from: { opacity: 0 },
     })
 
-    useChain([welcomeTitleLeftRef, welcomeTitleRightRef, labelRef], [0,0.8,1.5])
+    useChain([welcomeTitleLeftRef, welcomeTitleRightRef, labelWrapperRef, labelRef], [0,0.8,1,2])
 
-  
     return (
           <Grid container ref={refProp} className = {classes.welcome} id={id}>
            
@@ -167,16 +181,17 @@ const Welcome = ({id, refProp}) => {
               }
             </Grid> */}
 
-              <Grid item xs = {12} sm={11} className={classes.labels}>
-              {labelAnimation.map(({...rest}, index) =>{
-                if(index < labels.length){
-                 return(<animated.span style={{...rest}}>{labels[index]}</animated.span>)
-                } else {
-                  return(<animated.span style={{...rest}}><IntervalLabel labels={['ux/ui', 'photographs', 'webapps', 'things']}/></animated.span>)
+              <Grid item xs = {12} >
+                <animated.div style={labelWrapperAnimation} className={classes.labelWrapper}>
+                {labelAnimation.map(({...rest}, index) =>{
+                  if(index < labels.length){
+                  return(<animated.span style={{...rest}}>{labels[index]}</animated.span>)
+                  } else {
+                    return(<Glitch> <animated.span style={{...rest}}><IntervalLabel labels={['ux/ui', 'photographs', 'webapps', 'things']}/></animated.span> </Glitch>)
+                  }
+                })
                 }
-              })
-              }
-            
+                </animated.div>
               </Grid>
     
             </Grid>

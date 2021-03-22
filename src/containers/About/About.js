@@ -155,7 +155,7 @@ const About = ({isVisible, refProp, id}) => {
                 <img  src={Portrait} alt="this is me"/>
                 </animated.div>
               </Grid>
-
+            
               <Grid item xs={12} sm ={6} md={8} xl={9} className = {classes.bio}>
                 <animated.div style={aboutBioAnimation}>
                   <p>Thanks for visiting my website! My name is Frank Wei and I currently live in New York City. I love coding, designing, and combining the two to make awesome creations.</p>
