@@ -9,6 +9,7 @@ import debounce from "debounce";
 export const useStyles = makeStyles(theme => ({
   background:{
     position: 'fixed',
+    zIndex: -1,
   },
 
 }));

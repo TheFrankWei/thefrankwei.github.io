@@ -14,7 +14,7 @@ export const useStyles = makeStyles(theme => ({
       minHeight:'20vh',
     },
     [theme.breakpoints.down('md')]: {
-      minHeight:'10vh',
+      minHeight:'20vh',
     },
   },
   aboutTitleWrapper:{
@@ -86,8 +86,7 @@ export const useStyles = makeStyles(theme => ({
   bio: {
     float: 'right',
     fontFamily: `'Nunito', sans-serif`,
-    fontColor: '#557282',
-
+    // fontColor: '#557282',
     [theme.breakpoints.down('md')]: {
       fontSize: 15,
     },
@@ -97,9 +96,6 @@ export const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('lg')]: {
       fontSize: 20,
     },
-    paper:{
-      opacity: '0.5',
-    }
   }
  
   
@@ -126,10 +122,17 @@ const About = ({isVisible, refProp, id}) => {
   const aboutBioAnimation = useSpring({ opacity: isVisible? 1 : 0, marginLeft: isVisible? 0 : 50,
                           ref: aboutBioRef,
                           delay: 300,
-                          from:{ opacity: 0, marginLeft: 50 }})                             
+                          from:{opacity: 0, 
+                                marginLeft: 50,  
+                                background: 'rgba(255, 255, 255, 0.375)', 
+                                padding: '1rem 2rem',
+                                'box-shadow': '0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1)',
+                                'border-radius': '2rem',
+                                'border': '1px solid rgba(255, 255, 255, 0.125)',
+                        }})                             
   
-  const AnimatedGrid = animated(Grid);
-                          
+  // const AnimatedGrid = animated(Grid);
+
   useChain([aboutTitleRef, aboutPicRef, aboutBioRef], [0,1,1.5])
     return (
       <Grid container direction="column" ref={refProp} className = {classes.about} id={id}>
@@ -147,20 +150,21 @@ const About = ({isVisible, refProp, id}) => {
 
             <Grid item container direction = 'row' className = {classes.bioWrapper}>
 
-              <AnimatedGrid item xs={12} sm={5} md={4}style={aboutPicAnimation} className ={classes.portrait}>
+              <Grid item xs={12} sm={5} md={4} className ={classes.portrait}>
+                <animated.div style={aboutPicAnimation}>
                 <img  src={Portrait} alt="this is me"/>
-              </AnimatedGrid>
+                </animated.div>
+              </Grid>
 
-              <AnimatedGrid item xs={12} sm ={6} md={8} xl={9} style={aboutBioAnimation} className = {classes.bio}>
-                <Paper className={classes.paper}>
-                  {/* <div className={classes.paper}> */}
-                <p>Thanks for visiting my website! My name is Frank Wei and I currently live in New York City. I love coding, designing, and combining the two to make awesome creations.</p>
-                <br/><p>I built this site from scratch, taking design inspiration other cool sites as well as learning React along the way (Take a look at the code <a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/thefrankwei.github.io">here</a>). When I'm not coding you can find me out taking photos, at a concert, or exploring the city.</p>
-                <br/><p>In this site, you can browse through my portfolio of design, projects and photography. Hope you enjoy!</p>
-                {/* </div> */}
-                </Paper>
-              </AnimatedGrid>
-
+              <Grid item xs={12} sm ={6} md={8} xl={9} className = {classes.bio}>
+                <animated.div style={aboutBioAnimation}>
+                  <p>Thanks for visiting my website! My name is Frank Wei and I currently live in New York City. I love coding, designing, and combining the two to make awesome creations.</p>
+                  <br/>
+                  <p>I built this site from scratch, taking design inspiration other cool sites as well as learning React along the way (Take a look at the code <a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/thefrankwei.github.io">here</a>). When I'm not coding you can find me out taking photos, at a concert, or exploring the city.</p>
+                  <br/>
+                  <p>In this site, you can browse through my portfolio of design, projects and photography. Hope you enjoy!</p>
+                </animated.div>
+              </Grid>
 
             </Grid>
       </Grid>

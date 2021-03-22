@@ -1,8 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Letter from './../../components/Letter/Letter.js';
 import { makeStyles, Grid } from '@material-ui/core';
 import { useSpring, useTrail, useChain, animated } from 'react-spring';
-import VisibilitySensor from "react-visibility-sensor";
+import IntervalLabel from '../../components/IntervalLabel/IntervalLabel.js';
 
 export const useStyles = makeStyles(theme => ({
     welcome:{
@@ -53,16 +53,20 @@ export const useStyles = makeStyles(theme => ({
         minHeight:'20vh',
       },
       [theme.breakpoints.down('md')]: {
-        minHeight:'10vh',
+        minHeight:'5vh',
       },
     },
     labels: {
       display: 'inline-block',
       // position: 'relative',
       fontFamily: `'Fira Sans', sans-serif`,
-      fontColor: '#557282',
+      // color: '#557282',
+      color: 'rgba(255, 255, 255, 0.375)',
       [theme.breakpoints.up('md')]: {
-        textAlign: 'right',
+        // textAlign: 'right', //for animated labels
+        textAlign: 'left',
+        right:'-65%',
+        position: 'relative',
         // position: 'absolute',
         fontSize: '40px',
         // marginTop: '20%',
@@ -85,10 +89,23 @@ export const useStyles = makeStyles(theme => ({
     },
 }));
 
-const labels = ['Developer', ' | ', 'Designer', ' | ', 'Photographer'];
+// const labels = ['Developer', ' | ', 'Designer', ' | ', 'Photographer'];
+const labels = ['Hi', ', ', 'I ', 'design ', 'and ', 'develop '];
 
 const Welcome = ({id, refProp}) => {
     const classes = useStyles();
+
+    let text = ["Designer", "Photographer", "Developer"];
+    let [labelState, setLabel] = useState("Designer");
+    let [counter, setCounter] = useState(0);
+    useEffect(()=>{
+      
+      const interval = setInterval(()=>{
+        setLabel(labels[counter],3000);
+        counter.length >= text.length? setCounter(0) : setCounter(counter++);
+      });
+      return ()=> clearInterval(interval);
+    },[]);
 
     const welcomeTitleLeftRef = useRef();
     const welcomeTitleLeftAnimation = useSpring({opacity: 1, marginLeft: 0,
@@ -101,13 +118,21 @@ const Welcome = ({id, refProp}) => {
                             from: {opacity: 0, marginLeft: 150,}})
     
     const labelRef = useRef();
-    const labelAnimation = useTrail(labels.length, {
+    // const labelAnimation = useTrail(labels.length, {
+    //   ref: labelRef,
+    //   opacity: 0.75,
+    //   from: { opacity: 0 },
+    // })
+    
+    const labelAnimation = useTrail(labels.length+1, {
       ref: labelRef,
-      opacity: 0.75,
+      opacity: 0.9,
       from: { opacity: 0 },
     })
 
     useChain([welcomeTitleLeftRef, welcomeTitleRightRef, labelRef], [0,0.8,1.5])
+
+  
     return (
           <Grid container ref={refProp} className = {classes.welcome} id={id}>
            
@@ -135,12 +160,25 @@ const Welcome = ({id, refProp}) => {
                </Grid> 
 
             <Grid item xs={12} className={classes.gridBreak}></Grid>
-            <Grid item xs = {12} sm={11} className={classes.labels}>
+            {/* <Grid item xs = {12} sm={11} className={classes.labels}>
               {labelAnimation.map(({...rest}, index) =>(
                 <animated.span style={{...rest}}>{labels[index]}</animated.span>
               ))
               }
-            </Grid>
+            </Grid> */}
+
+              <Grid item xs = {12} sm={11} className={classes.labels}>
+              {labelAnimation.map(({...rest}, index) =>{
+                if(index < labels.length){
+                 return(<animated.span style={{...rest}}>{labels[index]}</animated.span>)
+                } else {
+                  return(<animated.span style={{...rest}}><IntervalLabel labels={['ux/ui', 'photographs', 'webapps', 'things']}/></animated.span>)
+                }
+              })
+              }
+            
+              </Grid>
+    
             </Grid>
             </Grid>
           </Grid>

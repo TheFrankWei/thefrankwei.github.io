@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect, useCallback} from 'react';
 import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, withWidth } from '@material-ui/core';
 import Welcome from './Welcome/Welcome.js';
 import About from './About/About.js';
 import Portfolio from './Portfolio/Portfolio.js';
@@ -16,7 +16,7 @@ export const useStyles = makeStyles(theme => ({
     },
 }));
 
-const Home = () => {
+const Home = ({width}) => {
     const classes = useStyles();
 
     let parallax = useRef();
@@ -78,10 +78,12 @@ const Home = () => {
       isVisible && setContactVisibility(isVisible);
     }
 
+    const isMediumScreen = /xs|sm|md/.test(width);
+
     return (
       // <div className={classes.container} onScroll={executeScroll}>
       <React.Fragment >
-      <Parallax pages={4} ref={ref => (parallax = ref)}>
+      <Parallax pages={isMediumScreen? 4.5 : 3} ref={ref => (parallax = ref)}>
         <Grid container
               direction = "column"
               justify="space-around"
@@ -99,8 +101,8 @@ const Home = () => {
           
           
           <Grid item xs={12} className={classes.child}>
-          <ParallaxLayer offset={1} speed={0.5}>
-            <VisibilitySensor  partialVisibility minTopValue={200} delayedCall onChange={aboutChange}>
+          <ParallaxLayer offset={0.8} speed={0.4}>
+            <VisibilitySensor  partialVisibility minTopValue={250} delayedCall onChange={aboutChange}>
               <About refProp={aboutRef} isVisible={isAboutVisible} id='About'/>
             </VisibilitySensor>
             </ParallaxLayer>
@@ -109,8 +111,8 @@ const Home = () => {
           
           
           <Grid item xs={12} className={classes.child}>
-          <ParallaxLayer offset={2} speed={0.5}>
-            <VisibilitySensor  partialVisibility minTopValue={200} delayedCall onChange={portfolioChange}>
+          <ParallaxLayer offset={isMediumScreen? 1.5 : 1.2} speed={0.5}>
+            <VisibilitySensor  partialVisibility minTopValue={225} delayedCall onChange={portfolioChange}>
               <Portfolio refProp={portfolioRef} isVisible={isPortfolioVisible} id='Portfolio'/>
             </VisibilitySensor>
             </ParallaxLayer>
@@ -119,8 +121,8 @@ const Home = () => {
 
           
           <Grid item xs={12} className={classes.child}>
-          <ParallaxLayer offset={3} speed={0.5}>
-            <VisibilitySensor partialVisibility minTopValue={200} delayedCall onChange={contactChange}>
+          <ParallaxLayer offset={isMediumScreen? 2 : 1.9} speed={0.5}>
+            <VisibilitySensor partialVisibility minTopValue={250} delayedCall onChange={contactChange}>
               <Contact refProp={contactRef} isVisible={isContactVisible} id='Contact'/>
             </VisibilitySensor>
             </ParallaxLayer>
@@ -132,4 +134,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default withWidth()(Home);

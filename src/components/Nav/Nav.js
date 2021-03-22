@@ -66,37 +66,37 @@ export const useStyles = makeStyles(theme => ({
 const Nav = () => {
   const classes = useStyles();
 
-  const [showScroll, setScrollState] = useState(false);
+  // const [showScroll, setScrollState] = useState(false);
 
-  const handleScroll = () => {
-    const boundingRect = ((document || {}).documentElement || {}).getBoundingClientRect;
-    if (boundingRect) {
-      if (document.documentElement.getBoundingClientRect().top * -1 > 100){
-        setScrollState(true);
-      } else {
-        setScrollState(false);
-      }
-    }
-  }
+  // const handleScroll = () => {
+  //   const boundingRect = ((document || {}).documentElement || {}).getBoundingClientRect;
+  //   if (boundingRect) {
+  //     if (document.documentElement.getBoundingClientRect().top * -1 > 100){
+  //       setScrollState(true);
+  //     } else {
+  //       setScrollState(false);
+  //     }
+  //   }
+  // }
 
-  const scrollToTop= () => {
-      window.scrollTo({top:0, behavior:'smooth'});
-  };
+  // const scrollToTop= () => {
+  //     window.scrollTo({top:0, behavior:'smooth'});
+  // };
 
-  useEffect(()=> { 
-    if (window.location.hash) {
-      setTimeout(function() {
-        //on refresh, change route back to 'home'
-        window.location.href="/"
-      }, 1);
-    }
-    window.onbeforeunload = function () {
-      //on refresh, scroll to top
-      window.scrollTo(0, 0);
-    }
-    window.addEventListener('scroll', handleScroll);
-    return () =>  window.removeEventListener('scroll', handleScroll);
-  }, [])
+  // useEffect(()=> { 
+  //   if (window.location.hash) {
+  //     setTimeout(function() {
+  //       //on refresh, change route back to 'home'
+  //       window.location.href="/"
+  //     }, 1);
+  //   }
+  //   window.onbeforeunload = function () {
+  //     //on refresh, scroll to top
+  //     window.scrollTo(0, 0);
+  //   }
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () =>  window.removeEventListener('scroll', handleScroll);
+  // }, [])
 
     return(
     <div>
@@ -105,15 +105,15 @@ const Nav = () => {
           <li><NavHashLink smooth to='/#Contact'>Contact</NavHashLink></li>
           <li><NavHashLink smooth to='/#Portfolio'>Portfolio</NavHashLink></li>
           <li><NavHashLink smooth to='/#About'>About</NavHashLink></li>
-          <li><NavHashLink smooth to='/#top'>Home</NavHashLink></li>
+          <li><NavHashLink smooth to='/#Home'>Home</NavHashLink></li>
         </ul>
       </div>
 
-    {showScroll && 
+    {/* {showScroll && 
       <div className={classes.toTop}>
         <img onClick ={scrollToTop} src = {UpIcon} className={classes.icon} alt = 'scroll up!'/>
     </div>
-    }
+    } */}
 
     </div>
 

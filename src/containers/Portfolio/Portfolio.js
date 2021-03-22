@@ -19,7 +19,7 @@ export const useStyles = makeStyles(theme => ({
       minHeight:'20vh',
     },
     [theme.breakpoints.down('md')]: {
-      minHeight:'10vh',
+      minHeight:'80vh',
     },
   },
   portfolioTitleWrapper:{
