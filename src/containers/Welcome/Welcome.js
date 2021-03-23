@@ -58,6 +58,7 @@ export const useStyles = makeStyles(theme => ({
       },
     },
     labelWrapper: {
+      'box-shadow': '0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1)',
       display: 'inline-block',
       width: '100%',
       // position: 'relative',
@@ -65,7 +66,8 @@ export const useStyles = makeStyles(theme => ({
       backgroundColor: '#112F41',
       padding: '0.05em 0em 0.05em 0.7em',
       // color: '#557282',
-      color: 'rgba(255, 255, 255, 0.75)',
+      color: 'rgba(255, 255, 255, 0.8)',
+      // color: 'transparent',
 
       textAlign: 'left',
       position: 'relative',
@@ -185,7 +187,7 @@ const Welcome = ({id, refProp}) => {
                 <animated.div style={labelWrapperAnimation} className={classes.labelWrapper}>
                 {labelAnimation.map(({...rest}, index) =>{
                   if(index < labels.length){
-                  return(<animated.span style={{...rest}}>{labels[index]}</animated.span>)
+                  return(<animated.span style={{...rest,}}>{labels[index]}</animated.span>)
                   } else {
                     return(<Glitch> <animated.span style={{...rest}}><IntervalLabel labels={['ux/ui', 'photographs', 'webapps', 'things']}/></animated.span> </Glitch>)
                   }

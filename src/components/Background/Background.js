@@ -41,8 +41,8 @@ function random(min, max) {
       this.hue = Math.random()*11 < 5 ? ~~random(9, 39) : ~~random(165, 203);
       // this.complimentaryHue1 = this.hue + 30;
       // this.complimentaryHue2 = this.hue + 60;
-      this.complimentaryHue1 = this.hue - 35;
-      this.complimentaryHue2 = this.hue + 35;
+      this.complimentaryHue1 = this.hue - 30;
+      this.complimentaryHue2 = this.hue + 30;
       // define a fixed saturation and lightness
       // this.saturation = 95;
       this.saturation = 75;

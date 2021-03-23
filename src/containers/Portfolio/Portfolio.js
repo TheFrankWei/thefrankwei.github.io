@@ -4,7 +4,7 @@ import PortfolioItems from './PortfolioItems.js';
 import Letter from './../../components/Letter/Letter.js';
 import { useSpring, useTrail, useChain, animated } from 'react-spring';
 import { makeStyles, Grid } from '@material-ui/core';
-import Glitch from '../../components/Glitch/Glitch.js';
+
 export const useStyles = makeStyles(theme => ({
   portfolio: {
     [theme.breakpoints.up('md')]: {

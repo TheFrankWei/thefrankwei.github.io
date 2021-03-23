@@ -37,10 +37,10 @@ export const useStyles = makeStyles(theme => ({
 }));
 
 //original colors
-// const LETTER_COLORS = ['#112F41','#068587','#4FB99F','#F2B134','#ED553B']
+const LETTER_COLORS = ['#112F41','#068587','#4FB99F','#F2B134','#ED553B']
 
 //higher contrast for web accessibility
-const LETTER_COLORS = ['#112F41','#068587', '#40A088', '#C9870D', '#ED553B']
+// const LETTER_COLORS = ['#112F41','#068587', '#40A088', '#C9870D', '#ED553B']
 
 const Letter = (props) => {
     const classes = useStyles();

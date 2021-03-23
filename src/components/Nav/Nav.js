@@ -6,17 +6,21 @@ import UpIcon from './../../images/scroll_up_icon.svg';
 
 export const useStyles = makeStyles(theme => ({
   Nav: {
-    overflow: 'hidden',
-    top:0,
-    [theme.breakpoints.up('md')]: {
-      right: 0,
-    },
-  
     position: 'fixed',
-    backgroundColor: 'Transparent',
-    opacity: .8,
-    minWidth: '100vw',
+    overflow: 'hidden',
+    minWidth: '100%',
     zIndex: 1,
+    top:0,
+    paddingTop: 0,
+    minHeight:'2em',
+    // backgroundColor: 'rgba(255, 255, 255, 0.375)',
+    background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.75) 60%, rgba(255,255,255,0) 100%)',
+    // [theme.breakpoints.up('md')]: {
+    //   right: 0,
+    // },
+    '& ul':{
+      padding: 0,
+    },
 
     '& li':{
       float: 'right',

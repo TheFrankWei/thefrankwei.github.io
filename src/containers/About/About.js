@@ -85,8 +85,9 @@ export const useStyles = makeStyles(theme => ({
   },
   bio: {
     float: 'right',
-    fontFamily: `'Nunito', sans-serif`,
-    // fontColor: '#557282',
+    // fontFamily: `'Nunito', sans-serif`,
+    fontFamily: `'Fira Sans', sans-serif`,
+    color: '#557282',
     [theme.breakpoints.down('md')]: {
       fontSize: 15,
     },
