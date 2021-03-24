@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles, Grid } from '@material-ui/core';
-// import './LittleEinstein.scss';
 import image1 from './littleeinstein_main.png';
 import image2 from './littleeinstein_mindmap.png';
 import image3 from './littleeinstein_cardsorting.png';
@@ -11,25 +10,50 @@ import image6 from './littleeinstein_interactive.png';
 import Paper from '../../../components/Paper/Paper.js';
 
 export const useStyles = makeStyles(theme => ({
+  wrapper:{
+    overflow: 'hidden',
+  },
   infoContainer: {
-   textAlign: 'center',
+   textAlign: 'justify',
    padding:'5em 0em 5em 0em',
-   margin: '0 auto 0 auto',
-   fontSize: '1em',
-  }
+   
+   [theme.breakpoints.up('md')]: {
+      fontSize: '1em',
+      margin: '0 auto',
+    },
+    [theme.breakpoints.down('md')]: {
+      fontSize: '0.7em',
+      margin: '0 auto 0 auto',
+    },
+  },
+  paper:{
+    padding: '2em 3em 2em 3em',
+    boxSizing: 'border-box',
+  },
+  imageContainer:{
+    textAlign: 'center',
+  },
+  image:{
+    height: 'auto',
+    width: '100%',
+  },
+  image:{
+    height: 'auto',
+    width: '70%',
+  },
  }));
 
 const LittleEinstein = () =>{
   const classes = useStyles();
 
 return(
-  <div id = 'LittleEinstein'>
-    <Grid xs={8} container direction='column' className={classes.infoContainer}>
-      <Paper>
+  <div id = 'LittleEinstein' className={classes.wrapper}>
+    <Grid xs ={10}  container direction='column' justify='space-around' className={classes.infoContainer}>
+      <Paper className={classes.paper}>
 
-      <Grid item>
+      <Grid item className={classes.imageContainer}>
         <figure>
-          <img src = {image1} alt = "" ></img>
+          <img className={classes.titleImage} src = {image1} alt = "" ></img>
         </figure>
       </Grid>
 
@@ -42,16 +66,16 @@ return(
         </p>
       </Grid>
 
-      <Grid item>
+      <Grid item className={classes.imageContainer}>
         <figure>
-          <img src = {image2} alt = "" ></img>
+          <img className={classes.image} src = {image2} alt = "" ></img>
           <figcaption><i>Mind-mapping of the Little Einstein website</i></figcaption>
         </figure>
       </Grid>
       
-      <Grid item>
+      <Grid item className={classes.imageContainer}>
         <figure>
-          <img src = {image3} alt = "" ></img>
+          <img className={classes.image} src = {image3} alt = "" ></img>
           <figcaption><i>Card sorting of potential products for the site</i></figcaption>
         </figure>
       </Grid>
@@ -60,16 +84,16 @@ return(
         <p>Next, we created a few user personas and a paper prototype in order to test our ideas:</p>
       </Grid>
 
-      <Grid item>
+      <Grid item className={classes.imageContainer}>
         <figure>
-          <img src = {image4} alt = "" ></img>
+          <img className={classes.image} src = {image4} alt = "" ></img>
           <figcaption><i>One of the user personas our team created</i></figcaption>
         </figure>
       </Grid>
 
-      <Grid item>
+      <Grid item className={classes.imageContainer}>
         <figure>
-          <img src = {image5} alt = "" ></img>
+          <img className={classes.image} src = {image5} alt = "" ></img>
           <figcaption><i>Paper prototype for Little Einstein Website</i></figcaption>
         </figure>
       </Grid>
@@ -78,9 +102,9 @@ return(
         <p>Through user feedback and testing, we created an improved interactive prototype:</p>
       </Grid>
 
-      <Grid item>
+      <Grid item className={classes.imageContainer}>
         <figure>
-          <img src = {image6} alt = "" ></img>
+          <img className={classes.image} src = {image6} alt = "" ></img>
           <figcaption><i>Interactive prototype</i></figcaption>
         </figure>
       </Grid>
@@ -92,7 +116,7 @@ return(
         Project members: Frank Wei, Jimmy Lauchoy, Angela Zhang
         </p>
       </Grid>
-      
+
       </Paper>
     </Grid>
   </div>

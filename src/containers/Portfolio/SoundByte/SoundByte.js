@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles, Grid } from '@material-ui/core';
-// import './SoundByte.scss';
 import image1 from './soundbyte_cover.jpg';
 import image2 from './soundbyte_hearingbrain.jpg';
 import image3 from './soundbyte_interview.jpg';
@@ -9,44 +8,63 @@ import image4 from './soundbyte_prototype.jpg';
 import Paper from '../../../components/Paper/Paper.js';
 
 export const useStyles = makeStyles(theme => ({
-  infoContainer: {
-   textAlign: 'center',
-   padding:'5em 0em 5em 0em',
-   margin: '0 auto 0 auto',
-   fontSize: '1em',
+  wrapper:{
+    overflow: 'hidden',
   },
-  titleImage:{
-    minWidth: '50%',
+  infoContainer: {
+   textAlign: 'justify',
+   padding:'5em 0em 5em 0em',
+   
+   [theme.breakpoints.up('md')]: {
+      fontSize: '1em',
+      margin: '0 auto',
+    },
+    [theme.breakpoints.down('md')]: {
+      fontSize: '0.7em',
+      margin: '0 auto 0 auto',
+    },
+  },
+  paper:{
+    padding: '2em 3em 2em 3em',
+    boxSizing: 'border-box',
+  },
+  imageContainer:{
+    textAlign: 'center',
+  },
+  image:{
+    height: 'auto',
+    width: '100%',
   },
  }));
 
 const SoundByte = () =>{
   const classes = useStyles();
 return(
-  <div id = 'SoundByte'>
-    <Grid xs={8} container direction='column' className={classes.infoContainer}>
-      <Paper>
-        <Grid item>
-          <figure className={classes.titleImage}>
-            <img src = {image1} alt = "" ></img>
+  <div id = 'SoundByte' className={classes.wrapper}>
+    <Grid xs ={10}  container direction='column' justify='space-around' className={classes.infoContainer}>
+      <Paper className={classes.paper}>
+        <Grid item className={classes.imageContainer}>
+          <figure>
+            <img className={classes.image} src = {image1} alt = "" ></img>
             <figcaption><i><a href='https://drive.google.com/file/d/1lfJUSzagWEyz3MyCXmyQlaNru7SgwdRf/view' rel="noopener noreferrer" target="_blank">Booklet Link</a></i></figcaption>
           </figure>
          </Grid>
+            
          <Grid item>
             <p>Over 460 million people in the world have disabling hearing loss, and every day people are exposed to dangerous sounds that put their hearing at risk. We want to create a product that both prevents hearing loss and helps those who already have it because we feel that hearing is one of, if not the most important, sense to human beings. It is what connects us, as a social species, to talk, to listen, and to understand.</p>
           </Grid>
-          <Grid item>
+          <Grid item className={classes.imageContainer}>
             <figure>
-              <img src = {image2} alt = "" ></img>
+              <img className={classes.image} src = {image2} alt = "" ></img>
               <figcaption><i>Hearing and the Brain Event, by HLAA</i></figcaption>
             </figure>
           </Grid>
           <Grid item>
             <p>Through interviews with construction workers, people with hearing loss, members of the Hearing Loss Association of America (HLAA), and even regular college students, we found potential scenarios and identified our users. For users on the hearing loss spectrum, we want our product to be equal to, if not better than, their current hearing aids. Rick Savadow, a board member of the HLAA, admits his own hearing aid often amplify the rumblings of HVACs and the booms of subway trains, irratating him. We also want to focus on users who frequently experience loud, hazardous noise (construction workers and airport service agents), the current solutions available are big, bulky earmuffs or small, foam earplugs. These two choices could be detrimental to proper communication among workers. We wanted to create a product catered to the needs of our users while also useful to those without hearing loss or not under constant stress of hazardous sounds. We wanted wearable technology our users can effortlessly use all day, like glasses, watches, phones, necklaces, or bracelets.</p>
           </Grid>  
-          <Grid item>
+          <Grid item className={classes.imageContainer}>
             <figure>
-              <img src = {image3} alt = "" ></img>
+              <img className={classes.image} src = {image3} alt = "" ></img>
               <figcaption><i>Interviewing Rick</i></figcaption>
             </figure>
           </Grid>
@@ -67,9 +85,9 @@ return(
               <br/>
               Based on our initial idea of smart noise-cancelling earbuds, we wanted to expand on the three functionalities of regular smart earbuds and to focus on functions of our product feature that can address problems our users often encounter in their daily lives. Soundbyte would partner with an app which would be the main interface of our idea. Users would have the power to quiet, or potentially even mute, uncomfortable noise. Or the app can automatically identify and suppress all hazardous sounds for a quick audio filter to prevent hearing damage. A “transformation” function would be available to those with hearing loss to amplify or lower specific frequencies into their hearing range.</p>
             </Grid>
-            <Grid item>
+            <Grid item className={classes.imageContainer}>
               <figure>
-                <img src = {image4} alt = "" ></img>
+                <img className={classes.image} src = {image4} alt = "" ></img>
                 <figcaption><i>Hi-fi prototype of earbuds</i></figcaption>
               </figure>
             </Grid>

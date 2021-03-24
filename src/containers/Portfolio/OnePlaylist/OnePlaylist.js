@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles, Grid } from '@material-ui/core';
-// import './OnePlaylist.scss';
 import image1 from './oneplaylist_get.png';
 import image2 from './oneplaylist_mapping.png';
 import Paper from '../../../components/Paper/Paper.js';

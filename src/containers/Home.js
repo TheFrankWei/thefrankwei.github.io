@@ -92,38 +92,38 @@ const Home = ({width}) => {
         >
           
           
-          <Grid item xs={12} className={classes.child}>
-          <ParallaxLayer offset={0} speed={0}>
-            <Welcome refProp={welcomeRef} id='Welcome'/>
+          <Grid item xs={12} className={classes.child} >
+          <ParallaxLayer offset={0} speed={0} id='Welcome'>
+            <Welcome refProp={welcomeRef} />
             </ParallaxLayer>
           </Grid>
           
           
           
-          <Grid item xs={12} className={classes.child}>
-          <ParallaxLayer offset={isMediumScreen? 1: 0.8} speed={0.4}>
-            <VisibilitySensor  partialVisibility minTopValue={250} delayedCall onChange={aboutChange}>
-              <About refProp={aboutRef} isVisible={isAboutVisible} id='About'/>
+          <Grid item xs={12} className={classes.child}  >
+          <ParallaxLayer offset={isMediumScreen? 1: 0.8} speed={0.4} id='About'>
+            <VisibilitySensor  partialVisibility minTopValue={250} delayedCall onChange={aboutChange} >
+              <About refProp={aboutRef} isVisible={isAboutVisible} />
             </VisibilitySensor>
             </ParallaxLayer>
  
           </Grid>
           
           
-          <Grid item xs={12} className={classes.child}>
-          <ParallaxLayer offset={isMediumScreen? 2.2 : 1.2} speed={0.5}>
+          <Grid item xs={12} className={classes.child} >
+          <ParallaxLayer offset={isMediumScreen? 2.2 : 1.2} speed={0.5} id='Portfolio'>
             <VisibilitySensor  partialVisibility minTopValue={225} delayedCall onChange={portfolioChange}>
-              <Portfolio refProp={portfolioRef} isVisible={isPortfolioVisible} id='Portfolio'/>
+              <Portfolio refProp={portfolioRef} isVisible={isPortfolioVisible} />
             </VisibilitySensor>
             </ParallaxLayer>
           </Grid>
           
 
           
-          <Grid item xs={12} className={classes.child}>
-          <ParallaxLayer offset={isMediumScreen? 3 : 1.9} speed={0.5}>
+          <Grid item xs={12} className={classes.child} >
+          <ParallaxLayer offset={isMediumScreen? 3 : 1.9} speed={0.5} id='Contact'>
             <VisibilitySensor partialVisibility minTopValue={250} delayedCall onChange={contactChange}>
-              <Contact refProp={contactRef} isVisible={isContactVisible} id='Contact'/>
+              <Contact refProp={contactRef} isVisible={isContactVisible} />
             </VisibilitySensor>
             </ParallaxLayer>
           </Grid>
