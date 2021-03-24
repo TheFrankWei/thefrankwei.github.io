@@ -87,7 +87,8 @@ export const useStyles = makeStyles(theme => ({
     float: 'right',
     // // fontFamily: `'Nunito', sans-serif`,
     fontFamily: `'Fira Sans', sans-serif`,
-    color: '#557282',
+    // color: '#557282',
+    color: '#112F41',
     [theme.breakpoints.down('md')]: {
       fontSize: 15,
     },
@@ -161,9 +162,9 @@ const About = ({isVisible, refProp, id}) => {
                   <animated.div style={aboutBioAnimation}>
                     <p>Thanks for visiting my website! My name is Frank Wei and I currently live in New York City. I love coding, designing, and combining the two to make awesome creations.</p>
                     <br/>
-                    <p>I built this site from scratch, taking design inspiration other cool sites as well as learning React along the way (Take a look at the code <a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/thefrankwei.github.io">here</a>). When I'm not coding you can find me out taking photos, at a concert, or exploring the city.</p>
+                    <p>I built this site from scratch, taking design inspiration other cool sites as well as learning React along the way -- try hovering over various elements! When I'm not coding you can find me out taking photos, at a concert, or exploring the city.</p>
                     <br/>
-                    <p>In this site, you can browse through my portfolio of design, projects and photography. Hope you enjoy!</p>
+                    <p>In this site, you can browse through my portfolio of design, projects and photography (take a look at the code <a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/thefrankwei.github.io">here</a>). Hope you enjoy!</p>
                   </animated.div>
               </Grid>
 
