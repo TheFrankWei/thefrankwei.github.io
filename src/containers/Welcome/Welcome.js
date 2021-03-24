@@ -129,11 +129,6 @@ const Welcome = ({id, refProp}) => {
                             from: {opacity: 0, marginLeft: 150,}})
     
     const labelRef = useRef();
-    // const labelAnimation = useTrail(labels.length, {
-    //   ref: labelRef,
-    //   opacity: 0.75,
-    //   from: { opacity: 0 },
-    // })
     
     const labelWrapperRef = useRef();
     const labelWrapperAnimation = useSpring({opacity: 1, marginLeft:0,
@@ -176,12 +171,6 @@ const Welcome = ({id, refProp}) => {
                </Grid> 
 
             <Grid item xs={12} className={classes.gridBreak}></Grid>
-            {/* <Grid item xs = {12} sm={11} className={classes.labels}>
-              {labelAnimation.map(({...rest}, index) =>(
-                <animated.span style={{...rest}}>{labels[index]}</animated.span>
-              ))
-              }
-            </Grid> */}
 
               <Grid item xs = {12} >
                 <animated.div style={labelWrapperAnimation} className={classes.labelWrapper}>

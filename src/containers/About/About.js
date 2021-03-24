@@ -2,7 +2,7 @@ import React, { useRef }  from 'react';
 import Letter from './../../components/Letter/Letter.js';
 import Portrait from './../../images/portrait.jpg';
 import { useSpring, useChain, animated } from 'react-spring';
-import { makeStyles, Grid, Paper, } from '@material-ui/core';
+import { makeStyles, Grid, } from '@material-ui/core';
 
 export const useStyles = makeStyles(theme => ({
   about:{
@@ -85,7 +85,7 @@ export const useStyles = makeStyles(theme => ({
   },
   bio: {
     float: 'right',
-    // fontFamily: `'Nunito', sans-serif`,
+    // // fontFamily: `'Nunito', sans-serif`,
     fontFamily: `'Fira Sans', sans-serif`,
     color: '#557282',
     [theme.breakpoints.down('md')]: {
@@ -157,14 +157,14 @@ const About = ({isVisible, refProp, id}) => {
                 </animated.div>
               </Grid>
             
-              <Grid item xs={12} sm ={6} md={8} xl={9} className = {classes.bio}>
-                <animated.div style={aboutBioAnimation}>
-                  <p>Thanks for visiting my website! My name is Frank Wei and I currently live in New York City. I love coding, designing, and combining the two to make awesome creations.</p>
-                  <br/>
-                  <p>I built this site from scratch, taking design inspiration other cool sites as well as learning React along the way (Take a look at the code <a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/thefrankwei.github.io">here</a>). When I'm not coding you can find me out taking photos, at a concert, or exploring the city.</p>
-                  <br/>
-                  <p>In this site, you can browse through my portfolio of design, projects and photography. Hope you enjoy!</p>
-                </animated.div>
+              <Grid item xs={12} sm ={6} md={8} xl={9} className = {classes.bio} >
+                  <animated.div style={aboutBioAnimation}>
+                    <p>Thanks for visiting my website! My name is Frank Wei and I currently live in New York City. I love coding, designing, and combining the two to make awesome creations.</p>
+                    <br/>
+                    <p>I built this site from scratch, taking design inspiration other cool sites as well as learning React along the way (Take a look at the code <a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/thefrankwei.github.io">here</a>). When I'm not coding you can find me out taking photos, at a concert, or exploring the city.</p>
+                    <br/>
+                    <p>In this site, you can browse through my portfolio of design, projects and photography. Hope you enjoy!</p>
+                  </animated.div>
               </Grid>
 
             </Grid>

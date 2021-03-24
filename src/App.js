@@ -12,7 +12,6 @@ const App = () => {
     <React.Fragment>
       <Background/>
     <BrowserRouter>
-    
       <ThemeProvider theme={theme}>
         {/* <Nav/> */}
         <NavBar/>

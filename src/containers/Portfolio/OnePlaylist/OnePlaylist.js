@@ -1,12 +1,25 @@
 import React from 'react';
-import './OnePlaylist.scss';
+import { makeStyles, Grid } from '@material-ui/core';
+// import './OnePlaylist.scss';
 import image1 from './oneplaylist_get.png';
 import image2 from './oneplaylist_mapping.png';
+import Paper from '../../../components/Paper/Paper.js';
 
+export const useStyles = makeStyles(theme => ({
+  infoContainer: {
+   textAlign: 'center',
+   padding:'5em 0em 5em 0em',
+   margin: '0 auto 0 auto',
+   fontSize: '1em',
+  }
+ }));
 
 const OnePlaylist = () =>{
+  const classes = useStyles();
+
 return(
-  <div className = 'OnePlaylist'>
+  <div id = 'OnePlaylist'>
+    <Paper>
     <h1>OnePlaylist (WIP)</h1>
     <p>CRUD webapp using AWS services and Node.js being made to help me learn and practice using AWS while I look for a job. Allows users to add songs onto the site to create one giant music playlist.
 
@@ -33,8 +46,7 @@ return(
       <img src = {image2} alt = "" ></img>
       <figcaption><i></i></figcaption>
     </figure>
-
-
+    </Paper>
   </div>
 )
 }
