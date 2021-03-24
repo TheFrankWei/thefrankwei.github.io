@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/static/js/main.ce29ef1d.chunk.js",
-    "main.js.map": "/static/js/main.ce29ef1d.chunk.js.map",
+    "main.js": "/static/js/main.f3700ea5.chunk.js",
+    "main.js.map": "/static/js/main.f3700ea5.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.9bdd8a62.js",
     "runtime-main.js.map": "/static/js/runtime-main.9bdd8a62.js.map",
     "static/js/2.614dfe6e.chunk.js": "/static/js/2.614dfe6e.chunk.js",
@@ -9,7 +9,7 @@
     "index.html": "/index.html",
     "static/js/2.614dfe6e.chunk.js.LICENSE.txt": "/static/js/2.614dfe6e.chunk.js.LICENSE.txt",
     "static/media/article.cf3de32c.svg": "/static/media/article.cf3de32c.svg",
-    "static/media/externalLink.a6ab588c.svg": "/static/media/externalLink.a6ab588c.svg",
+    "static/media/externalLink.90a53ad9.svg": "/static/media/externalLink.90a53ad9.svg",
     "static/media/flickr.a352ce44.svg": "/static/media/flickr.a352ce44.svg",
     "static/media/github.dafccc60.svg": "/static/media/github.dafccc60.svg",
     "static/media/liftspotter_account.c14368d5.png": "/static/media/liftspotter_account.c14368d5.png",
@@ -40,6 +40,6 @@
   "entrypoints": [
     "static/js/runtime-main.9bdd8a62.js",
     "static/js/2.614dfe6e.chunk.js",
-    "static/js/main.ce29ef1d.chunk.js"
+    "static/js/main.f3700ea5.chunk.js"
   ]
 }
