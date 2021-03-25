@@ -14,6 +14,9 @@ export const useStyles = makeStyles(theme => ({
       // scrollSnapStop: 'always',
       // minHeight:'100vh',
     },
+    contact:{
+      pointerEvents: 'none',
+    },
 }));
 
 const Home = ({width}) => {
@@ -82,53 +85,61 @@ const Home = ({width}) => {
 
     return (
       // <div className={classes.container} onScroll={executeScroll}>
-      <React.Fragment >
+      <React.Fragment>
       <Parallax pages={isMediumScreen? 5.6: 2.6} ref={ref => (parallax = ref)}>
-        <Grid container
+        {/* <Grid container
               direction = "column"
               justify="space-around"
               className={classes.container}
               id="Home"
-        >
+        > */}
           
           
-          <Grid item xs={12} className={classes.child} >
-          <ParallaxLayer offset={0} speed={0} id='Welcome'>
+          
+          <ParallaxLayer offset={0} factor={1} speed={0} id='Welcome'>
+          {/* <Grid item xs={12} className={classes.child} > */}
             <Welcome refProp={welcomeRef} />
+            {/* </Grid> */}
+          
             </ParallaxLayer>
-          </Grid>
           
           
           
-          <Grid item xs={12} className={classes.child}  >
-          <ParallaxLayer offset={isMediumScreen? 1: 0.8} speed={0.4} id='About'>
+          
+          <ParallaxLayer offset={isMediumScreen? 1: 0.8} factor={1.4} speed={0.4} id='About'>
+          {/* <Grid item xs={12} className={classes.child}  > */}
             <VisibilitySensor  partialVisibility minTopValue={250} delayedCall onChange={aboutChange} >
               <About refProp={aboutRef} isVisible={isAboutVisible} />
             </VisibilitySensor>
+            {/* </Grid> */}
             </ParallaxLayer>
  
-          </Grid>
           
           
-          <Grid item xs={12} className={classes.child} >
-          <ParallaxLayer offset={isMediumScreen? 2.2 : 1.2} speed={0.5} id='Portfolio'>
+          
+          
+          <ParallaxLayer offset={isMediumScreen? 2.2 : 1.2} factor={1.5} speed={0.5} id='Portfolio'>
+          {/* <Grid item xs={12} className={classes.child} > */}
             <VisibilitySensor  partialVisibility minTopValue={225} delayedCall onChange={portfolioChange}>
               <Portfolio refProp={portfolioRef} isVisible={isPortfolioVisible} />
             </VisibilitySensor>
+            {/* </Grid> */}
             </ParallaxLayer>
-          </Grid>
+          
           
 
           
-          <Grid item xs={12} className={classes.child} >
-          <ParallaxLayer offset={isMediumScreen? 3 : 1.9} speed={0.5} id='Contact'>
+          
+          <ParallaxLayer offset={isMediumScreen? 3 : 1.9} factor={1.5} speed={0.5} id='Contact' className={classes.contact}>
+          {/* <Grid item xs={12} className={classes.child} > */}
             <VisibilitySensor partialVisibility minTopValue={250} delayedCall onChange={contactChange}>
               <Contact refProp={contactRef} isVisible={isContactVisible} />
             </VisibilitySensor>
+            {/* </Grid> */}
             </ParallaxLayer>
-          </Grid>
+          
          
-        </Grid>
+        {/* </Grid> */}
         </Parallax>
         </React.Fragment>
     );

@@ -27,6 +27,7 @@ export const useStyles = makeStyles(theme => ({
   },
   contact_icons:{
     textAlign: 'center',
+    pointerEvents: 'auto',
   },
 }));
 
