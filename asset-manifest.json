@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/static/js/main.c0d569c3.chunk.js",
-    "main.js.map": "/static/js/main.c0d569c3.chunk.js.map",
+    "main.js": "/static/js/main.243dbb79.chunk.js",
+    "main.js.map": "/static/js/main.243dbb79.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.9bdd8a62.js",
     "runtime-main.js.map": "/static/js/runtime-main.9bdd8a62.js.map",
     "static/js/2.d213be03.chunk.js": "/static/js/2.d213be03.chunk.js",
     "static/js/2.d213be03.chunk.js.map": "/static/js/2.d213be03.chunk.js.map",
     "index.html": "/index.html",
     "static/js/2.d213be03.chunk.js.LICENSE.txt": "/static/js/2.d213be03.chunk.js.LICENSE.txt",
-    "static/media/article.a9995496.svg": "/static/media/article.a9995496.svg",
-    "static/media/externalLink.13cfa8b3.svg": "/static/media/externalLink.13cfa8b3.svg",
-    "static/media/flickr.e0c28ca2.svg": "/static/media/flickr.e0c28ca2.svg",
-    "static/media/github.4dd82b16.svg": "/static/media/github.4dd82b16.svg",
+    "static/media/article.cf3de32c.svg": "/static/media/article.cf3de32c.svg",
+    "static/media/externalLink.a6ab588c.svg": "/static/media/externalLink.a6ab588c.svg",
+    "static/media/flickr.a352ce44.svg": "/static/media/flickr.a352ce44.svg",
+    "static/media/github.dafccc60.svg": "/static/media/github.dafccc60.svg",
     "static/media/liftspotter_account.c14368d5.png": "/static/media/liftspotter_account.c14368d5.png",
     "static/media/liftspotter_addroutine.ac7f49a2.png": "/static/media/liftspotter_addroutine.ac7f49a2.png",
     "static/media/liftspotter_addworkout.abf37a69.png": "/static/media/liftspotter_addworkout.abf37a69.png",
@@ -41,6 +41,6 @@
   "entrypoints": [
     "static/js/runtime-main.9bdd8a62.js",
     "static/js/2.d213be03.chunk.js",
-    "static/js/main.c0d569c3.chunk.js"
+    "static/js/main.243dbb79.chunk.js"
   ]
 }
