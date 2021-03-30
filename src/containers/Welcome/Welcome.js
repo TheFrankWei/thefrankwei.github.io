@@ -76,7 +76,7 @@ export const useStyles = makeStyles(theme => ({
         // textAlign: 'left',
         // right:'-60%',
         // right:'-50%',
-        right:'-16em',
+        right:'-20em',
         // position: 'relative',
         // position: 'absolute',
         fontSize: '40px',
