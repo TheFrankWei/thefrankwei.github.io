@@ -9,12 +9,12 @@ import OnePlaylist from './containers/Portfolio/OnePlaylist/OnePlaylist.js';
 
 const Router = () => (
     <Switch>
-        <Route path='/' exact component = {Home} />
         <Route path='/Portfolio/QRFound' exact component={QRFound}/>
         <Route path='/Portfolio/LiftSpotter' exact component={LiftSpotter}/>
         <Route path='/Portfolio/SoundByte' exact component={SoundByte}/>
         <Route path='/Portfolio/LittleEinstein' exact component={LittleEinstein}/>
         <Route path='/Portfolio/OnePlaylist' exact component={OnePlaylist}/>
+        <Route path='/' component = {Home} />
     </Switch>
 );
 

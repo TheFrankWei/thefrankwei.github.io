@@ -22,6 +22,7 @@ export const useStyles = makeStyles(theme => ({
     },
   },
   contact_title:{
+    pointerEvents: 'auto',
     display: 'block',
     textAlign: 'center',
   },

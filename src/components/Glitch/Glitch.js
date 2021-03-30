@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import classNames from 'classnames';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 export const useStyles = makeStyles(theme => ({
     '@keyframes glitch': {
@@ -60,15 +61,24 @@ export const useStyles = makeStyles(theme => ({
         /* color: red; */
         opacity: 0.8,
     },
+    prefersReducedMotion: {
+        animationDelay: '-1ms !important',
+        animationDuration: '1ms !important',
+        animationIterationCount: '1 !important',
+        backgroundAttachment: 'initial !important',
+        scrollBehavior: 'auto !important',
+        transitionDuration: '0s !important',
+        transitionDelay: '0s !important',
+    }
 }));
 
 
 
 const Glitch = (props) => {
     const classes = useStyles();
-
+    const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
     return(
-        <span className={classes.glitch}>
+        <span className={prefersReducedMotion? classNames(classes.glitch, classes.prefersReducedMotion) : classes.glitch}>
             <span aria-hidden='true' className={classNames(classes.glitch, classes.glitch_span, classes.firstChild)}>
                 {props.children}
             </span>

@@ -1,5 +1,6 @@
 import React, {useState, useRef} from 'react';
 // import { HashLink as Link } from 'react-router-hash-link';
+import { useHistory } from 'react-router-dom';
 import { NavHashLink } from 'react-router-hash-link';
 import { makeStyles, Grid, IconButton, Backdrop } from '@material-ui/core';
 import {useSpring, animated} from 'react-spring'
@@ -19,7 +20,7 @@ export const useStyles = makeStyles(theme => ({
     },
     NavButton: {
         margin: '0em 1em 0em 0em',
-  
+        float: 'right',
     },
     NavMenu: {
         minHeight: '100vh',
@@ -46,11 +47,13 @@ export const useStyles = makeStyles(theme => ({
 
 const SideMenu = () => {
     const classes = useStyles();
-  
+    const history = useHistory();
+
+    const clearHistory = () => {history.push('/')};
       return(
         <Grid container direction='column'  className={classes.NavMenu}>
             <Grid item className={classes.NavItem}>
-               <NavHashLink smooth to='/#Home'>Home</NavHashLink>
+               <NavHashLink smooth to='/'>Home</NavHashLink>
             </Grid>  
             <Grid item className={classes.NavItem}>
                 <NavHashLink smooth to='/#About'>About</NavHashLink>
@@ -88,7 +91,7 @@ const navMenuAnimation = useSpring({
   const AnimatedGrid = animated(Grid);
 
     return(
-    <Grid container directon='column' alignItems='flex-end' className={classes.Nav}>
+    <Grid container directon='column' justify='flex-end' alignItems='flex-end' className={classes.Nav}>
         
         <Grid item xs={12} className={classes.NavBar}>
             <IconButton className={classes.NavButton} onClick={()=> setMenu(!menuOpen)}>

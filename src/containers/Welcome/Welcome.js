@@ -74,7 +74,9 @@ export const useStyles = makeStyles(theme => ({
       [theme.breakpoints.up('md')]: {
         // textAlign: 'right', //for animated labels
         // textAlign: 'left',
-        right:'-60%',
+        // right:'-60%',
+        // right:'-50%',
+        right:'-16em',
         // position: 'relative',
         // position: 'absolute',
         fontSize: '40px',
@@ -85,7 +87,8 @@ export const useStyles = makeStyles(theme => ({
       },
       [theme.breakpoints.down('sm')]: {
         fontSize: '12px',
-        right:'-40%',
+        // right:'-40%'
+        right:'-10em',
         // paddingTop:'10%',
         // minWidth: '100vw',
         // textAlign: 'center',
@@ -93,7 +96,8 @@ export const useStyles = makeStyles(theme => ({
       [theme.breakpoints.between('sm','md')]: {
         // textAlign: 'right',
         fontSize: '12px',
-        right:'-50%',
+        right:'-28em',
+        // right:'-50%',
         // bottom: '20%',
         // right: '10%',
       },
