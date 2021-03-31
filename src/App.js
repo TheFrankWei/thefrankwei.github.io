@@ -13,8 +13,8 @@ const App = () => {
       <Background/>
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        {/* <Nav/> */}
-        <NavBar/>
+        <Nav/>
+        {/* <NavBar/> */}
         <Router />
       </ThemeProvider>
     </BrowserRouter>

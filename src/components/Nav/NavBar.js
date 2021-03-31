@@ -1,6 +1,5 @@
 import React, {useState, useRef} from 'react';
 // import { HashLink as Link } from 'react-router-hash-link';
-import { useHistory } from 'react-router-dom';
 import { NavHashLink } from 'react-router-hash-link';
 import { makeStyles, Grid, IconButton, Backdrop } from '@material-ui/core';
 import {useSpring, animated} from 'react-spring'
@@ -47,13 +46,12 @@ export const useStyles = makeStyles(theme => ({
 
 const SideMenu = () => {
     const classes = useStyles();
-    const history = useHistory();
+    //this.parallax.scrollTo //somehow pass refs into here
 
-    const clearHistory = () => {history.push('/')};
       return(
         <Grid container direction='column'  className={classes.NavMenu}>
             <Grid item className={classes.NavItem}>
-               <NavHashLink smooth to='/'>Home</NavHashLink>
+               <NavHashLink smooth to='/#Home'>Home</NavHashLink>
             </Grid>  
             <Grid item className={classes.NavItem}>
                 <NavHashLink smooth to='/#About'>About</NavHashLink>

@@ -55,9 +55,9 @@ const Home = ({width}) => {
     return (
 
       <React.Fragment>
-      <Parallax pages={isMediumScreen? 5.7: 2.6} ref={ref => (parallax = ref)}>
+      <Parallax pages={isMediumScreen? 5.7: 2.6} ref={ref => (parallax = ref)} >
           
-          <ParallaxLayer offset={0.05} factor={1} speed={0} id='Welcome' onScroll={e => e.stopPropagation()}>
+          <ParallaxLayer offset={0} factor={1} speed={0} id='Home' onScroll={e => e.stopPropagation()}>
             <Welcome refProp={welcomeRef} />
           </ParallaxLayer>
           
