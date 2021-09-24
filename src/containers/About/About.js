@@ -39,7 +39,7 @@ export const useStyles = makeStyles(theme => ({
     // paddingTop:'10%',
     fontSize:'100',
   },
-  portrait: {
+  portraitWrapper: {
     display: 'flex',
 
     [theme.breakpoints.up('sm')]: {
@@ -54,9 +54,10 @@ export const useStyles = makeStyles(theme => ({
       borderRadius: '50%',
       transition: '0.70s',
       verticalAlign: 'middle',
-      height: 'auto',
       [theme.breakpoints.up('md')]: {
         border: '20px solid #4FB99F',
+        width:'auto',
+        height: 'auto',
       },
       [theme.breakpoints.down('md')]: {
         border: '15px solid #4FB99F',
@@ -69,6 +70,10 @@ export const useStyles = makeStyles(theme => ({
         transform: 'rotate(360deg)',
       }
     },
+  },
+  portrait:{
+    width: 'auto',
+    height: 'auto',
   },
   bioWrapper: {
     [theme.breakpoints.up('lg')]: {
@@ -132,8 +137,6 @@ const About = ({isVisible, refProp, id}) => {
                                 'border-radius': '2rem',
                                 'border': '1px solid rgba(255, 255, 255, 0.125)',
                         }})                             
-  
-  // const AnimatedGrid = animated(Grid);
 
   useChain([aboutTitleRef, aboutPicRef, aboutBioRef], [0,1,1.5])
     return (
@@ -152,9 +155,9 @@ const About = ({isVisible, refProp, id}) => {
 
             <Grid item container direction = 'row' className = {classes.bioWrapper}>
 
-              <Grid item xs={12} sm={5} md={4} className ={classes.portrait}>
+              <Grid item xs={12} sm={5} md={4} className ={classes.portraitWrapper}>
                 <animated.div style={aboutPicAnimation}>
-                <img  src={Portrait} alt="this is me"/>
+                <img className= {classes.portrait} src={Portrait} alt="this is me"/>
                 </animated.div>
               </Grid>
             
@@ -164,7 +167,7 @@ const About = ({isVisible, refProp, id}) => {
                     <br/>
                     <p>I built this site from scratch, taking design inspiration other cool sites as well as learning React along the way -- try hovering over various elements! When I'm not coding you can find me out taking photos, at a concert, or exploring the city.</p>
                     <br/>
-                    <p>In this site, you can browse through my portfolio of design, projects and photography (take a look at the code <a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/thefrankwei.github.io">here</a>). Hope you enjoy!</p>
+                    <p>In this site, you can browse through my portfolio of design, projects and photography (take a look at the <a target="_blank" rel="noopener noreferrer" aria-label='link-to-github-repo' href = "https://github.com/TheFrankWei/thefrankwei.github.io">Github repo</a>). Hope you enjoy!</p>
                   </animated.div>
               </Grid>
 

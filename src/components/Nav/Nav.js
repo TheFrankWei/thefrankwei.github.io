@@ -1,9 +1,6 @@
-import React, {useState, useRef} from 'react';
-// import { HashLink as Link } from 'react-router-hash-link';
-import { Link, useHistory } from 'react-router-dom';
+import React from 'react';
 import { NavHashLink } from 'react-router-hash-link';
-import { makeStyles, Grid, IconButton, Backdrop } from '@material-ui/core';
-import {useSpring, animated} from 'react-spring'
+import { makeStyles, Grid, IconButton,} from '@material-ui/core';
 
 import HomeIcon from '@material-ui/icons/Home';
 
@@ -34,8 +31,8 @@ const NavBar = () => {
     <Grid container directon='column' justify='flex-end' alignItems='flex-end' className={classes.Nav}>
         
         <Grid item xs={12} className={classes.NavBar}>
-            <IconButton className={classes.NavButton}>
-                <NavHashLink smooth to='/#Home'><HomeIcon className={classes.icon}/></NavHashLink>
+            <IconButton className={classes.NavButton} aria-label='home-button'>
+                <NavHashLink smooth to='/#Home' aria-label='link-to-home'><HomeIcon className={classes.icon}/></NavHashLink>
             </IconButton>
         </Grid>
     

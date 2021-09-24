@@ -1,5 +1,4 @@
 import React, {useState, useRef} from 'react';
-// import { HashLink as Link } from 'react-router-hash-link';
 import { NavHashLink } from 'react-router-hash-link';
 import { makeStyles, Grid, IconButton, Backdrop } from '@material-ui/core';
 import {useSpring, animated} from 'react-spring'

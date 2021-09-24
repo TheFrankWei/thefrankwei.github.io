@@ -10,6 +10,21 @@ import Grid from '@material-ui/core/Grid';
 
 export default [
   {
+    title: 'To Do List',
+    description: 'A To-do list made with React/CSS/HTML',
+    links:(
+      <Grid container direction='row' alignItems='center' justify='space-evenly'>
+        <Grid item>
+          <div>Link:</div>
+          <span><a target="_blank" rel="noopener noreferrer" href = "https://thefrankwei.github.io/todo-list"><img src={externalLink} alt='link to site'/></a></span>
+        </Grid>
+        <Grid item>
+          <div>Github:</div>
+          <span><a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/todo-list"><img src={GitHub} alt='Github Link'/></a></span>
+        </Grid>
+      </Grid>),
+  },
+  {
     title: 'Deliveries.dev',
     description: ' Web-app to track your packages!',
     links:(

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, } from 'react-router-dom';
 import Home from './containers/Home.js';
 import QRFound from './containers/Portfolio/QRFound/QRFound.js';
 import LiftSpotter from './containers/Portfolio/LiftSpotter/LiftSpotter.js';
