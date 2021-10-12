@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { makeStyles, Button, Backdrop, Modal } from '@material-ui/core';
-import PortalModal from './PortalModal';
-import LiftSpotter from './../../containers/Portfolio/LiftSpotter/LiftSpotter';
 
 export const useStyles = makeStyles(theme => ({
    Modal: {
