@@ -6,13 +6,6 @@ import LaunchIcon from '@material-ui/icons/Launch';
 import InfoIcon from '@material-ui/icons/Info';
 import OpenInBrowserIcon from '@material-ui/icons/OpenInBrowser';
 
-import externalLink from './../../images/externalLink.svg';
-import GitHub from './../../images/github.svg';
-
-
-import Article from './../../images/article.svg'
-import Wireframe from './../../images/wireframe.svg';
-import Flickr from './../../images/flickr.svg'
 import Grid from '@material-ui/core/Grid';
 
 
