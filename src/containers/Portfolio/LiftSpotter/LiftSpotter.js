@@ -1,11 +1,11 @@
 import React from 'react';
-import { makeStyles, Grid } from '@material-ui/core';
+import { makeStyles, Grid, IconButton } from '@material-ui/core';
 import image1 from './liftspotter_login.png';
 import image2 from './liftspotter_addroutine.png';
 import image3 from './liftspotter_addworkout.png';
 import image4 from './liftspotter_account.png';
 import image5 from './liftspotter_community.png';
-
+import CloseIcon from '@material-ui/icons/Close';
 import Paper from '../../../components/Paper/Paper.js';
 
 export const useStyles = makeStyles(theme => ({
@@ -14,15 +14,14 @@ export const useStyles = makeStyles(theme => ({
   },
   infoContainer: {
    textAlign: 'justify',
-   padding:'5em 0em 5em 0em',
    
    [theme.breakpoints.up('md')]: {
       fontSize: '1em',
-      margin: '0 auto',
+      margin: '5em auto',
     },
     [theme.breakpoints.down('md')]: {
       fontSize: '0.7em',
-      margin: '0 auto 0 auto',
+      margin: '5em auto 5em auto',
     },
   },
   paper:{
@@ -44,9 +43,10 @@ const LiftSpotter = () =>{
 
 return(
   <div id = 'LiftSpotter' className={classes.wrapper}>
+    
     <Grid xs ={10}  container direction='column' justify='space-around' className={classes.infoContainer}>
+    
       <Paper className={classes.paper}>
-
         <Grid item className={classes.imageContainer}>
         <h1>LiftSpotter</h1>
         <p>Webapp allowing users to create workout routines and share them with the community</p>

@@ -13,15 +13,15 @@ export const useStyles = makeStyles(theme => ({
   },
   infoContainer: {
    textAlign: 'justify',
-   padding:'5em 0em 5em 0em',
+
    
    [theme.breakpoints.up('md')]: {
       fontSize: '1em',
-      margin: '0 auto',
+      margin: '5em auto',
     },
     [theme.breakpoints.down('md')]: {
       fontSize: '0.7em',
-      margin: '0 auto 0 auto',
+      margin: '5em auto 5em auto',
     },
   },
   paper:{
