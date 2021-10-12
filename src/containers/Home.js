@@ -31,12 +31,17 @@ const Home = ({width}) => {
     const [isAboutVisible, setAboutVisibility] = useState(false);
     const [isPortfolioVisible, setPortfolioVisibility] = useState(false);
     const [isContactVisible, setContactVisibility] = useState(false);
-    
+    const [innerWindow, setWindow] = useState({width: 0, height: 0});
+
     const refArray = [welcomeRef, aboutRef, portfolioRef, contactRef];
 
     useEffect(()=>{
-      history.push('/');
-    },[])
+      window.addEventListener('resize', updateWindowDimensions)
+    },[window])
+
+    let updateWindowDimensions = () => {
+      setWindow({width: window.innerWidth, height: window.innerHeight})
+    }
 
     const aboutChange = isVisible => {
       isVisible && setAboutVisibility(isVisible);
