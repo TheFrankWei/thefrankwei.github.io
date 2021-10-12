@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import ModalButton from '../../components/Modal/ModalButton';
 
 import externalLink from './../../images/externalLink.svg';
 import GitHub from './../../images/github.svg';
@@ -7,6 +8,12 @@ import Article from './../../images/article.svg'
 import Wireframe from './../../images/wireframe.svg';
 import Flickr from './../../images/flickr.svg'
 import Grid from '@material-ui/core/Grid';
+
+
+import LiftSpotter from './LiftSpotter/LiftSpotter';
+import QRFound from './QRFound/QRFound';
+import SoundByte from './SoundByte/SoundByte';
+import LittleEinstein from './LittleEinstein/LittleEinstein';
 
 export default [
   {
@@ -46,7 +53,8 @@ export default [
     <Grid container direction='row' alignItems='center' justify='space-evenly'>
       <Grid item>
         <div>Info:</div>
-      <span><Link to='/Portfolio/LiftSpotter'><img src={Article} alt='read more'/></Link></span>
+      {/* <span><Link to='/Portfolio/LiftSpotter'><img src={Article} alt='read more'/></Link></span> */}
+      <span><ModalButton page={<LiftSpotter/>}><img src={Article} alt='read more'/></ModalButton></span>
       </Grid>
       <Grid item>
       <div>Github:</div>
@@ -60,7 +68,7 @@ export default [
       <Grid container direction='row' alignItems='center' justify='space-evenly'>
         <Grid item>
           <div>Info:</div>
-          <span><Link to='/Portfolio/QRFound'><img src={Article} alt='read more'/></Link></span>
+          <span><ModalButton page={<QRFound/>}><img src={Article} alt='read more'/></ModalButton></span>
         </Grid>
         <Grid item>
           <div>Github:</div>
@@ -86,7 +94,7 @@ export default [
       <Grid container direction='row' alignItems='center' justify='space-evenly'>
         <Grid item>
           <div>Info:</div>
-          <span><Link to='/Portfolio/SoundByte'><img src={Article} alt='read more'/></Link></span>
+          <span><ModalButton page={<SoundByte/>}><img src={Article} alt='read more'/></ModalButton></span>
         </Grid>
         <Grid item>
           <div>Invision:</div>
@@ -100,7 +108,7 @@ export default [
       <Grid container direction='row' alignItems='center' justify='space-evenly'>
         <Grid item>
         <div>Info:</div>
-        <span><Link to='/Portfolio/LittleEinstein'><img src={Article} alt='read more'/></Link></span>
+        <span><ModalButton page={<LittleEinstein/>}><img src={Article} alt='read more'/></ModalButton></span>
         </Grid>
       </Grid>)
 }, {

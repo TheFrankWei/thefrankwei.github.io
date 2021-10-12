@@ -1,5 +1,5 @@
 import React, {useState, useRef, useEffect} from 'react';
-import { makeStyles, withWidth } from '@material-ui/core';
+import { makeStyles, withWidth,} from '@material-ui/core';
 import Welcome from './Welcome/Welcome.js';
 import About from './About/About.js';
 import Portfolio from './Portfolio/Portfolio.js';
@@ -85,6 +85,8 @@ const Home = ({width}) => {
           </ParallaxLayer>
 
         </Parallax>
+
+       
         </React.Fragment>
     );
 };
