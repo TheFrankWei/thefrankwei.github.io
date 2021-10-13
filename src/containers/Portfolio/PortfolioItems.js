@@ -14,6 +14,13 @@ import QRFound from './QRFound/QRFound';
 import SoundByte from './SoundByte/SoundByte';
 import LittleEinstein from './LittleEinstein/LittleEinstein';
 
+
+const iconSize = {
+                  fontSize: '2.4em',
+                  color: '#2b3a42',
+                  marginTop: '0.1em',
+                  };  
+
 const PortfolioItems = [
   {
     title: 'To Do List',
@@ -22,11 +29,11 @@ const PortfolioItems = [
       <Grid container direction='row' alignItems='center' justify='space-evenly'>
         <Grid item>
           <div>Link:</div>
-          <span><a target="_blank" rel="noopener noreferrer" href = "https://thefrankwei.github.io/todo-list"><LaunchIcon/></a></span>
+          <span><a target="_blank" rel="noopener noreferrer" href = "https://thefrankwei.github.io/todo-list"><LaunchIcon style={iconSize} /></a></span>
         </Grid>
         <Grid item>
           <div>Github:</div>
-          <span><a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/todo-list"><GitHubIcon/></a></span>
+          <span><a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/todo-list"><GitHubIcon style={iconSize}/></a></span>
         </Grid>
       </Grid>),
   },
@@ -37,11 +44,11 @@ const PortfolioItems = [
       <Grid container direction='row' alignItems='center' justify='space-evenly'>
         <Grid item>
           <div>Link:</div>
-          <span><a target="_blank" rel="noopener noreferrer" href = "https://www.deliveries.dev/"><LaunchIcon/></a></span>
+          <span><a target="_blank" rel="noopener noreferrer" href = "https://www.deliveries.dev/"><LaunchIcon style={iconSize}/></a></span>
         </Grid>
         <Grid item>
           <div>Github:</div>
-          <span><a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/mailtracker"><GitHubIcon/></a></span>
+          <span><a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/mailtracker"><GitHubIcon style={iconSize}/></a></span>
         </Grid>
       </Grid>),
   },
@@ -53,11 +60,11 @@ const PortfolioItems = [
       <Grid item>
         <div>Info:</div>
       {/* <span><Link to='/Portfolio/LiftSpotter'><InfoIcon/></Link></span> */}
-      <span><ModalButton page={<LiftSpotter/>}><InfoIcon/></ModalButton></span>
+      <span><ModalButton page={<LiftSpotter/>}><InfoIcon style={iconSize}/></ModalButton></span>
       </Grid>
       <Grid item>
       <div>Github:</div>
-      <span><a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/LiftSpotter"><GitHubIcon/></a></span>
+      <span><a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/LiftSpotter"><GitHubIcon style={iconSize}/></a></span>
       </Grid>
     </Grid>)
 }, {
@@ -67,11 +74,11 @@ const PortfolioItems = [
       <Grid container direction='row' alignItems='center' justify='space-evenly'>
         <Grid item>
           <div>Info:</div>
-          <span><ModalButton page={<QRFound/>}><InfoIcon/></ModalButton></span>
+          <span><ModalButton page={<QRFound/>}><InfoIcon style={iconSize}/></ModalButton></span>
         </Grid>
         <Grid item>
           <div>Github:</div>
-          <span><a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/QRFound"><GitHubIcon/></a></span>
+          <span><a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/QRFound"><GitHubIcon style={iconSize}/></a></span>
         </Grid>
       </Grid>), 
 },
@@ -93,11 +100,11 @@ const PortfolioItems = [
       <Grid container direction='row' alignItems='center' justify='space-evenly'>
         <Grid item>
           <div>Info:</div>
-          <span><ModalButton page={<SoundByte/>}><InfoIcon/></ModalButton></span>
+          <span><ModalButton page={<SoundByte/>}><InfoIcon style={iconSize}/></ModalButton></span>
         </Grid>
         <Grid item>
           <div>Invision:</div>
-          <span><a target="_blank" rel="noopener noreferrer" href="https://projects.invisionapp.com/share/ZQHWMH78S4N#/screens/293059953"><OpenInBrowserIcon/></a></span>
+          <span><a target="_blank" rel="noopener noreferrer" href="https://projects.invisionapp.com/share/ZQHWMH78S4N#/screens/293059953"><LaunchIcon style={iconSize}/></a></span>
         </Grid>
       </Grid>)
 }, {
@@ -107,7 +114,7 @@ const PortfolioItems = [
       <Grid container direction='row' alignItems='center' justify='space-evenly'>
         <Grid item>
         <div>Info:</div>
-        <span><ModalButton page={<LittleEinstein/>}><InfoIcon/></ModalButton></span>
+        <span><ModalButton page={<LittleEinstein/>}><InfoIcon style={iconSize}/></ModalButton></span>
         </Grid>
       </Grid>)
 }, {
@@ -118,7 +125,7 @@ const PortfolioItems = [
         <Grid item>
           <div>Flickr:</div>
           {/* <span><a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/144760780@N08/?"><img src={Flickr} alt='Flickr Link'/></a></span> */}
-          <span><a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/144760780@N08/?"><OpenInBrowserIcon/></a></span>
+          <span><a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/144760780@N08/?"><LaunchIcon style={iconSize}/></a></span>
         </Grid>
       </Grid>)
 }];

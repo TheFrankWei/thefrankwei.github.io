@@ -13,6 +13,14 @@ export const useStyles = makeStyles(theme => ({
   wrapper:{
     overflow: 'hidden',
   },
+  header:{
+    color: 'white',
+    marginLeft: '0.5em',
+    fontStyle: 'italic',
+    fontSize: '0.9em',
+    lineHeight: '0.2em',
+    opacity: 0.8,
+  },
   infoContainer: {
    textAlign: 'justify',
    
@@ -48,6 +56,7 @@ const LittleEinstein = () =>{
 return(
   <div id = 'LittleEinstein' className={classes.wrapper}>
     <Grid xs ={10}  container direction='column' justify='space-around' className={classes.infoContainer}>
+    <p className={classes.header}>click anywhere to close</p>
       <Paper className={classes.paper}>
 
       <Grid item className={classes.imageContainer}>

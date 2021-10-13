@@ -8,12 +8,23 @@ import image4 from './qrfound_update.png';
 import Paper from '../../../components/Paper/Paper.js';
 
 export const useStyles = makeStyles(theme => ({
+  wrapper:{
+    overflow: 'hidden',
+  },
+  header:{
+    color: 'white',
+    marginLeft: '0.5em',
+    fontStyle: 'italic',
+    fontSize: '0.9em',
+    lineHeight: '0.2em',
+    opacity: 0.8,
+  },
   infoContainer: {
-   textAlign: 'center',
    margin: '5em auto 5em auto',
    fontSize: '1em',
   },
   paper:{
+    textAlign: 'center',
     padding: '2em 3em 2em 3em',
     boxSizing: 'border-box',
   },
@@ -36,6 +47,7 @@ const QRFound = () =>{
 return(
   <div id = 'QRFound' className={classes.wrapper}>
     <Grid xs ={10}  container direction='column' justify='space-around' className={classes.infoContainer}>
+    <p className={classes.header}>click anywhere to close</p>
       <Paper className={classes.paper}>
         <Grid item>
           <h1>QRFound</h1>
