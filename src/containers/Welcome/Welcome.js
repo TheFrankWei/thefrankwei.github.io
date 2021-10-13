@@ -104,23 +104,15 @@ export const useStyles = makeStyles(theme => ({
     },
 }));
 
-// const labels = ['Developer', ' | ', 'Designer', ' | ', 'Photographer'];
-const labels = ['Hi', ', ', 'I ', 'design ', 'and ', 'develop '];
+const HEADER_1 = 'FRANK'
+const HEADER_2= 'WEI'
+const INTRO = ['Hi', ', ', 'I ', 'design ', 'and ', 'develop '];
+const LABELS = ['ux/ui', 'photographs', 'webapps', 'things']
 
 const Welcome = ({id, refProp}) => {
     const classes = useStyles();
-
-    let text = ["Designer", "Photographer", "Developer"];
-    let [labelState, setLabel] = useState("Designer");
-    let [counter, setCounter] = useState(0);
-    useEffect(()=>{
-      
-      const interval = setInterval(()=>{
-        setLabel(labels[counter],3000);
-        counter.length >= text.length? setCounter(0) : setCounter(counter++);
-      });
-      return ()=> clearInterval(interval);
-    },[]);
+    const letterHeader1 = [...HEADER_1]
+    const letterHeader2 = [...HEADER_2]
 
     const welcomeTitleLeftRef = useRef();
     const welcomeTitleLeftAnimation = useSpring({opacity: 1, marginLeft: 0,
@@ -137,16 +129,17 @@ const Welcome = ({id, refProp}) => {
     const labelWrapperRef = useRef();
     const labelWrapperAnimation = useSpring({opacity: 1, marginLeft:0,
       ref: labelWrapperRef,
-      from: {opacity: 1, marginLeft: 1000}
+      from: {opacity: 1, marginLeft: 2160}
     });
+    // 2160 for the 4k monitors
 
-    const labelAnimation = useTrail(labels.length+1, {
+    const labelAnimation = useTrail(INTRO.length+1, {
       ref: labelRef,
       opacity: 1,
       from: { opacity: 0 },
     })
 
-    useChain([welcomeTitleLeftRef, welcomeTitleRightRef, labelWrapperRef, labelRef], [0,0.8,1,2])
+    useChain([welcomeTitleLeftRef, welcomeTitleRightRef, labelWrapperRef, labelRef], [0.8,0.5,0.8,1.1])
 
     return (
           <Grid container ref={refProp} className = {classes.welcome} id={id}>
@@ -159,17 +152,15 @@ const Welcome = ({id, refProp}) => {
               <Grid  item className={classes.welcomeAnimationSpace}/>
                 <Grid  item className={classes.animationTitleWrapper}>
                   <animated.h1 style={welcomeTitleLeftAnimation} className={classes.welcomeTitle}>
-                   <Letter value="F"/>
-                   <Letter value="R"/>
-                    <Letter value="A"/>
-                    <Letter value="N"/>
-                    <Letter value="K"/>
+                    {
+                      letterHeader1.map(item => (<Letter value={item}/>))
+                    }
                   </animated.h1>
 
                   <animated.h1 style={welcomeTitleRightAnimation} className={classes.welcomeTitle}>
-                    <Letter value="W"/>
-                    <Letter value="E"/>
-                    <Letter value="I"/>
+                    {
+                      letterHeader2.map(item => (<Letter value={item}/>))
+                    }
                   </animated.h1>
                 </Grid>
                </Grid> 
@@ -179,10 +170,10 @@ const Welcome = ({id, refProp}) => {
               <Grid item xs = {12} >
                 <animated.div style={labelWrapperAnimation} className={classes.labelWrapper}>
                 {labelAnimation.map(({...rest}, index) =>{
-                  if(index < labels.length){
-                  return(<animated.span style={{...rest,}}>{labels[index]}</animated.span>)
+                  if(index < INTRO.length){
+                  return(<animated.span style={{...rest,}}>{INTRO[index]}</animated.span>)
                   } else {
-                    return(<Glitch> <animated.span style={{...rest}}><IntervalLabel labels={['ux/ui', 'photographs', 'webapps', 'things']}/></animated.span> </Glitch>)
+                    return(<Glitch> <animated.span style={{...rest}}><IntervalLabel labels={LABELS}/></animated.span> </Glitch>)
                   }
                 })
                 }

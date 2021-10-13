@@ -52,9 +52,12 @@ export const useStyles = makeStyles(theme => ({
   },
 }));
 
+const HEADER = 'PORTFOLIO'
 
 const Portfolio = ({refProp, isVisible, id}) => {
   const classes = useStyles();
+  const letterHeader = [...HEADER]
+
   const portfolioTitleRef = useRef();
   const portfolioTitleAnimation = useSpring({opacity: isVisible? 1 : 0, marginLeft: isVisible? 0 : 300,
                             ref: portfolioTitleRef,
@@ -80,15 +83,9 @@ const Portfolio = ({refProp, isVisible, id}) => {
      <Grid item xs={12} className={classes.portfolioTitleWrapper}>
       <Grid item className={classes.portfolioAnimationSpace}/>
       <animated.h1 style={portfolioTitleAnimation} className = {classes.portfolio_title}>
-        <Letter value="P"/>
-        <Letter value="O"/>
-        <Letter value="R"/>
-        <Letter value="T"/>
-        <Letter value="F"/>
-        <Letter value="O"/>
-        <Letter value="L"/>
-        <Letter value="I"/>
-        <Letter value="O"/>
+        {
+          letterHeader.map(item => (<Letter value={item}/>))
+        }
       </animated.h1>
       </Grid>
      <Grid item className={classes.contentGrid}>

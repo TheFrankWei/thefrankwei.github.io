@@ -107,9 +107,10 @@ export const useStyles = makeStyles(theme => ({
   
 }));
 
-
+const HEADER = 'ABOUT'
 const About = ({isVisible, refProp, id}) => {
   const classes = useStyles();
+  const letterHeader = [...HEADER]
 
   const aboutTitleRef = useRef();
   const aboutTitleAnimation = useSpring({opacity: isVisible? 1 : 0, marginLeft: isVisible? 0 : -5000,
@@ -144,11 +145,9 @@ const About = ({isVisible, refProp, id}) => {
          <Grid item xs={12} className={classes.aboutTitleWrapper}>
             <Grid item className={classes.aboutAnimationSpace}/>
               <animated.h1 style={aboutTitleAnimation} className= {classes.aboutTitle}>
-                <Letter value="A"/>
-                <Letter value="B"/>
-                <Letter value="O"/>
-                <Letter value="U"/>
-                <Letter value="T"/>
+                {
+                  letterHeader.map(item => (<Letter value={item}/>))
+                }
               </animated.h1>
           </Grid>
 

@@ -32,10 +32,10 @@ export const useStyles = makeStyles(theme => ({
   },
 }));
 
-
+const HEADER = 'CONTACT'
 const Contact = ({refProp, isVisible, id}) =>{
   const classes = useStyles();
-
+  const letterHeader = [...HEADER]
   const contactTitleRef = useRef();
   const contactTitleAnimation = useSpring({opacity: isVisible? 1 : 0,
                           ref: contactTitleRef,
@@ -54,13 +54,9 @@ const Contact = ({refProp, isVisible, id}) =>{
         <Grid item xs={12} className={classes.gridBreak}></Grid>
         <Grid item xs={12}>
         <animated.h1 style={contactTitleAnimation} className={classes.contact_title}>
-          <Letter value="C"/>
-          <Letter value="O"/>
-          <Letter value="N"/>
-          <Letter value="T"/>
-          <Letter value="A"/>
-          <Letter value="C"/>
-          <Letter value="T"/>
+          {
+            letterHeader.map(item => (<Letter value={item}/>))
+          }
         </animated.h1>
         </Grid>
       <Grid item className = {classes.contact_icons}>
