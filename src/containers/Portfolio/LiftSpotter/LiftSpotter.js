@@ -1,11 +1,10 @@
 import React from 'react';
-import { makeStyles, Grid, IconButton } from '@material-ui/core';
+import { makeStyles, Grid, } from '@material-ui/core';
 import image1 from './liftspotter_login.png';
 import image2 from './liftspotter_addroutine.png';
 import image3 from './liftspotter_addworkout.png';
 import image4 from './liftspotter_account.png';
 import image5 from './liftspotter_community.png';
-import CloseIcon from '@material-ui/icons/Close';
 import Paper from '../../../components/Paper/Paper.js';
 
 export const useStyles = makeStyles(theme => ({
@@ -21,17 +20,16 @@ export const useStyles = makeStyles(theme => ({
     opacity: 0.8,
   },
   infoContainer: {
-   textAlign: 'justify',
-   
-   [theme.breakpoints.up('md')]: {
-      fontSize: '1em',
-      margin: '5em auto',
-    },
-    [theme.breakpoints.down('md')]: {
-      fontSize: '0.7em',
-      margin: '5em auto 5em auto',
-    },
-  },
+    textAlign: 'justify',
+    [theme.breakpoints.up('md')]: {
+       fontSize: '1em',
+       margin: '0.8em auto',
+     },
+     [theme.breakpoints.down('md')]: {
+       fontSize: '0.7em',
+       margin: '0.8em auto 0.8em auto',
+     },
+   },
   paper:{
     padding: '2em 3em 2em 3em',
     boxSizing: 'border-box',

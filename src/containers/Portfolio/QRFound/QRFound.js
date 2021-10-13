@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Grid, Button } from '@material-ui/core';
+import { makeStyles, Grid,} from '@material-ui/core';
 import image1 from './qrfound_login.png';
 import image2 from './qrfound_main.png';
 import image3 from './qrfound_sharding.png';
@@ -20,9 +20,16 @@ export const useStyles = makeStyles(theme => ({
     opacity: 0.8,
   },
   infoContainer: {
-   margin: '5em auto 5em auto',
-   fontSize: '1em',
-  },
+    textAlign: 'justify',
+    [theme.breakpoints.up('md')]: {
+       fontSize: '1em',
+       margin: '0.8em auto',
+     },
+     [theme.breakpoints.down('md')]: {
+       fontSize: '0.7em',
+       margin: '0.8em auto 0.8em auto',
+     },
+   },
   paper:{
     textAlign: 'center',
     padding: '2em 3em 2em 3em',

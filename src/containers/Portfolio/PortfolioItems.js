@@ -4,10 +4,8 @@ import ModalButton from '../../components/Modal/ModalButton';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LaunchIcon from '@material-ui/icons/Launch';
 import InfoIcon from '@material-ui/icons/Info';
-import OpenInBrowserIcon from '@material-ui/icons/OpenInBrowser';
 
 import Grid from '@material-ui/core/Grid';
-
 
 import LiftSpotter from './LiftSpotter/LiftSpotter';
 import QRFound from './QRFound/QRFound';
@@ -20,6 +18,22 @@ const iconSize = {
                   color: '#2b3a42',
                   marginTop: '0.1em',
                   };  
+
+/*
+  {
+    title: string
+    description: string
+    link: [
+      {
+        desc: 'link',
+        link: 'href',
+      }
+    ]
+    modal: (<Component/>)
+        //if true will render info button and it's <Component/> modal
+  }
+*/
+
 
 const PortfolioItems = [
   {
@@ -82,17 +96,6 @@ const PortfolioItems = [
         </Grid>
       </Grid>), 
 },
-// }, {
-//     title: 'OnePlaylist',
-//     description: ' AWS Webapp for one big playlist! (WIP)',
-//     links:(
-//       <Grid container direction='row' alignItems='center' justify='space-evenly'>
-//         <Grid item>
-//         <div>Info:</div>
-//         <span><Link to='/Portfolio/OnePlaylist'><InfoIcon/></Link></span>
-//         </Grid>
-//       </Grid>),
-//   },
   {
     title: 'SoundByte',
     description:'UX Design Project for Microsoft Challenge',

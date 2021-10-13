@@ -22,17 +22,16 @@ export const useStyles = makeStyles(theme => ({
     opacity: 0.8,
   },
   infoContainer: {
-   textAlign: 'justify',
-   
-   [theme.breakpoints.up('md')]: {
-      fontSize: '1em',
-      margin: '5em auto',
-    },
-    [theme.breakpoints.down('md')]: {
-      fontSize: '0.7em',
-      margin: '5em auto 5em auto',
-    },
-  },
+    textAlign: 'justify',
+    [theme.breakpoints.up('md')]: {
+       fontSize: '1em',
+       margin: '0.8em auto',
+     },
+     [theme.breakpoints.down('md')]: {
+       fontSize: '0.7em',
+       margin: '0.8em auto 0.8em auto',
+     },
+   },
   paper:{
     padding: '2em 3em 2em 3em',
     boxSizing: 'border-box',

@@ -94,7 +94,7 @@ const Portfolio = ({refProp, isVisible, id}) => {
      <Grid item className={classes.contentGrid}>
       {isVisible && portfolioItemAnimation.map(({...rest}, index) => (
         <animated.div style={{...rest}}>
-          <PortfolioItem className={classes.portfolioItem} title={PortfolioItems[index].title} description={PortfolioItems[index].description} icons={PortfolioItems[index].icon} links={PortfolioItems[index].links} key={index} />
+          <PortfolioItem className={classes.portfolioItem} title={PortfolioItems[index].title} description={PortfolioItems[index].description} links={PortfolioItems[index].links} key={index} />
         </animated.div>  
         ))}
      </Grid>

@@ -78,4 +78,18 @@ const PortfolioItem = (props) => {
     );
 };
 
+/*
+    links:(
+      <Grid container direction='row' alignItems='center' justify='space-evenly'>
+        <Grid item>
+          <div>Link:</div>
+          <span><a target="_blank" rel="noopener noreferrer" href = "https://thefrankwei.github.io/todo-list"><LaunchIcon style={iconSize} /></a></span>
+        </Grid>
+        <Grid item>
+          <div>Github:</div>
+          <span><a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/todo-list"><GitHubIcon style={iconSize}/></a></span>
+        </Grid>
+      </Grid>),
+*/
+
 export default PortfolioItem;

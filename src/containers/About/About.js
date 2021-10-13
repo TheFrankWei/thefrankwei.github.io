@@ -7,7 +7,6 @@ import { makeStyles, Grid, } from '@material-ui/core';
 export const useStyles = makeStyles(theme => ({
   about:{
     // minHeight: '80vh',
-    
   },
   gridBreak:{
     [theme.breakpoints.up('md')]: {

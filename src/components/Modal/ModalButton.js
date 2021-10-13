@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, } from 'react';
 import { makeStyles, Button, Backdrop, Modal } from '@material-ui/core';
 
 export const useStyles = makeStyles(theme => ({
@@ -22,7 +22,7 @@ const ModalButton = ( props ) => {
     return (
       <React.Fragment>
         <Button className={classes.Button} onClick={()=> setIsOpen(true)}>{props.children}</Button>
-
+          
         <Modal className={classes.Modal} open={isOpen} onClick={()=>setIsOpen(false)} BackdropComponent={Backdrop}>{props.page}</Modal>
       </React.Fragment>
     )

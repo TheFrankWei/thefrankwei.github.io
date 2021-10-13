@@ -1,15 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { makeStyles, Grid } from '@material-ui/core';
+import React, { useState, } from 'react';
 import useInterval from '../../util/hooks/useInterval.js';
 
-export const useStyles = makeStyles(theme => ({
-   
-}));
-
-
 const IntervalLabel = ( {labels} ) => {
-    const classes = useStyles();
-
     let [labelState, setLabel] = useState(labels[0]);
     let [counter, setCounter] = useState(0);
 

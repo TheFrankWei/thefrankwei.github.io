@@ -6,8 +6,9 @@ import Portfolio from './Portfolio/Portfolio.js';
 import Contact from './Contact/Contact.js';
 import VisibilitySensor from "react-visibility-sensor";
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
-import {useHistory} from 'react-router-dom';
 
+
+//this looks really bad on 3840x2160 for portfolio items and bio figure it out for those rich folks kid 
 export const useStyles = makeStyles(theme => ({
     child:{
       // scrollSnapAlign: 'start',
@@ -21,8 +22,8 @@ export const useStyles = makeStyles(theme => ({
 
 const Home = ({width}) => {
     const classes = useStyles();
-    const history = useHistory();
     let parallax = useRef();
+
     const welcomeRef = useRef();
     const aboutRef = useRef();
     const portfolioRef = useRef();
@@ -32,8 +33,6 @@ const Home = ({width}) => {
     const [isPortfolioVisible, setPortfolioVisibility] = useState(false);
     const [isContactVisible, setContactVisibility] = useState(false);
     const [innerWindow, setWindow] = useState({width: 0, height: 0});
-
-    const refArray = [welcomeRef, aboutRef, portfolioRef, contactRef];
 
     useEffect(()=>{
       window.addEventListener('resize', updateWindowDimensions)

@@ -2,8 +2,9 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/styles';
 import theme from './stylesheets/theme';
-import Router from './Router';
-import Nav from './components/Nav/Nav.js';
+// import Router from './Router';
+// import Nav from './components/Nav/Nav.js';
+import Home from './containers/Home.js';
 import Background from './components/Background/Background';
 
 const App = () => {
@@ -12,8 +13,9 @@ const App = () => {
       <Background/>
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <Nav/>
-        <Router />
+        {/* <Nav/> */}
+        {/* <Router /> */}
+        <Home/>
       </ThemeProvider>
     </BrowserRouter>
     </React.Fragment>

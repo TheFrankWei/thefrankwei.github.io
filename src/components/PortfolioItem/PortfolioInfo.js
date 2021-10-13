@@ -43,7 +43,7 @@ export const useStyles = makeStyles(theme => ({
   },
  }));
 
-const SoundByte = () =>{
+const PortfolioInfo = () =>{
   const classes = useStyles();
 return(
   <div id = 'SoundByte' className={classes.wrapper}>
@@ -114,4 +114,4 @@ return(
 )
 }
 
-export default SoundByte;
+export default PortfolioInfo;
