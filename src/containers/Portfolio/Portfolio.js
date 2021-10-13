@@ -96,7 +96,6 @@ const Portfolio = ({refProp, isVisible, id}) => {
         ))}
      </Grid>
 
-
    </Grid>
  );
 

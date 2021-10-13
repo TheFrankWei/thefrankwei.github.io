@@ -1,5 +1,9 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Grid } from '@material-ui/core';
+import LaunchIcon from '@material-ui/icons/Launch';
+import InfoIcon from '@material-ui/icons/Info';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import ModalButton from '../Modal/ModalButton';
 
 export const useStyles = makeStyles(theme => ({
   portfolioItem:{
@@ -52,44 +56,76 @@ export const useStyles = makeStyles(theme => ({
   },
 }));
 
+const iconSize = {
+  fontSize: '2.4em',
+  color: '#2b3a42',
+  marginTop: '0.1em',
+  };  
+
+
 const PortfolioItem = (props) => {
+  const {
+   title, description, links
+  } = props;
   const classes = useStyles();
 
+
+  const linkRenderer = (item) => {
+  
+      switch(item.desc){
+        case 'Link:':
+          return(
+            <Grid item>
+            <div>{item.desc}</div>
+            <span><a target="_blank" rel="noopener noreferrer" href ={item.link}><LaunchIcon style={iconSize} /></a></span>
+            </Grid>
+          );
+        case 'Github:':
+            return(
+            <Grid item>
+            <div>{item.desc}</div>
+            <span><a target="_blank" rel="noopener noreferrer" href ={item.link}><GitHubIcon style={iconSize} /></a></span>
+            </Grid>
+          );
+        case 'Info:':
+          return(
+            <Grid item>
+            <div>{item.desc}</div>
+            <span><ModalButton page={item.component}><InfoIcon style={iconSize}/></ModalButton></span>
+            </Grid>
+          );
+        default:
+          return(
+            <Grid item>
+            <div>{item.desc}</div>
+            <span><a target="_blank" rel="noopener noreferrer" href="https://projects.invisionapp.com/share/ZQHWMH78S4N#/screens/293059953"><LaunchIcon style={iconSize}/></a></span>
+            </Grid>
+          );
+      }
+
+  }
     return (
       <div className={classes.portfolioItem}>
 
         <div className={classes.portfolioItemTitle}>
-          {props.title}
+          {title}
         </div>
 
         <div className={classes.portfolioItemDesc}>
-          {props.description}
+          {description}
         </div>
 
-        <div className={classes.portfolioItemIcon}>
-          {props.icons}
-        </div>
         <hr className={classes.portfolioItemDivider}/>
-        <div className={classes.portfolioItemLinks}>
-          {props.links}
-        </div>
 
+        <div className={classes.portfolioItemLinks}>
+          <Grid container direction='row' alignItems='center' justify='space-evenly'>
+            {links.length>0 && links.map((item) =>
+              linkRenderer(item)
+            )}
+          </Grid>
+        </div>
       </div>
     );
 };
-
-/*
-    links:(
-      <Grid container direction='row' alignItems='center' justify='space-evenly'>
-        <Grid item>
-          <div>Link:</div>
-          <span><a target="_blank" rel="noopener noreferrer" href = "https://thefrankwei.github.io/todo-list"><LaunchIcon style={iconSize} /></a></span>
-        </Grid>
-        <Grid item>
-          <div>Github:</div>
-          <span><a target="_blank" rel="noopener noreferrer" href = "https://github.com/TheFrankWei/todo-list"><GitHubIcon style={iconSize}/></a></span>
-        </Grid>
-      </Grid>),
-*/
 
 export default PortfolioItem;
