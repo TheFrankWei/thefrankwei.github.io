@@ -18,6 +18,7 @@ export const useStyles = makeStyles(theme => ({
     fontSize: '0.9em',
     lineHeight: '0.2em',
     opacity: 0.8,
+    fontFamily: `'Noto Sans', sans-serif`,
   },
   infoContainer: {
     textAlign: 'justify',

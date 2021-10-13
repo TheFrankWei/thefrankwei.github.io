@@ -18,6 +18,7 @@ export const useStyles = makeStyles(theme => ({
     fontSize: '0.9em',
     lineHeight: '0.2em',
     opacity: 0.8,
+    fontFamily: `'Noto Sans', sans-serif`,
   },
   infoContainer: {
     textAlign: 'justify',
@@ -40,11 +41,11 @@ export const useStyles = makeStyles(theme => ({
   },
   image1:{
     height: 'auto',
-    width: '30%',
+    width: '50%',
   },
   image2:{
     height: 'auto',
-    width: '70%',
+    width: '50%',
   },
  }));
 
@@ -66,7 +67,7 @@ return(
 
         <Grid item className={classes.imageContainer}>
           <figure>
-            <img className={classes.image} src = {image1} alt = "" ></img>
+            <img className={classes.image1} src = {image1} alt = "" ></img>
             <figcaption><i>Main Page</i></figcaption>
           </figure>
         </Grid>

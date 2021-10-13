@@ -20,6 +20,7 @@ export const useStyles = makeStyles(theme => ({
     fontSize: '0.9em',
     lineHeight: '0.2em',
     opacity: 0.8,
+    fontFamily: `'Noto Sans', sans-serif`,
   },
   infoContainer: {
     textAlign: 'justify',
@@ -39,10 +40,11 @@ export const useStyles = makeStyles(theme => ({
   imageContainer:{
     textAlign: 'center',
   },
-  // image:{
-  //   height: 'auto',
-  //   width: '100%',
-  // },
+  titleImage:{
+    textAlign: 'center',
+    height: 'auto',
+    width: '60%',
+  },
   image:{
     height: 'auto',
     width: '70%',

@@ -71,39 +71,26 @@ const PortfolioItem = (props) => {
 
 
   const linkRenderer = (item) => {
-  
       switch(item.desc){
         case 'Link:':
           return(
-            <Grid item>
-            <div>{item.desc}</div>
-            <span><a target="_blank" rel="noopener noreferrer" href ={item.link}><LaunchIcon style={iconSize} /></a></span>
-            </Grid>
+            <a target="_blank" rel="noopener noreferrer" href ={item.link}><LaunchIcon style={iconSize} /></a>
           );
         case 'Github:':
             return(
-            <Grid item>
-            <div>{item.desc}</div>
-            <span><a target="_blank" rel="noopener noreferrer" href ={item.link}><GitHubIcon style={iconSize} /></a></span>
-            </Grid>
+            <a target="_blank" rel="noopener noreferrer" href ={item.link}><GitHubIcon style={iconSize} /></a>
           );
         case 'Info:':
           return(
-            <Grid item>
-            <div>{item.desc}</div>
-            <span><ModalButton page={item.component}><InfoIcon style={iconSize}/></ModalButton></span>
-            </Grid>
+           <ModalButton page={item.component}><InfoIcon style={iconSize}/></ModalButton>
           );
         default:
           return(
-            <Grid item>
-            <div>{item.desc}</div>
-            <span><a target="_blank" rel="noopener noreferrer" href="https://projects.invisionapp.com/share/ZQHWMH78S4N#/screens/293059953"><LaunchIcon style={iconSize}/></a></span>
-            </Grid>
+            <a target="_blank" rel="noopener noreferrer" href={item.link}><LaunchIcon style={iconSize}/></a>
           );
       }
-
   }
+
     return (
       <div className={classes.portfolioItem}>
 
@@ -120,7 +107,10 @@ const PortfolioItem = (props) => {
         <div className={classes.portfolioItemLinks}>
           <Grid container direction='row' alignItems='center' justify='space-evenly'>
             {links.length>0 && links.map((item) =>
-              linkRenderer(item)
+            <Grid item>
+            <div>{item.desc}</div>
+            <span>{linkRenderer(item)}</span>
+            </Grid>
             )}
           </Grid>
         </div>

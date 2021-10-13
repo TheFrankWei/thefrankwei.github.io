@@ -21,7 +21,7 @@ import LittleEinstein from './LittleEinstein/LittleEinstein';
 const PortfolioItems = [
   {
     title: 'To Do List',
-    description: 'A To-do list made with React/CSS/HTML',
+    description: 'A to-do list made with React/CSS/HTML (no UI component libraries used!)',
     links: [
       {
         desc: 'Link:',
@@ -100,10 +100,6 @@ const PortfolioItems = [
     title: 'Photography',
     description: `Pictures I've taken and edited!`,
     links:[
-      {
-        desc: 'Info:',
-        component: (<SoundByte/>) 
-      },
       {
         desc: 'Flickr:',
         link: "https://www.flickr.com/photos/144760780@N08/?",
