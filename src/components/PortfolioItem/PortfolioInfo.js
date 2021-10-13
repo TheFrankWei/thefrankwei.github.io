@@ -1,10 +1,5 @@
 import React from 'react';
 import { makeStyles, Grid } from '@material-ui/core';
-import image1 from './soundbyte_cover.jpg';
-import image2 from './soundbyte_hearingbrain.jpg';
-import image3 from './soundbyte_interview.jpg';
-import image4 from './soundbyte_prototype.jpg';
-
 import Paper from '../../../components/Paper/Paper.js';
 
 export const useStyles = makeStyles(theme => ({
