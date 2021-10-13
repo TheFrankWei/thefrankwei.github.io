@@ -21,7 +21,7 @@ import LittleEinstein from './LittleEinstein/LittleEinstein';
 const PortfolioItems = [
   {
     title: 'To Do List',
-    description: 'A to-do list made with React/CSS/HTML (no UI component libraries used!)',
+    description: 'made with React/CSS/HTML, saves to localStorage (no UI component libraries used!)',
     links: [
       {
         desc: 'Link:',
@@ -35,7 +35,7 @@ const PortfolioItems = [
   },
   {
     title: 'Deliveries.dev',
-    description: ' Web-app to track your packages!',
+    description: ' Web-app to track your packages! Made with React/AWS/GraphQL. *unmaintained, expect bugs',
     links:[
       {
         desc: 'Link:',
@@ -49,7 +49,7 @@ const PortfolioItems = [
   },
   {
   title: 'LiftSpotter',
-  description: 'JavaScript Webapp allowing you to record Workouts',
+  description: 'JavaScript/HTML/CSS Webapp allowing you to record Workouts',
   links:[
     {
       desc: 'Info:',
@@ -62,7 +62,7 @@ const PortfolioItems = [
   ],
 }, {
     title: 'QRFound',
-    description: 'Javascript Webapp helping you find your stuff!',
+    description: 'Javascript/HTML/CSS Webapp helping you find your stuff!',
     links:[
       {
         desc: 'Info:',

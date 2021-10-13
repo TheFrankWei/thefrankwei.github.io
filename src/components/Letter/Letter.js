@@ -5,24 +5,24 @@ import classNames from 'classnames';
 export const useStyles = makeStyles(theme => ({
     '@keyframes bounce': {
            '0%': {
-                top: '0px'
+                top: '0rem'
            },
             '50%': {
-                top: '50px'
+                top: '4rem'
             },
             '100%': {
-                top: '0px'
+                top: '0rem'
             },
         },
         letter: {
-            lineHeight: '110px',
+            lineHeight: '6.875rem',
             [theme.breakpoints.up('md')]: {
                 fontSize: '100px',
-                letterSpacing: '-20px',
+                letterSpacing: '-1.25rem',
             },
             [theme.breakpoints.down('md')]: {
-                fontSize: '70px',
-                letterSpacing: '-15px',
+                fontSize: '4.375rem',
+                letterSpacing: '-0.938rem',
             },
             fontWeight: 800,
             fontFamily: `'Noto Sans', sans-serif`,

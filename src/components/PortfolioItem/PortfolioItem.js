@@ -40,6 +40,7 @@ export const useStyles = makeStyles(theme => ({
   portfolioItemDesc : {
     fontSize: 12,
     padding: 5,
+    minHeight:'3.2em',
   },
 
   portfolioItemDivider:{
