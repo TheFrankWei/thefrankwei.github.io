@@ -35,10 +35,10 @@ export const useStyles = makeStyles(theme => ({
 
   aboutTitle:{
     textAlign: 'left',
-    // paddingTop:'10%',
     fontSize:'100',
   },
   portraitWrapper: {
+    
     display: 'flex',
 
     [theme.breakpoints.up('sm')]: {
@@ -49,12 +49,16 @@ export const useStyles = makeStyles(theme => ({
     },
 
     '& img' : {
+     
       overflow: 'hidden',
       borderRadius: '50%',
       transition: '0.70s',
       verticalAlign: 'middle',
       [theme.breakpoints.up('md')]: {
-        border: '20px solid #4FB99F',
+        border: '2px solid #112F41',
+        outline: '20px solid #4FB99F',
+        boxShadow: '0 0 0 22px #112F41',
+        
         width:'auto',
         height: 'auto',
       },
@@ -83,16 +87,18 @@ export const useStyles = makeStyles(theme => ({
       alignItems: 'center',
       justifyContent: 'center',
     },
-    // marginTop:'10%',
     paddingLeft: '10%',
     paddingRight: '10%',
   },
   bio: {
     float: 'right',
-    // // fontFamily: `'Nunito', sans-serif`,
     fontFamily: `'Fira Sans', sans-serif`,
-    // color: '#557282',
-    color: '#112F41',
+    color: '#000000',
+    '&:hover ':{
+      // boxShadow: '0 6px 12px 0 rgba(0,0,0,0.2)',
+      borderRadius: '2rem',
+      boxShadow: '0 0.75rem 2rem 0 rgba(0, 0, 0, 0.4)',
+    },
     [theme.breakpoints.down('md')]: {
       fontSize: 15,
     },
@@ -161,9 +167,9 @@ const About = ({isVisible, refProp, id}) => {
             
               <Grid item xs={12} sm ={6} md={8} xl={9} className = {classes.bio} >
                   <animated.div style={aboutBioAnimation}>
-                    <p>Thanks for visiting my website! My name is Frank Wei and I currently live in New York City. I love coding, designing, and combining the two to make awesome creations.</p>
+                    <p>Thanks for visiting my website! My name is Frank Wei and I currently live in New York City. I love coding, designing, and combining the two to make awesome creations. When I'm not coding you can find me out taking photos, at a concert, or exploring the city.</p>
                     <br/>
-                    <p>I built this site from scratch, taking design inspiration other cool sites as well as learning React along the way -- try hovering over various elements! When I'm not coding you can find me out taking photos, at a concert, or exploring the city.</p>
+                    <p>I built this site from scratch, learning React and other cool things along the way! Definitely check it out on desktop as there are slight differences on mobile for better performance.</p>
                     <br/>
                     <p>In this site, you can browse through my portfolio of design, projects and photography (take a look at the <a target="_blank" rel="noopener noreferrer" aria-label='link-to-github-repo' href = "https://github.com/TheFrankWei/thefrankwei.github.io">Github repo</a>). Hope you enjoy!</p>
                   </animated.div>

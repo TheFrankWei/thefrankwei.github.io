@@ -4,7 +4,7 @@ import LaunchIcon from '@material-ui/icons/Launch';
 import InfoIcon from '@material-ui/icons/Info';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import ModalButton from '../Modal/ModalButton';
-
+import Glitch from './../Glitch/Glitch';
 export const useStyles = makeStyles(theme => ({
   portfolioItem:{
     backgroundColor: '#557282',
@@ -27,7 +27,7 @@ export const useStyles = makeStyles(theme => ({
     '&:hover ':{
       backgroundColor: '#5B7B8C',
       // boxShadow: '0 6px 12px 0 rgba(0,0,0,0.2)',
-      boxShadow: '0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1)',
+      boxShadow: '0 0.75rem 2rem 0 rgba(0, 0, 0, 0.4)',
     },
   },
 
@@ -59,7 +59,7 @@ export const useStyles = makeStyles(theme => ({
 
 const iconSize = {
   fontSize: '2.4em',
-  color: '#2b3a42',
+  color: 'rgba(255, 255, 255, 0.8)',
   marginTop: '0.1em',
   };  
 
@@ -93,29 +93,30 @@ const PortfolioItem = (props) => {
   }
 
     return (
-      <div className={classes.portfolioItem}>
+        <div className={classes.portfolioItem}>
 
-        <div className={classes.portfolioItemTitle}>
-          {title}
-        </div>
+          <div className={classes.portfolioItemTitle}>
+            {title}
+          </div>
 
-        <div className={classes.portfolioItemDesc}>
-          {description}
-        </div>
+          <div className={classes.portfolioItemDesc}>
+            {description}
+          </div>
 
-        <hr className={classes.portfolioItemDivider}/>
+          <hr className={classes.portfolioItemDivider}/>
 
-        <div className={classes.portfolioItemLinks}>
-          <Grid container direction='row' alignItems='center' justify='space-evenly'>
-            {links.length>0 && links.map((item) =>
-            <Grid item>
-            <div>{item.desc}</div>
-            <span>{linkRenderer(item)}</span>
+          <div className={classes.portfolioItemLinks}>
+            <Grid container direction='row' alignItems='center' justify='space-evenly'>
+              {links.length>0 && links.map((item) =>
+              <Grid item>
+              <div>{item.desc}</div>
+              <span>{linkRenderer(item)}</span>
+              </Grid>
+              )}
             </Grid>
-            )}
-          </Grid>
+          </div>
         </div>
-      </div>
+     
     );
 };
 

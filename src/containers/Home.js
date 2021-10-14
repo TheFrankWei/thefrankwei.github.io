@@ -77,7 +77,7 @@ const Home = ({width}) => {
             </VisibilitySensor>
           </ParallaxLayer>
           
-          <ParallaxLayer offset={isMediumScreen? 3 : 1.9} factor={1.5} speed={0.5} id='Contact' className={classes.contact} onScroll={e => e.stopPropagation()}>
+          <ParallaxLayer offset={isMediumScreen? 3.2 : 1.9} factor={1.5} speed={0.5} id='Contact' className={classes.contact} onScroll={e => e.stopPropagation()}>
             <VisibilitySensor partialVisibility minTopValue={250} delayedCall onChange={contactChange}>
               <Contact refProp={contactRef} isVisible={isContactVisible} />
             </VisibilitySensor>

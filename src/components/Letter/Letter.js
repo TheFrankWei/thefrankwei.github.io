@@ -17,6 +17,7 @@ export const useStyles = makeStyles(theme => ({
         letter: {
             lineHeight: '6.875rem',
             [theme.breakpoints.up('md')]: {
+                textShadow: '#000 0px 0px 2px,   #000 0px 0px 2px,   #000 0px 0px 2px, #000 0px 0px 2px,   #000 0px 0px 1px,   #000 0px 0px 1px',
                 fontSize: '100px',
                 letterSpacing: '-1.25rem',
             },

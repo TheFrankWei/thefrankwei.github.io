@@ -9,9 +9,7 @@ import Flickr from './../../images/flickr.svg'
 
 export const useStyles = makeStyles(theme => ({
   contact:{
-    // minHeight: '80vh',
-    //  marginTop: '5%',
-    //  marginBottom: '10%',
+
   },
   gridBreak:{
     [theme.breakpoints.up('md')]: {
@@ -62,7 +60,7 @@ const Contact = ({refProp, isVisible, id}) =>{
       <Grid item className = {classes.contact_icons}>
         <animated.div style={contactLinkAnimation} >
           <IconButton style={{height:80, width:80, marginLeft: '5%', marginRight: '5%',}} href='https://github.com/TheFrankWei' src={GitHub} target="_blank" rel="noopener"  alt="Github"/>
-          <IconButton style={{height:80, width:80,  marginLeft: '5%', marginRight: '5%',}} href='https://www.linkedin.com/in/TheFrankWei/' src={Linkedin} iconName='linkedIn' target="_blank" rel="noopener"  alt="Linkedin"/>
+          <IconButton style={{height:80, width:80,  marginLeft: '5%', marginRight: '5%',}} href='https://www.linkedin.com/in/thefrankwei/' src={Linkedin} iconName='linkedIn' target="_blank" rel="noopener"  alt="Linkedin"/>
           <IconButton style={{height:80, width:80, marginLeft: '5%', marginRight: '5%',}} href='https://www.flickr.com/photos/144760780@N08/?' src={Flickr} iconName='flickr' target="_blank" rel="noopener"  alt="Flickr"/>
         </animated.div>
       </Grid>

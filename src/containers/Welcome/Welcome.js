@@ -16,7 +16,6 @@ export const useStyles = makeStyles(theme => ({
       // marginBottom: '5%',
     },
     welcomeTitleWrapper:{
-      // marginTop: '10%',
       display: 'flex',
     },
 
@@ -59,47 +58,29 @@ export const useStyles = makeStyles(theme => ({
     },
     labelWrapper: {
       'box-shadow': '0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1)',
+
       display: 'inline-block',
       width: '100%',
-      // position: 'relative',
       fontFamily: `'Fira Sans', sans-serif`,
       backgroundColor: '#112F41',
       padding: '0.05em 0em 0.05em 0.7em',
-      // color: '#557282',
       color: 'rgba(255, 255, 255, 0.8)',
-      // color: 'transparent',
 
       textAlign: 'left',
       position: 'relative',
       [theme.breakpoints.up('md')]: {
-        // textAlign: 'right', //for animated labels
-        // textAlign: 'left',
-        // right:'-60%',
-        // right:'-50%',
+        outline: '1px solid #000',
+        textShadow: '#000 0px 0px 1px,   #000 0px 0px 1px,   #000 0px 0px 1px, #000 0px 0px 1px,   #000 0px 0px 1px,   #000 0px 0px 1px',
         right:'-20em',
-        // position: 'relative',
-        // position: 'absolute',
         fontSize: '40px',
-        // marginTop: '20%',
-        // marginRight:'10%',
-        // bottom: '20%',
-        // right: '10%',
       },
       [theme.breakpoints.down('sm')]: {
         fontSize: '12px',
-        // right:'-40%'
         right:'-10em',
-        // paddingTop:'10%',
-        // minWidth: '100vw',
-        // textAlign: 'center',
       },
       [theme.breakpoints.between('sm','md')]: {
-        // textAlign: 'right',
         fontSize: '12px',
         right:'-28em',
-        // right:'-50%',
-        // bottom: '20%',
-        // right: '10%',
       },
     },
 }));
