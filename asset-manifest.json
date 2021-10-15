@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/static/js/main.91b0148c.chunk.js",
-    "main.js.map": "/static/js/main.91b0148c.chunk.js.map",
+    "main.js": "/static/js/main.12900ffd.chunk.js",
+    "main.js.map": "/static/js/main.12900ffd.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.9bdd8a62.js",
     "runtime-main.js.map": "/static/js/runtime-main.9bdd8a62.js.map",
-    "static/js/2.06c13ac3.chunk.js": "/static/js/2.06c13ac3.chunk.js",
-    "static/js/2.06c13ac3.chunk.js.map": "/static/js/2.06c13ac3.chunk.js.map",
+    "static/js/2.add9f843.chunk.js": "/static/js/2.add9f843.chunk.js",
+    "static/js/2.add9f843.chunk.js.map": "/static/js/2.add9f843.chunk.js.map",
     "index.html": "/index.html",
-    "static/js/2.06c13ac3.chunk.js.LICENSE.txt": "/static/js/2.06c13ac3.chunk.js.LICENSE.txt",
+    "static/js/2.add9f843.chunk.js.LICENSE.txt": "/static/js/2.add9f843.chunk.js.LICENSE.txt",
     "static/media/flickr.a352ce44.svg": "/static/media/flickr.a352ce44.svg",
     "static/media/github.dafccc60.svg": "/static/media/github.dafccc60.svg",
     "static/media/liftspotter_account.c14368d5.png": "/static/media/liftspotter_account.c14368d5.png",
@@ -34,7 +34,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.9bdd8a62.js",
-    "static/js/2.06c13ac3.chunk.js",
-    "static/js/main.91b0148c.chunk.js"
+    "static/js/2.add9f843.chunk.js",
+    "static/js/main.12900ffd.chunk.js"
   ]
 }
