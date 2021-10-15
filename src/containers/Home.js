@@ -63,7 +63,7 @@ const Home = ({width}) => {
           </ParallaxLayer>
           
           <ParallaxLayer offset={isMediumScreen? 1: 0.8} factor={1.4} speed={0.4} id='About' onScroll={e => e.stopPropagation()}>
-            <VisibilitySensor  minTopValue={300} delayedCall onChange={aboutChange} >
+            <VisibilitySensor  partialVisibility minTopValue={250} delayedCall onChange={aboutChange} >
               <About refProp={aboutRef} isVisible={isAboutVisible} />
             </VisibilitySensor>
           </ParallaxLayer>

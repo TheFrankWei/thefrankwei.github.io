@@ -201,7 +201,7 @@ const About = ({isVisible, refProp, id}) => {
                   <animated.div style={aboutBioAnimation}>
                     <p>Thanks for visiting my website! My name is Frank Wei and I currently live in Boston. I love coding, designing, and combining the two to make awesome creations. When I'm not coding you can find me out taking photos, at a concert, or exploring the city.</p>
                     <br/>
-                    <p>I built this site from scratch, learning React and other cool things along the way! Definitely check it out on desktop as there are slight differences on mobile for better performance.</p>
+                    <p>I built this site from scratch, learning React and other cool things along the way! A lot of the elements are interactive so definitely check it out on desktop as there are differences on mobile for performance.</p>
                     <br/>
                     <p>In this site, you can browse through my portfolio of design, projects and photography (take a look at the <a target="_blank" rel="noopener noreferrer" aria-label='link-to-github-repo' href = "https://github.com/TheFrankWei/thefrankwei.github.io">Github repo</a>). Hope you enjoy!</p>
                   </animated.div>

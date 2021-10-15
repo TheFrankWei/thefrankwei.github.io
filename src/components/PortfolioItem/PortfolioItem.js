@@ -55,10 +55,14 @@ export const useStyles = makeStyles(theme => ({
     },
   },
   glitchBox:{
+    [theme.breakpoints.up('md')]: {
       animation: `$aGlitchBox 500ms infinite`,
+    },
   },
   glitchText:{
+    [theme.breakpoints.up('md')]: {
       animation: `$aGlitchText 500ms infinite`,
+    },
   },
   portfolioItem:{
     pointerEvents: 'auto',
@@ -80,12 +84,9 @@ export const useStyles = makeStyles(theme => ({
     fontFamily: `'Fira Sans', sans-serif`,
     textAlign: 'center',
     '&:hover ':{
-      backgroundColor: '#5B7B8C',
-      // boxShadow: '0 6px 12px 0 rgba(0,0,0,0.2)',
-      'div:first-child':{
-        animation: `$aGlitchText 500ms infinite`,
+      [theme.breakpoints.up('md')]: {
+        backgroundColor: '#26343b',
       },
-
     },
   },
 
