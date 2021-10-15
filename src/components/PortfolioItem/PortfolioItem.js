@@ -7,6 +7,7 @@ import ModalButton from '../Modal/ModalButton';
 import Glitch from './../Glitch/Glitch';
 export const useStyles = makeStyles(theme => ({
   portfolioItem:{
+    pointerEvents: 'auto',
     backgroundColor: '#557282',
     display: 'flex',
     flexDirection: 'column',
@@ -92,31 +93,33 @@ const PortfolioItem = (props) => {
       }
   }
 
+  const PortfolioItemCard = (props)=>(
+    <div className={classes.portfolioItem}>
+      <div className={classes.portfolioItemTitle}>
+        {title}
+      </div>
+
+      <div className={classes.portfolioItemDesc}>
+        {description}
+      </div>
+
+      <hr className={classes.portfolioItemDivider}/>
+
+      <div className={classes.portfolioItemLinks}>
+        <Grid container direction='row' alignItems='center' justify='space-evenly'>
+          {links.length>0 && links.map((item) =>
+          <Grid item>
+          <div>{item.desc}</div>
+          <span>{linkRenderer(item)}</span>
+          </Grid>
+          )}
+        </Grid>
+      </div>
+    </div>     
+  )
+
     return (
-        <div className={classes.portfolioItem}>
-
-          <div className={classes.portfolioItemTitle}>
-            {title}
-          </div>
-
-          <div className={classes.portfolioItemDesc}>
-            {description}
-          </div>
-
-          <hr className={classes.portfolioItemDivider}/>
-
-          <div className={classes.portfolioItemLinks}>
-            <Grid container direction='row' alignItems='center' justify='space-evenly'>
-              {links.length>0 && links.map((item) =>
-              <Grid item>
-              <div>{item.desc}</div>
-              <span>{linkRenderer(item)}</span>
-              </Grid>
-              )}
-            </Grid>
-          </div>
-        </div>
-     
+       <PortfolioItemCard {...props}/>
     );
 };
 

@@ -13,7 +13,7 @@ export const useStyles = makeStyles(theme => ({
     child:{
 
     },
-    contact:{
+    container:{
       pointerEvents: 'none',
     },
 }));
@@ -58,7 +58,6 @@ const Home = ({width}) => {
 
       <React.Fragment>
       <Parallax pages={isMediumScreen? 5.7: 2.6} ref={ref => (parallax = ref)} >
-          
           <ParallaxLayer offset={0} factor={1} speed={0} id='Home' onScroll={e => e.stopPropagation()}>
             <Welcome refProp={welcomeRef} />
           </ParallaxLayer>
@@ -69,13 +68,13 @@ const Home = ({width}) => {
             </VisibilitySensor>
           </ParallaxLayer>
  
-          <ParallaxLayer offset={isMediumScreen? 2.2 : 1.2} factor={1.5} speed={0.5} id='Portfolio' onScroll={e => e.stopPropagation()}>
+          <ParallaxLayer offset={isMediumScreen? 2.2 : 1.2} factor={1.5} speed={0.5} id='Portfolio' className={classes.container} onScroll={e => e.stopPropagation()}>
             <VisibilitySensor  partialVisibility minTopValue={225} delayedCall onChange={portfolioChange}>
               <Portfolio refProp={portfolioRef} isVisible={isPortfolioVisible} />
             </VisibilitySensor>
           </ParallaxLayer>
           
-          <ParallaxLayer offset={isMediumScreen? 3.2 : 1.9} factor={1.5} speed={0.5} id='Contact' className={classes.contact} onScroll={e => e.stopPropagation()}>
+          <ParallaxLayer offset={isMediumScreen? 3.2 : 1.9} factor={1.5} speed={0.5} id='Contact' className={classes.container} onScroll={e => e.stopPropagation()}>
             <VisibilitySensor partialVisibility minTopValue={250} delayedCall onChange={contactChange}>
               <Contact refProp={contactRef} isVisible={isContactVisible} />
             </VisibilitySensor>
