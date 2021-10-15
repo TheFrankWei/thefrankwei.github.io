@@ -57,8 +57,6 @@ export const useStyles = makeStyles(theme => ({
       },
     },
     labelWrapper: {
-      'box-shadow': '0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1)',
-
       display: 'inline-block',
       width: '100%',
       fontFamily: `'Fira Sans', sans-serif`,
@@ -70,7 +68,6 @@ export const useStyles = makeStyles(theme => ({
       position: 'relative',
       [theme.breakpoints.up('md')]: {
         outline: '1px solid #000',
-        textShadow: '#000 0px 0px 1px,   #000 0px 0px 1px,   #000 0px 0px 1px, #000 0px 0px 1px,   #000 0px 0px 1px,   #000 0px 0px 1px',
         right:'-20em',
         fontSize: '40px',
       },
@@ -137,7 +134,7 @@ const Welcome = ({id, refProp}) => {
                       letterHeader1.map(item => (<Letter value={item}/>))
                     }
                   </animated.h1>
-
+                  
                   <animated.h1 style={welcomeTitleRightAnimation} className={classes.welcomeTitle}>
                     {
                       letterHeader2.map(item => (<Letter value={item}/>))

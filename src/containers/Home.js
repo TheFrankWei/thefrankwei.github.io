@@ -11,9 +11,7 @@ import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 //this looks really bad on 3840x2160 for portfolio items and bio figure it out for those rich folks kid 
 export const useStyles = makeStyles(theme => ({
     child:{
-      // scrollSnapAlign: 'start',
-      // scrollSnapStop: 'always',
-      // minHeight:'100vh',
+
     },
     contact:{
       pointerEvents: 'none',

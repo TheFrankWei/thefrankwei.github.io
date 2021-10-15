@@ -1,8 +1,11 @@
-import React, { useRef }  from 'react';
+import React, { useState, useRef }  from 'react';
 import Letter from './../../components/Letter/Letter.js';
 import Portrait from './../../images/portrait.jpg';
 import { useSpring, useChain, animated } from 'react-spring';
 import { makeStyles, Grid, } from '@material-ui/core';
+import VisibilitySensor from "react-visibility-sensor";
+import Draggable from 'react-draggable';
+import classNames from 'classnames';
 
 export const useStyles = makeStyles(theme => ({
   about:{
@@ -38,9 +41,10 @@ export const useStyles = makeStyles(theme => ({
     fontSize:'100',
   },
   portraitWrapper: {
-    
-    display: 'flex',
+    opacity: 0,
+    transition: 'opacity 600ms',
 
+    display: 'flex',
     [theme.breakpoints.up('sm')]: {
       float:'left',
     },
@@ -49,7 +53,7 @@ export const useStyles = makeStyles(theme => ({
     },
 
     '& img' : {
-     
+      userDrag: 'none',
       overflow: 'hidden',
       borderRadius: '50%',
       transition: '0.70s',
@@ -69,10 +73,23 @@ export const useStyles = makeStyles(theme => ({
       },
 
       '&:hover': {
-        transition: '0.70s',
-        transform: 'rotate(360deg)',
+        cursor: 'grab',
+        // transition: '0.70s',
+        // transform: 'rotate(360deg)',
+        [theme.breakpoints.up('md')]: {
+          outlineWidth: '26px',
+          outlineColor: '#F2B134',
+          boxShadow: '0 0 0 28px #112F41',
+        },
+        [theme.breakpoints.down('md')]: {
+          borderColor: '#F2B134',
+        },
       }
     },
+  },
+  portraitVisible:{
+    opacity: 1,
+    //uses this and visibility sensor to hide portrait
   },
   portrait:{
     width: 'auto',
@@ -94,11 +111,10 @@ export const useStyles = makeStyles(theme => ({
     float: 'right',
     fontFamily: `'Fira Sans', sans-serif`,
     color: '#000000',
-    '&:hover ':{
-      // boxShadow: '0 6px 12px 0 rgba(0,0,0,0.2)',
-      borderRadius: '2rem',
-      boxShadow: '0 0.75rem 2rem 0 rgba(0, 0, 0, 0.4)',
-    },
+    // '&:hover ':{
+    //   borderRadius: '2rem',
+    //   boxShadow: '0 0.75rem 2rem 0 rgba(0, 0, 0, 0.4)',
+    // },
     [theme.breakpoints.down('md')]: {
       fontSize: 15,
     },
@@ -118,6 +134,8 @@ const About = ({isVisible, refProp, id}) => {
   const classes = useStyles();
   const letterHeader = [...HEADER]
 
+  const [isBioImageVisible, setBioImageVisibility] = useState(false);
+
   const aboutTitleRef = useRef();
   const aboutTitleAnimation = useSpring({opacity: isVisible? 1 : 0, marginLeft: isVisible? 0 : -5000,
                             ref: aboutTitleRef,
@@ -125,11 +143,11 @@ const About = ({isVisible, refProp, id}) => {
                             from:{ opacity: 0, }})    
   
   const aboutPicRef = useRef();
-  const aboutPicAnimation = useSpring({ opacity: isVisible? 1 : 0, 
-                          ref: aboutPicRef,
-                          delay: 500,
-                          config: {duration: 600},
-                          from:{ opacity: 0,  }})                          
+  // const aboutPicAnimation = useSpring({ opacity: isVisible? 1 : 0, 
+  //                         ref: aboutPicRef,
+  //                         delay: 500,
+  //                         config: {duration: 600},
+  //                         from:{ opacity: 0,  }})                          
    
   const aboutBioRef = useRef();
   const aboutBioAnimation = useSpring({ opacity: isVisible? 1 : 0, marginLeft: isVisible? 0 : 50,
@@ -145,6 +163,11 @@ const About = ({isVisible, refProp, id}) => {
                         }})                             
 
   useChain([aboutTitleRef, aboutPicRef, aboutBioRef], [0,1,1.5])
+
+  const bioImageChange = isVisible => {
+    console.log('bio image visible');
+    isVisible && setBioImageVisibility(isVisible);
+  }
     return (
       <Grid container direction="column" ref={refProp} className = {classes.about} id={id}>
         <Grid item xs={12} className={classes.gridBreak}></Grid>
@@ -159,15 +182,19 @@ const About = ({isVisible, refProp, id}) => {
 
             <Grid item container direction = 'row' className = {classes.bioWrapper}>
 
-              <Grid item xs={12} sm={5} md={4} className ={classes.portraitWrapper}>
-                <animated.div style={aboutPicAnimation}>
-                <img className= {classes.portrait} src={Portrait} alt="this is me"/>
-                </animated.div>
+            <VisibilitySensor minTopValue={225} delayedCall onChange={bioImageChange}>
+            <Draggable>
+              <Grid item xs={12} sm={5} md={4} className ={isBioImageVisible? classNames(classes.portraitWrapper, classes.portraitVisible) : classes.portraitWrapper}>
+                {/* <animated.div style={aboutPicAnimation}> */}
+                <img className= {isBioImageVisible? classNames(classes.portrait, classes.portraitVisible) : classes.portrait} src={Portrait} alt="this is me"/>
+                {/* </animated.div> */}
               </Grid>
+            </Draggable>
+            </VisibilitySensor>
             
               <Grid item xs={12} sm ={6} md={8} xl={9} className = {classes.bio} >
                   <animated.div style={aboutBioAnimation}>
-                    <p>Thanks for visiting my website! My name is Frank Wei and I currently live in New York City. I love coding, designing, and combining the two to make awesome creations. When I'm not coding you can find me out taking photos, at a concert, or exploring the city.</p>
+                    <p>Thanks for visiting my website! My name is Frank Wei and I currently live in Boston. I love coding, designing, and combining the two to make awesome creations. When I'm not coding you can find me out taking photos, at a concert, or exploring the city.</p>
                     <br/>
                     <p>I built this site from scratch, learning React and other cool things along the way! Definitely check it out on desktop as there are slight differences on mobile for better performance.</p>
                     <br/>

@@ -6,6 +6,7 @@ import { makeStyles, Grid } from '@material-ui/core';
 import GitHub from './../../images/github.svg'
 import Linkedin from './../../images/linkedin.svg'
 import Flickr from './../../images/flickr.svg'
+import Draggable from 'react-draggable';
 
 export const useStyles = makeStyles(theme => ({
   contact:{
@@ -58,7 +59,7 @@ const Contact = ({refProp, isVisible, id}) =>{
         </animated.h1>
         </Grid>
       <Grid item className = {classes.contact_icons}>
-        <animated.div style={contactLinkAnimation} >
+        <animated.div style={contactLinkAnimation} >  
           <IconButton style={{height:80, width:80, marginLeft: '5%', marginRight: '5%',}} href='https://github.com/TheFrankWei' src={GitHub} target="_blank" rel="noopener"  alt="Github"/>
           <IconButton style={{height:80, width:80,  marginLeft: '5%', marginRight: '5%',}} href='https://www.linkedin.com/in/thefrankwei/' src={Linkedin} iconName='linkedIn' target="_blank" rel="noopener"  alt="Linkedin"/>
           <IconButton style={{height:80, width:80, marginLeft: '5%', marginRight: '5%',}} href='https://www.flickr.com/photos/144760780@N08/?' src={Flickr} iconName='flickr' target="_blank" rel="noopener"  alt="Flickr"/>

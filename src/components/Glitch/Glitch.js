@@ -47,7 +47,6 @@ export const useStyles = makeStyles(theme => ({
         left: 0,
     },
     firstChild: {
-       
         clipPath: 'polygon(0 0, 100% 0, 100% 45%, 0 45%)',
         transform: 'translate(-0.025em, -0.0125em)',
         /* color: green; */
