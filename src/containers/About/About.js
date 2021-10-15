@@ -3,7 +3,6 @@ import Letter from './../../components/Letter/Letter.js';
 import Portrait from './../../images/portrait.jpg';
 import { useSpring, useChain, animated } from 'react-spring';
 import { makeStyles, Grid, } from '@material-ui/core';
-import VisibilitySensor from "react-visibility-sensor";
 import Draggable from 'react-draggable';
 import classNames from 'classnames';
 
@@ -71,11 +70,8 @@ export const useStyles = makeStyles(theme => ({
         height: 200,
         width: 200,
       },
-
       '&:hover': {
         cursor: 'grab',
-        // transition: '0.70s',
-        // transform: 'rotate(360deg)',
         [theme.breakpoints.up('md')]: {
           outlineWidth: '26px',
           outlineColor: '#F2B134',
@@ -84,12 +80,20 @@ export const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down('md')]: {
           borderColor: '#F2B134',
         },
-      }
+      },
     },
   },
   portraitVisible:{
     opacity: 1,
     //uses this and visibility sensor to hide portrait
+  },
+  portraitClicked:{
+    [theme.breakpoints.up('md')]: {
+      outlineColor: 'black',
+    },
+    [theme.breakpoints.down('md')]: {
+      borderColor: '#F2B134',
+    },
   },
   portrait:{
     width: 'auto',
@@ -135,7 +139,7 @@ const About = ({isVisible, refProp, id}) => {
   const letterHeader = [...HEADER]
 
   const [isBioImageVisible, setBioImageVisibility] = useState(false);
-
+  const [bioImageClicked, setBioImageClicked] = useState(false);
   const aboutTitleRef = useRef();
   const aboutTitleAnimation = useSpring({opacity: isVisible? 1 : 0, marginLeft: isVisible? 0 : -5000,
                             ref: aboutTitleRef,
@@ -182,17 +186,18 @@ const About = ({isVisible, refProp, id}) => {
 
             <Grid item container direction = 'row' className = {classes.bioWrapper}>
 
-            <VisibilitySensor minTopValue={225} delayedCall onChange={bioImageChange}>
-            <Draggable>
-              <Grid item xs={12} sm={5} md={4} className ={isBioImageVisible? classNames(classes.portraitWrapper, classes.portraitVisible) : classes.portraitWrapper}>
-                {/* <animated.div style={aboutPicAnimation}> */}
+         
+            <Draggable
+              onStart={()=>setBioImageClicked(true)}
+            >
+              <Grid item xs={12} sm={5} md={4} 
+              className={isVisible? bioImageClicked? classNames(classes.portraitWrapper, classes.portraitVisible, classes.portraitClicked ) : classNames(classes.portraitWrapper, classes.portraitVisible) 
+              : classes.portraitWrapper}>
                 <img className= {isBioImageVisible? classNames(classes.portrait, classes.portraitVisible) : classes.portrait} src={Portrait} alt="this is me"/>
-                {/* </animated.div> */}
               </Grid>
             </Draggable>
-            </VisibilitySensor>
-            
-              <Grid item xs={12} sm ={6} md={8} xl={9} className = {classes.bio} >
+  
+            <Grid item xs={12} sm ={6} md={8} xl={9} className = {classes.bio} >
                   <animated.div style={aboutBioAnimation}>
                     <p>Thanks for visiting my website! My name is Frank Wei and I currently live in Boston. I love coding, designing, and combining the two to make awesome creations. When I'm not coding you can find me out taking photos, at a concert, or exploring the city.</p>
                     <br/>

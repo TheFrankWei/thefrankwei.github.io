@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, {useRef,} from 'react';
 import Letter from './../../components/Letter/Letter.js';
 import { makeStyles, Grid } from '@material-ui/core';
 import { useSpring, useTrail, useChain, animated } from 'react-spring';

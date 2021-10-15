@@ -1,11 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles, Grid } from '@material-ui/core';
 import LaunchIcon from '@material-ui/icons/Launch';
 import InfoIcon from '@material-ui/icons/Info';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import ModalButton from '../Modal/ModalButton';
-import Glitch from './../Glitch/Glitch';
+import classNames from 'classnames';
+
 export const useStyles = makeStyles(theme => ({
+  '@keyframes aGlitchBox': {
+    '0%': {
+        // textShadow : '0.05em 0 0 rgba(255, 0, 0, 0.75), -0.05em -0.025em 0 rgba(0, 255, 0, 0.75), -0.025em 0.05em 0 rgba(0, 0, 255, 0.75)',
+        boxShadow : '0.01em 0 0 rgba(237, 85, 59, 0.75), -0.01em -0.05em 0 rgba(64, 160, 136, 0.75), -0.05em 0.1em 0 rgba(201,135,13,0.75)'
+    },
+    '14%': {
+        boxShadow : '0.01em 0 0 rgba(237, 85, 59, 0.75), -0.01em -0.05em 0 rgba(64, 160, 136, 0.75), -0.05em 0.1em 0 rgba(201,135,13,0.75)'
+    },
+    '15%': {
+        boxShadow : '-0.01em -0.025em 0 rgba(237, 85, 59, 0.75), 0.1em 0.025em 0 rgba(64, 160, 136, 0.75), -0.1em -0.1em 0 rgba(201,135,13,0.75)'
+    },
+    '49%': {
+        boxShadow : '-0.01em -0.025em 0 rgba(237, 85, 59, 0.75), 0.1em 0.025em 0 rgba(64, 160, 136, 0.75), -0.1em -0.1em 0 rgba(201,135,13,0.75)'
+    },
+    '50%': {
+        boxShadow : '0.05em 0.05em 0 rgba(237, 85, 59, 0.75), 0.1em 0 0 rgba(64, 160, 136, 0.75), 0 -0.1em 0 rgba(201,135,13,0.75)'
+    },
+    '99%': {
+        boxShadow : '0.05em 0.05em 0 rgba(237, 85, 59, 0.75), 0.1em 0 0 rgba(64, 160, 136, 0.75), 0 -0.1em 0 rgba(201,135,13,0.75)'
+    },
+    '100%': {
+        boxShadow : '-0.05em 0 0 rgba(237, 85, 59, 0.75), -0.05em -0.05em 0 rgba(64, 160, 136, 0.75), -0.05em -0.1em 0 rgba(201,135,13,0.75)'
+    },
+  },
+  '@keyframes aGlitchText': {
+    '0%': {
+        texthadow : '0.05em 0 0 rgba(237, 85, 59, 0.75), -0.05em -0.025em 0 rgba(64, 160, 136, 0.75), -0.025em 0.05em 0 rgba(201,135,13,0.75)',
+    },
+    '14%': {
+        textShadow : '0.05em 0 0 rgba(237, 85, 59, 0.75), -0.05em -0.025em 0 rgba(64, 160, 136, 0.75), -0.025em 0.05em 0 rgba(201,135,13,0.75)',
+    },
+    '15%': {
+        textShadow : '-0.05em -0.025em 0 rgba(237, 85, 59, 0.75), 0.025em 0.025em 0 rgba(64, 160, 136, 0.75), -0.05em -0.05em 0 rgba(201,135,13,0.75)',
+    },
+    '49%': {
+        textShadow : '-0.05em -0.025em 0 rgba(237, 85, 59, 0.75), 0.025em 0.025em 0 rgba(64, 160, 136, 0.75), -0.05em -0.05em 0 rgba(201,135,13,0.75)',
+    },
+    '50%': {
+        textShadow : '0.025em 0.05em 0 rgba(237, 85, 59, 0.75), 0.05em 0 0 rgba(64, 160, 136, 0.75), 0 -0.05em 0 rgba(201,135,13,0.75)',
+    },
+    '99%': {
+        textShadow : '0.025em 0.05em 0 rgba(237, 85, 59, 0.75), 0.05em 0 0 rgba(64, 160, 136, 0.75), 0 -0.05em 0 rgba(201,135,13,0.75)',
+    },
+    '100%': {
+        textShadow : '-0.025em 0 0 rgba(237, 85, 59, 0.75), -0.025em -0.025em 0 rgba(64, 160, 136, 0.75), -0.025em -0.05em 0 rgba(201,135,13,0.75)',
+    },
+  },
+  glitchBox:{
+      animation: `$aGlitchBox 500ms infinite`,
+  },
+  glitchText:{
+      animation: `$aGlitchText 500ms infinite`,
+  },
   portfolioItem:{
     pointerEvents: 'auto',
     backgroundColor: '#557282',
@@ -28,7 +82,10 @@ export const useStyles = makeStyles(theme => ({
     '&:hover ':{
       backgroundColor: '#5B7B8C',
       // boxShadow: '0 6px 12px 0 rgba(0,0,0,0.2)',
-      boxShadow: '0 0.75rem 2rem 0 rgba(0, 0, 0, 0.4)',
+      'div:first-child':{
+        animation: `$aGlitchText 500ms infinite`,
+      },
+
     },
   },
 
@@ -71,6 +128,7 @@ const PortfolioItem = (props) => {
   } = props;
   const classes = useStyles();
 
+  const [hover, setHover ] = useState(false);
 
   const linkRenderer = (item) => {
       switch(item.desc){
@@ -93,33 +151,32 @@ const PortfolioItem = (props) => {
       }
   }
 
-  const PortfolioItemCard = (props)=>(
-    <div className={classes.portfolioItem}>
-      <div className={classes.portfolioItemTitle}>
-        {title}
-      </div>
-
-      <div className={classes.portfolioItemDesc}>
-        {description}
-      </div>
-
-      <hr className={classes.portfolioItemDivider}/>
-
-      <div className={classes.portfolioItemLinks}>
-        <Grid container direction='row' alignItems='center' justify='space-evenly'>
-          {links.length>0 && links.map((item) =>
-          <Grid item>
-          <div>{item.desc}</div>
-          <span>{linkRenderer(item)}</span>
-          </Grid>
-          )}
-        </Grid>
-      </div>
-    </div>     
-  )
-
     return (
-       <PortfolioItemCard {...props}/>
+        <div onMouseEnter={()=>setHover(true)} 
+             onMouseLeave={()=>setHover(false)}
+             className={hover? classNames(classes.portfolioItem, classes.glitchBox) : classes.portfolioItem }>
+
+        <div className={hover? classNames(classes.portfolioItemTitle, classes.glitchText): classes.portfolioItemTitle}>
+          {title}
+        </div>
+
+        <div className={classes.portfolioItemDesc}>
+          {description}
+        </div>
+
+        <hr className={hover? classNames(classes.portfolioItemDivider, classes.glitchBox): classes.portfolioItemDivider }/>
+
+        <div className={classes.portfolioItemLinks}>
+          <Grid container direction='row' alignItems='center' justify='space-evenly'>
+            {links.length>0 && links.map((item) =>
+            <Grid item>
+            <div>{item.desc}</div>
+            <span>{linkRenderer(item)}</span>
+            </Grid>
+            )}
+          </Grid>
+        </div>
+      </div>     
     );
 };
 

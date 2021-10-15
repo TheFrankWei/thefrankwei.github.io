@@ -24,6 +24,7 @@ export const useStyles = makeStyles(theme => ({
   },
   portfolioTitleWrapper:{
     display: 'flex',
+    pointerEvents: 'auto',
     [theme.breakpoints.down('md')]: {
       justifyContent: 'center',
     },
