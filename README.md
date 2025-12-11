@@ -13,3 +13,8 @@ A: xs: 0,
    md: 768,
    lg: 992,
    xl: 1200
+   
+Copyright (c) [2020] [Frank Wei]
+This code is provided for portfolio and demonstration purposes only.
+Viewing and reviewing for evaluation purposes is permitted.
+No other use, copying, modification, or distribution is permitted without explicit written permission.
